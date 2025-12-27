@@ -12,7 +12,6 @@ import org.jhotdraw.draw.figure.TextFigure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.Point2D;
 import java.util.*;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoableEdit;
@@ -58,7 +57,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
  * @author Werner Randelshofer
  * @version $Id$
  */
-public class TextCreationTool extends CreationTool implements ActionListener {
+public class TextCreationTool extends SimpleCreationTool implements ActionListener, ClickListeningTool, KeyListeningTool {
 
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
@@ -190,6 +189,16 @@ public class TextCreationTool extends CreationTool implements ActionListener {
             textField.endOverlay();
         }
         //         view().checkDamage();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
     }
 
     @Override

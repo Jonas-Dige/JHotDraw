@@ -308,10 +308,10 @@ public class ButtonFactory {
 
     private static class ToolButtonListener implements ItemListener {
 
-        private Tool tool;
+        private BaseTool tool;
         private DrawingEditor editor;
 
-        public ToolButtonListener(Tool t, DrawingEditor editor) {
+        public ToolButtonListener(BaseTool t, DrawingEditor editor) {
             this.tool = t;
             this.editor = editor;
         }
@@ -410,7 +410,7 @@ public class ButtonFactory {
      *
      */
     public static JToggleButton addToolTo(JToolBar tb, DrawingEditor editor,
-            Tool tool, String labelKey,
+            BaseTool tool, String labelKey,
             ResourceBundleUtil labels) {
         ButtonGroup group = (ButtonGroup) tb.getClientProperty("toolButtonGroup");
         ToolListener toolHandler = (ToolListener) tb.getClientProperty("toolHandler");

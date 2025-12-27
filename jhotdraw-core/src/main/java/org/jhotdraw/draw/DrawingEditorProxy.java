@@ -106,7 +106,7 @@ public class DrawingEditorProxy extends AbstractBean implements DrawingEditor {
     }
 
     @Override
-    public void setTool(Tool t) {
+    public void setTool(BaseTool t) {
         target.setTool(t);
     }
 

@@ -159,7 +159,7 @@ public interface DrawingEditor {
      * <p>
      * This is a bound property.
      */
-    void setTool(Tool t);
+    void setTool(BaseTool t);
 
     /**
      * Gets the current tool.

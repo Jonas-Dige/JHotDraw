@@ -7,12 +7,11 @@
  */
 package org.jhotdraw.draw.tool;
 
-import java.awt.*;
-import java.awt.event.*;
 import org.jhotdraw.draw.*;
 import org.jhotdraw.draw.event.ToolListener;
 
 /**
+ * @deprecated
  * A <em>tool</em> defines an editing mode of a {@link DrawingEditor}.
  * <p>
  * Tools are used for user interaction. Unlike figures, a tool works with
@@ -73,6 +72,7 @@ import org.jhotdraw.draw.event.ToolListener;
  * @author Werner Randelshofer
  * @version $Id$
  */
-public interface Tool extends BaseTool, ClickListeingTool, DragableTool, KeyListeningTool {
+@Deprecated
+public interface Tool extends BaseTool, ClickListeningTool, DragableTool, KeyListeningTool {
     // Legacy God Tool to maintain compatibility
 }
