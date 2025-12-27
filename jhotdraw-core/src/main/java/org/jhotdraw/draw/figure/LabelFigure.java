@@ -11,6 +11,7 @@ import java.awt.geom.*;
 import java.util.*;
 import org.jhotdraw.draw.event.FigureEvent;
 import org.jhotdraw.draw.event.FigureListener;
+import org.jhotdraw.draw.tool.BaseTool;
 import org.jhotdraw.draw.tool.TextEditingTool;
 import org.jhotdraw.draw.tool.Tool;
 
@@ -61,7 +62,7 @@ public class LabelFigure extends TextFigure implements FigureListener {
      * Returns null, if no specialized tool is available.
      */
     @Override
-    public Tool getTool(Point2D.Double p) {
+    public BaseTool getTool(Point2D.Double p) {
         return (target != null && contains(p)) ? new TextEditingTool(target) : null;
     }
 

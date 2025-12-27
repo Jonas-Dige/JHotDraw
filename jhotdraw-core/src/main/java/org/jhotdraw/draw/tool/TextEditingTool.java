@@ -44,7 +44,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
  * @author Werner Randelshofer
  * @version $Id$
  */
-public class TextEditingTool extends AbstractTool implements ActionListener {
+public class TextEditingTool extends BaseToolImpl implements ActionListener, ClickListeningTool, KeyListeningTool {
 
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
@@ -87,9 +87,6 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         typingTarget = textHolder;
     }
 
-    @Override
-    public void mouseReleased(MouseEvent evt) {
-    }
 
     protected void endEdit() {
         if (typingTarget != null) {
@@ -161,8 +158,5 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         }
     }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
 }

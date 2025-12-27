@@ -24,6 +24,7 @@ import org.jhotdraw.draw.handle.Handle;
 import org.jhotdraw.draw.handle.MoveHandle;
 import org.jhotdraw.draw.handle.TransformHandleKit;
 import org.jhotdraw.draw.locator.RelativeLocator;
+import org.jhotdraw.draw.tool.BaseTool;
 import org.jhotdraw.draw.tool.TextEditingTool;
 import org.jhotdraw.draw.tool.Tool;
 import org.jhotdraw.geom.Dimension2DDouble;
@@ -430,7 +431,7 @@ public class SVGTextFigure
      * Returns null, if no specialized tool is available.
      */
     @Override
-    public Tool getTool(Point2D.Double p) {
+    public BaseTool getTool(Point2D.Double p) {
         if (isEditable() && contains(p)) {
             TextEditingTool tool = new TextEditingTool(this);
             return tool;

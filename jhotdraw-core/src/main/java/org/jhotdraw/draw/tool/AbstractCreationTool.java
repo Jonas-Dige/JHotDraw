@@ -102,20 +102,6 @@ public abstract class AbstractCreationTool extends BaseToolImpl implements Click
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
 
     @Override
     public void mouseReleased(MouseEvent e) {

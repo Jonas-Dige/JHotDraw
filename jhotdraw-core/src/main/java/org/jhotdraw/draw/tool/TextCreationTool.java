@@ -110,12 +110,6 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         }
     }
 
-    //@Override
-    //public void mouseDragged(java.awt.event.MouseEvent e) {
-    //    if (getCreatedFigure() != null && getCreatedFigure().isTransformable()) {
-    //        super.mouseDragged(e);
-    //    }
-    //}
 
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
@@ -130,16 +124,6 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         typingTarget = textHolder;
     }
 
-    @Override
-    public void mouseReleased(MouseEvent evt) {
-        TextFigure textFigure = (TextFigure) getCreatedFigure();
-
-        super.mouseReleased(evt);
-
-        if (textField != null) {
-            beginEdit(textFigure);
-        }
-    }
 
     protected void endEdit() {
         if (typingTarget != null) {
@@ -191,15 +175,7 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         //         view().checkDamage();
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
 
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
 
     @Override
     public void keyReleased(KeyEvent evt) {
