@@ -8,9 +8,11 @@
 package org.jhotdraw.draw.tool;
 
 import org.jhotdraw.draw.figure.Figure;
+import org.jhotdraw.draw.figure.TextFigure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.util.*;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoableEdit;
@@ -62,6 +64,8 @@ public class TextCreationTool extends CreationTool implements ActionListener {
     private FloatingTextField textField;
     private TextHolderFigure typingTarget;
 
+
+
     /**
      * Creates a new instance.
      */
@@ -107,9 +111,12 @@ public class TextCreationTool extends CreationTool implements ActionListener {
         }
     }
 
-    @Override
-    public void mouseDragged(java.awt.event.MouseEvent e) {
-    }
+    //@Override
+    //public void mouseDragged(java.awt.event.MouseEvent e) {
+    //    if (getCreatedFigure() != null && getCreatedFigure().isTransformable()) {
+    //        super.mouseDragged(e);
+    //    }
+    //}
 
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
@@ -126,6 +133,13 @@ public class TextCreationTool extends CreationTool implements ActionListener {
 
     @Override
     public void mouseReleased(MouseEvent evt) {
+        TextFigure textFigure = (TextFigure) getCreatedFigure();
+
+        super.mouseReleased(evt);
+
+        if (textField != null) {
+            beginEdit(textFigure);
+        }
     }
 
     protected void endEdit() {

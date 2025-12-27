@@ -29,6 +29,7 @@ import static org.jhotdraw.draw.AttributeKeys.*;
 import org.jhotdraw.draw.action.*;
 import org.jhotdraw.draw.event.ToolAdapter;
 import org.jhotdraw.draw.event.ToolEvent;
+import org.jhotdraw.draw.tool.BaseTool;
 import org.jhotdraw.draw.tool.Tool;
 
 /**
@@ -115,7 +116,7 @@ public class DefaultDrawingEditor extends AbstractBean implements DrawingEditor 
 
     @Override
     public void setTool(Tool newValue) {
-        Tool oldValue = tool;
+        BaseTool oldValue = tool;
         if (newValue == tool) {
             return;
         }
@@ -155,7 +156,7 @@ public class DefaultDrawingEditor extends AbstractBean implements DrawingEditor 
     }
 
     @Override
-    public Tool getTool() {
+    public BaseTool getTool() {
         return tool;
     }
 

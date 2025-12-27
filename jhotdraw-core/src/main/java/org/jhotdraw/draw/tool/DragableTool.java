@@ -1,4 +1,6 @@
 package org.jhotdraw.draw.tool;
 
-public interface DragableTool {
+import java.awt.event.MouseMotionListener;
+
+public interface DragableTool extends MouseMotionListener {
 }

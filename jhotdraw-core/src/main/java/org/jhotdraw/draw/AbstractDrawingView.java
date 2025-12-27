@@ -196,14 +196,14 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
     public boolean isSelectionEmpty() {
         return selectedFigures.isEmpty();
     }
-
+    // TODO: Extract Class OR move to top
     private class EventHandler implements FigureListener, CompositeFigureListener, HandleListener, FocusListener {
 
         @Override
         public void figureAdded(CompositeFigureEvent evt) {
             if (drawing.getChildCount() == 1 && getEmptyDrawingMessage() != null) {
                 repaint();
-            } else {
+            } else { // FIXME: what the fuck
                 repaintDrawingArea(evt.getCompositeFigure().getDrawingArea(AttributeKeys.getScaleFactor(getDrawingToViewTransform())));
             }
         }
@@ -212,14 +212,14 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
         public void figureRemoved(CompositeFigureEvent evt) {
             if (drawing.getChildCount() == 0 && getEmptyDrawingMessage() != null) {
                 repaint();
-            } else {
+            } else { // FIXME: this is just as obtuse down here as it was up there,theres gotta be a more clear way
                 repaintDrawingArea(evt.getCompositeFigure().getDrawingArea(AttributeKeys.getScaleFactor(getDrawingToViewTransform())));
             }
             removeFromSelection(evt.getChildFigure());
         }
 
         @Override
-        public void areaInvalidated(FigureEvent evt) {
+        public void areaInvalidated(FigureEvent evt) { // FIXME: Third Time I've seen this bullshit. Make a method that takes an event
             repaintDrawingArea(evt.getFigure().getDrawingArea(AttributeKeys.getScaleFactor(getDrawingToViewTransform())));
         }
 
@@ -283,7 +283,7 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
         }
 
         @Override
-        public void figureChanged(FigureEvent e) {
+        public void figureChanged(FigureEvent e) { // FIXME: ANOTHER ONE
             repaintDrawingArea(e.getFigure().getDrawingArea(AttributeKeys.getScaleFactor(getDrawingToViewTransform())));
         }
 
@@ -299,6 +299,8 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
         public void figureRequestRemove(FigureEvent e) {
         }
     }
+
+    // FIXME: Move to top
     private final EventHandler eventHandler = new EventHandler();
 
 
@@ -953,7 +955,8 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
         drawing.fireUndoableEditHappened(new AbstractUndoableEdit() {
             private static final long serialVersionUID = 1L;
 
-            @Override
+            @Override // FIXME: Why the fuck are we nesting functions????
+            // FIXME: Apparently an extract Class Angle
             public String getPresentationName() {
                 ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
                 return labels.getString("edit.delete.text");
@@ -1001,6 +1004,8 @@ public abstract class AbstractDrawingView implements DrawingView, EditableCompon
             f.remap(originalToDuplicateMap, false);
         }
         addToSelection(duplicates);
+
+        // FIXME: Extract Class
         drawing.fireUndoableEditHappened(new AbstractUndoableEdit() {
             private static final long serialVersionUID = 1L;
 

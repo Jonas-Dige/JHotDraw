@@ -17,6 +17,7 @@ import java.util.Map;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import org.jhotdraw.beans.AbstractBean;
+import org.jhotdraw.draw.tool.BaseTool;
 import org.jhotdraw.draw.tool.Tool;
 
 /**
@@ -110,7 +111,7 @@ public class DrawingEditorProxy extends AbstractBean implements DrawingEditor {
     }
 
     @Override
-    public Tool getTool() {
+    public BaseTool getTool() {
         return target.getTool();
     }
 

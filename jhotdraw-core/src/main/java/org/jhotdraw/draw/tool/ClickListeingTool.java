@@ -1,4 +1,6 @@
 package org.jhotdraw.draw.tool;
 
-public interface ClickListeingTool {
+import java.awt.event.MouseListener;
+
+public interface ClickListeingTool extends MouseListener {
 }

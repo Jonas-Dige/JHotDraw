@@ -99,6 +99,7 @@ import org.jhotdraw.draw.event.SelectionComponentRepainter;
 import org.jhotdraw.draw.event.ToolAdapter;
 import org.jhotdraw.draw.event.ToolEvent;
 import org.jhotdraw.draw.event.ToolListener;
+import org.jhotdraw.draw.tool.BaseTool;
 import org.jhotdraw.draw.tool.DelegationSelectionTool;
 import org.jhotdraw.draw.tool.Tool;
 import org.jhotdraw.geom.DoubleStroke;
@@ -370,7 +371,7 @@ public class ButtonFactory {
     public static JToggleButton addSelectionToolTo(JToolBar tb, final DrawingEditor editor, Tool selectionTool) {
         ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
         JToggleButton t;
-        Tool tool;
+        BaseTool tool;
         HashMap<String, Object> attributes;
         ButtonGroup group;
         if (tb.getClientProperty("toolButtonGroup") instanceof ButtonGroup) {

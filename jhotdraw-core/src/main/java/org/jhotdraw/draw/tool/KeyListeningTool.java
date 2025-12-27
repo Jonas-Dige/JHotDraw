@@ -1,4 +1,6 @@
 package org.jhotdraw.draw.tool;
 
-public interface KeyListeningTool {
+import java.awt.event.KeyListener;
+
+public interface KeyListeningTool extends KeyListener {
 }
