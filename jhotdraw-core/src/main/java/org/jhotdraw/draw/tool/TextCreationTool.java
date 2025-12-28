@@ -12,6 +12,7 @@ import org.jhotdraw.draw.figure.TextFigure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 import java.util.*;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoableEdit;
@@ -81,17 +82,55 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
 
     @Override
     public void deactivate(DrawingEditor editor) {
-        endEdit();
+        if (typingTarget != null) {
+            endEdit();
+        }
         super.deactivate(editor);
     }
 
 
+    @Override
+    public void mouseReleased(MouseEvent event) {
+        boolean disabled = true;
+        if (disabled) return;
+        isWorking = false;
+        if (getCreatedFigure() instanceof TextHolderFigure) {
+            creationFinished(getCreatedFigure());
+            TextHolderFigure createdFigure = (TextHolderFigure) getCreatedFigure();
+            beginEdit(createdFigure);
+            return;
+        }
+        super.mouseReleased(event);
+        fireToolDone();
+    }
+
+
+    @Override
+    public void mouseClicked(MouseEvent event) {
+
+        if (typingTarget != null) {
+            endEdit();
+            fireToolDone();
+            return;
+        }
+
+        super.mouseClicked(event);
+
+        if (createdFigure instanceof TextHolderFigure) {
+            beginEdit((TextHolderFigure) createdFigure);
+        }
+        //isWorking = false;
+    }
 
     /**
      * Creates a new figure at the location where the mouse was pressed.
      */
     @Override
     public void mousePressed(MouseEvent e) {
+
+        // Disable this logic while adapting to mouseClicked
+        boolean disabled = true;
+        if (disabled) return;
         // Note: The search sequence used here, must be
         // consistent with the search sequence used by the
         // HandleTracker, SelectAreaTracker, DelegationSelectionTool, SelectionTool.
@@ -112,6 +151,12 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         }
     }
 
+
+    @Override
+    protected void fireToolDone() {
+        if (typingTarget != null) return;
+        super.fireToolDone();
+    }
 
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
