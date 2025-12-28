@@ -80,6 +80,7 @@ public class FloatingTextField {
     }
 
     protected void updateWidget() {
+        if (editedFigure == null) return;
         Font font = editedFigure.getFont();
         font = font.deriveFont(font.getStyle(), (float) (editedFigure.getFontSize() * view.getScaleFactor()));
         textField.setFont(font);

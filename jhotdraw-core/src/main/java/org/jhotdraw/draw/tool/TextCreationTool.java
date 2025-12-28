@@ -85,6 +85,8 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         super.deactivate(editor);
     }
 
+
+
     /**
      * Creates a new figure at the location where the mouse was pressed.
      */
@@ -169,8 +171,8 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
             };
             getDrawing().fireUndoableEditHappened(edit);
             typingTarget.changed();
-            typingTarget = null;
             textField.endOverlay();
+            typingTarget = null;
         }
         //         view().checkDamage();
     }
