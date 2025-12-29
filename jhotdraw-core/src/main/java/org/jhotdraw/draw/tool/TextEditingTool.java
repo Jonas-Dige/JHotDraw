@@ -14,6 +14,7 @@ import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoableEdit;
 import org.jhotdraw.draw.*;
 import org.jhotdraw.draw.text.*;
+import org.jhotdraw.draw.undo.TextEdit;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 /**
@@ -74,6 +75,9 @@ public class TextEditingTool extends BaseToolImpl implements ActionListener, Cli
         }
     }
 
+    @SuppressWarnings("Duplicates")
+    // "Duplication is far cheaper than the wrong abstraction." - Sandi Metz
+    // Both have different reasons to change, so we keep both.
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
             textField = new FloatingTextField();
@@ -94,42 +98,16 @@ public class TextEditingTool extends BaseToolImpl implements ActionListener, Cli
             final TextHolderFigure editedFigure = typingTarget;
             final String oldText = typingTarget.getText();
             final String newText = textField.getText();
-            if (newText.length() > 0) {
+            if (!newText.isEmpty()) {
                 typingTarget.willChange();
                 typingTarget.setText(newText);
                 typingTarget.changed();
             }
-            UndoableEdit edit = new AbstractUndoableEdit() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public String getPresentationName() {
-                    ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
-                    return labels.getString("attribute.text.text");
-                }
-
-                @Override
-                public void undo() {
-                    super.undo();
-                    editedFigure.willChange();
-                    editedFigure.setText(oldText);
-                    editedFigure.changed();
-                }
-
-                @Override
-                public void redo() {
-                    super.redo();
-                    editedFigure.willChange();
-                    editedFigure.setText(newText);
-                    editedFigure.changed();
-                }
-            };
-            getDrawing().fireUndoableEditHappened(edit);
+            TextEdit.createAndFireEditHappened(getDrawing(), editedFigure, oldText, newText);
             typingTarget.changed();
             typingTarget = null;
             textField.endOverlay();
         }
-        //         view().checkDamage();
     }
 
     @Override

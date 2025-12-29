@@ -39,16 +39,11 @@ public class SimpleCreationTool extends AbstractCreationTool {
         view.addToSelection(createdFigure);
     }
 
-
+    @Override public void mousePressed(MouseEvent event) {
+    }
 
     @Override
     public void mouseReleased(MouseEvent event) {
         super.mouseReleased(event);
-        if (getCreatedFigure() != null) {
-            creationFinished(getCreatedFigure());
-        }
-        if (isToolDoneAfterCreation()) {
-            fireToolDone();
-        }
     }
 }
