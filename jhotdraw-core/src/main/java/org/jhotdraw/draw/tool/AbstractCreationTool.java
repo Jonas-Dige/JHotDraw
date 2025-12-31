@@ -108,25 +108,7 @@ public abstract class AbstractCreationTool extends BaseToolImpl implements Click
         isWorking = false;
     }
 
-    @Override
-    public void mousePressed(MouseEvent evt) {
-        DrawingView view = prepareView(evt);
-        if (view == null) return;
-        if (getView() == null) {
-            return;
-        }
 
-        anchor = new  Point(evt.getX(), evt.getY());
-        isWorking = true;
-
-        getView().clearSelection();
-        createdFigure = createFigure();
-        Point2D.Double p = constrainPoint(viewToDrawing(anchor), createdFigure);
-        anchor.x = evt.getX();
-        anchor.y = evt.getY();
-        createdFigure.setBounds(p, p);
-        getDrawing().add(createdFigure);
-    }
 
     @SuppressWarnings("unchecked")
     protected Figure createFigure() {

@@ -58,7 +58,7 @@ import org.jhotdraw.util.*;
  */
 
 @Deprecated()
-public class CreationTool extends AbstractCreationTool implements DragableTool {
+public class CreationTool extends ExtendedMouseCreationTool implements DragableTool {
 
     private static final long serialVersionUID = 1L;
     /**
