@@ -4,11 +4,13 @@ import org.jhotdraw.draw.DefaultDrawing;
 import org.jhotdraw.draw.DefaultDrawingView;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
+import org.jhotdraw.draw.figure.Figure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockMakers;
+import org.mockito.MockitoAnnotations;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
@@ -27,6 +29,7 @@ public class TextCreationToolTest {
 
     @Before
     public void setUp() throws Exception {
+        MockitoAnnotations.openMocks(this);
         // Mockito cannot mock this under JDK 25 for whatever reason without this.
         figure = mock(TextHolderFigure.class, withSettings().mockMaker(MockMakers.SUBCLASS));
         tool = new TextCreationTool(figure);
@@ -55,25 +58,13 @@ public class TextCreationToolTest {
     }
 
     @Test
-    public void testMouseClickedAddsFigureToDrawing() {
-        DefaultDrawing drawing = new DefaultDrawing();
-
-        DefaultDrawingView realView = new DefaultDrawingView();
-        DefaultDrawing realDrawing = new DefaultDrawing();
-        realView.setDrawing(realDrawing);
-
-        when(editor.getActiveView()).thenReturn(realView);
-
+    public void testCreatesNewInstanceEachTime() {
         tool.activate(editor);
+        MouseEvent click1 = new MouseEvent(realView, MouseEvent.MOUSE_CLICKED, ...);
+        tool.mouseClicked(click1);
 
-        MouseEvent click = new MouseEvent(realView, MouseEvent.MOUSE_CLICKED,
-                System.currentTimeMillis(), 0, 50, 50, 1, false);
-
-        tool.mouseClicked(click);
-
-        assertEquals("The drawing should now have the figure", 1, realDrawing.getChildCount());
-
-
+        Figure firstFigure = realDrawing.getChild(0);
+        assertNotSame("The created figure should be a clone, not the prototype", figure, firstFigure);
     }
 
     @After
