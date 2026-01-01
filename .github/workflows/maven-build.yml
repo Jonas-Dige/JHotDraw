@@ -30,7 +30,6 @@ jobs:
         run: >
           xvfb-run mvn -B verify 
           -DfailIfNoTests=false 
-          -Dtest="*Test, *IT"
 
       - name: Get Test Results
         if: always()
