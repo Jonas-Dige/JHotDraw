@@ -30,8 +30,6 @@ jobs:
         run: >
           xvfb-run mvn -B verify 
           -DfailIfNoTests=false 
-          -Dsurefire.includeJUnit=true
-          -Dsurefire.includeTestNG=true
 
       - name: Get Test Results
         if: always()

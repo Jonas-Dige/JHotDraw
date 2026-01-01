@@ -54,6 +54,17 @@ public class LabelFigure extends TextFigure {
     }
 
 
+    public void setLabelFor(TextHolderFigure target) {
+        if (this.target != null) {
+            this.target.removeFigureListener(eventHandler);
+        }
+        this.target = target;
+        if (this.target != null) {
+            this.target.addFigureListener(eventHandler);
+        }
+    }
+
+
 
     @Override
     public TextHolderFigure getLabelFor() {
