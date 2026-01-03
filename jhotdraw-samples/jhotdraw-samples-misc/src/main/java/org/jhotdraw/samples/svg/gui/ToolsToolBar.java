@@ -139,6 +139,8 @@ public class ToolsToolBar extends AbstractToolBar {
                 attributes.put(AttributeKeys.FILL_COLOR, Color.black);
                 attributes.put(AttributeKeys.STROKE_COLOR, null);
                 btn = ButtonFactory.addToolTo(this, editor, textTool = new TextCreationTool(new SVGTextFigure(), attributes), "createText", labels);
+                btn.setName("textToolButton"); // For BDD
+                btn.setToolTipText("Text Tool");
                 textTool.setToolDoneAfterCreation(true);
                 btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
                 gbc = new GridBagConstraints();

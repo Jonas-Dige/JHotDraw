@@ -1,0 +1,35 @@
+package org.jhotdraw.draw.stages;
+
+import org.assertj.swing.core.GenericTypeMatcher;
+import org.assertj.swing.edt.GuiActionRunner;
+import org.jhotdraw.draw.figure.TextFigure;
+
+import javax.swing.JButton;
+import java.awt.geom.Point2D;
+
+public class GivenDrawingCanvas extends JHotDrawStage<GivenDrawingCanvas> {
+
+    public GivenDrawingCanvas the_text_tool_is_selected() {
+
+        window.button(new GenericTypeMatcher<JButton>(JButton.class) {
+           @Override
+           protected boolean isMatching(JButton button) {
+               return "Text Tool".equals(button.getText());
+           }
+        }).click();
+        return self();
+
+    }
+
+    public GivenDrawingCanvas a_text_figure_exists_on_the_canvas() {
+        TextFigure figure = new TextFigure("Text");
+
+        figure.setBounds(new Point2D.Double(100,100), new Point2D.Double(100,100));
+
+        GuiActionRunner.execute(() -> {
+            drawingView.getDrawing().add(figure);
+        });
+        return self();
+    }
+
+}

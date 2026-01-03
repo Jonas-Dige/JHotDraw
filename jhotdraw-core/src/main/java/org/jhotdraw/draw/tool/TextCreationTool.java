@@ -153,7 +153,7 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
 
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == KeyEvent.VK_ESCAPE || isToolDoneAfterCreation()) {
+        if (keyEvent.getKeyCode() == KeyEvent.VK_ESCAPE) {
             fireToolDone();
         }
     }
