@@ -4,19 +4,27 @@ import org.assertj.swing.core.GenericTypeMatcher;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.jhotdraw.draw.figure.TextFigure;
 
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.geom.Point2D;
 
 public class GivenDrawingCanvas extends JHotDrawStage<GivenDrawingCanvas> {
 
     public GivenDrawingCanvas the_text_tool_is_selected() {
 
-        window.button(new GenericTypeMatcher<JButton>(JButton.class) {
-           @Override
-           protected boolean isMatching(JButton button) {
-               return "Text Tool".equals(button.getText());
-           }
-        }).click();
+        AbstractButton textButton = (AbstractButton) window.robot().finder().findByName("textToolButton",true);
+
+        window.robot().click(textButton);
+
+        return self();
+
+    }
+
+    public GivenDrawingCanvas the_selection_tool_is_selected() {
+
+        AbstractButton textButton = (AbstractButton) window.robot().finder().findByName("selectionToolButton",true);
+
+        window.robot().click(textButton);
+
         return self();
 
     }

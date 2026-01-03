@@ -84,6 +84,8 @@ public class ToolsToolBar extends AbstractToolBar {
                 btn = ButtonFactory.addSelectionToolTo(this, editor,
                         ButtonFactory.createDrawingActions(editor, disposables),
                         createSelectionActions(editor));
+                btn.setName("selectionToolButton");
+                btn.setToolTipText("Select Tool");
                 btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
                 btn.addMouseListener(new SelectionToolButtonHandler(editor));
                 gbc = new GridBagConstraints();
