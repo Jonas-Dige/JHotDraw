@@ -10,12 +10,9 @@ package org.jhotdraw.draw.tool;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.undo.AbstractUndoableEdit;
-import javax.swing.undo.UndoableEdit;
 import org.jhotdraw.draw.*;
 import org.jhotdraw.draw.text.*;
 import org.jhotdraw.draw.undo.TextEdit;
-import org.jhotdraw.util.ResourceBundleUtil;
 
 /**
  * A tool to edit figures which implement the {@code TextHolderFigure} interface,
@@ -48,7 +45,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class TextEditingTool extends BaseToolImpl implements ActionListener, ClickListeningTool, KeyListeningTool {
 
     private static final long serialVersionUID = 1L;
-    private transient FloatingTextField textField;
+    transient FloatingTextField textField; // Visibility slightly relaxed for integration tests.
     private TextHolderFigure typingTarget;
 
     /**

@@ -108,6 +108,7 @@ public class FloatingTextField extends AbstractEditableFloatingText {
         fieldViewBounds.y = fieldViewLocation.y;
         Dimension textFieldDimensions = textField.getPreferredSize();
         Insets textFieldInsets = textField.getInsets();
+        if (textField.getGraphics() == null) return;
         float fontBaseline = textField.getGraphics().getFontMetrics(fontOnFigure).getMaxAscent();
         double fieldBaseline = editedFigure.getBaseline() * view.getScaleFactor();
         textField.setBounds(

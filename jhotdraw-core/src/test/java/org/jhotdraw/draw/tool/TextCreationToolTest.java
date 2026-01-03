@@ -1,18 +1,17 @@
 package org.jhotdraw.draw.tool;
 
-import org.jhotdraw.draw.DefaultDrawing;
-import org.jhotdraw.draw.DefaultDrawingView;
-import org.jhotdraw.draw.DrawingEditor;
-import org.jhotdraw.draw.DrawingView;
+import org.jhotdraw.draw.*;
 import org.jhotdraw.draw.figure.Figure;
 import org.jhotdraw.draw.figure.TextFigure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.MockMakers;
 import org.mockito.MockitoAnnotations;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -27,22 +26,26 @@ public class TextCreationToolTest {
     private TextCreationTool tool;
     private DrawingEditor editor;
     private TextHolderFigure figure;
+    private Drawing drawing;
     DrawingView view;
 
     @Before
     public void setUp() throws Exception {
         // Mockito cannot mock this under JDK 25 for whatever reason without this.
-        MockitoAnnotations.openMocks(this);
-        figure = mock(TextHolderFigure.class, withSettings().mockMaker(MockMakers.SUBCLASS));
+        figure = mock(TextFigure.class);
         tool = new TextCreationTool(figure);
-        view = mock(DrawingView.class, withSettings().mockMaker(MockMakers.SUBCLASS));
-        editor = mock(DrawingEditor.class, withSettings().mockMaker(MockMakers.SUBCLASS));
+        view = mock(DefaultDrawingView.class);
+        editor = mock(DrawingEditor.class);
+        drawing = mock(Drawing.class);
         when(editor.getActiveView()).thenReturn(view);
+        when(view.getDrawing()).thenReturn(drawing);
+        when(view.viewToDrawing(any(Point.class))).thenReturn(new Point2D.Double(10,10));
     }
 
     @Test
     public void testImplementsNecessaryContracts() {
         // If this is not true, something has gone terribly wrong.
+        assertNotNull(tool);
         assertTrue(tool instanceof MouseListener);
         assertTrue(tool instanceof KeyListener);
         assertFalse(tool instanceof MouseMotionListener);
@@ -52,7 +55,7 @@ public class TextCreationToolTest {
     public void testHandleMouseClicks() {
         tool.activate(editor);
 
-        MouseEvent event = mock(MouseEvent.class, withSettings().mockMaker(MockMakers.SUBCLASS));
+        MouseEvent event = mock(MouseEvent.class);
 
         tool.mouseClicked(event);
 
@@ -70,6 +73,41 @@ public class TextCreationToolTest {
 
         assertTrue(prototype instanceof TextHolderFigure);
         assertEquals("Test Text", ((TextHolderFigure) prototype).getText());
+    }
+
+    @Test
+    public void testMouseClickedCreatesAndAddsFigure() {
+
+        // One could argue whether this would have been better with a real instance
+        // rather than mocking this much surface area, but it would also introduce involving Swing a lot more.
+        // The focus is on testing the text creation tool, not on accounting for Swing.
+        MouseEvent event = mock(MouseEvent.class);
+        when(event.getPoint()).thenReturn(new Point(10,10));
+        when(figure.clone()).thenReturn(mock(TextFigure.class));
+        when(event.getClickCount()).thenReturn(1);
+        when(event.getSource()).thenReturn(view);
+        when(view.getComponent()).thenReturn((JComponent) view);
+        when(view.viewToDrawing(any(Point.class))).thenReturn(new Point2D.Double(10,10));
+        when(view.isEnabled()).thenReturn(true);
+        when(editor.findView(any(Container.class))).thenReturn(view);
+
+        TextCreationTool spyTool = spy(tool);
+        // This integration test is about proving the figure is being created and added. Not whether it begins editing.
+        doNothing().when(spyTool).beginEdit(any(TextHolderFigure.class));
+
+
+
+        spyTool.activate(editor);
+
+        spyTool.mouseClicked(event);
+
+        verify(figure, atLeastOnce()).clone();
+        verify(drawing).add(any(TextHolderFigure.class));
+
+        spyTool.deactivate(editor);
+
+
+
     }
 
 
