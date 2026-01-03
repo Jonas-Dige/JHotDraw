@@ -85,6 +85,7 @@ public class TextEditingTool extends BaseToolImpl implements ActionListener, Cli
         }
         textField.createOverlay(getView(), textHolder);
         textField.requestFocus();
+        textField.getEditorComponent().addKeyListener(this);
         typingTarget = textHolder;
     }
 

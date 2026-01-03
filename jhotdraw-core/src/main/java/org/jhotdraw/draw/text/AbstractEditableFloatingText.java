@@ -13,7 +13,7 @@ public abstract class AbstractEditableFloatingText {
     private DrawingView view;
     private TextHolderFigure editedFigure;
 
-    protected abstract JComponent getEditorComponent();
+    public abstract JComponent getEditorComponent();
     protected abstract void updateWidget();
     protected abstract DrawingView getDrawingView();
 

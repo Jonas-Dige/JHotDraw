@@ -64,7 +64,7 @@ public class FloatingTextField extends AbstractEditableFloatingText {
     }
 
     @Override
-    protected JComponent getEditorComponent() {
+    public JComponent getEditorComponent() {
         return textField;
     }
 

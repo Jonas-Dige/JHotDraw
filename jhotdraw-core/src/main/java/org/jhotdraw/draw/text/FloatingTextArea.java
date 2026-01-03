@@ -88,7 +88,7 @@ public class FloatingTextArea extends AbstractEditableFloatingText {
     }
 
     @Override
-    protected JComponent getEditorComponent() {
+    public JComponent getEditorComponent() {
         return editScrollContainer;
     }
 

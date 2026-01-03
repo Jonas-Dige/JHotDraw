@@ -107,7 +107,6 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
 
     @Override
     protected void fireToolDone() {
-        if (typingTarget != null) return;
         super.fireToolDone();
     }
 
@@ -122,6 +121,7 @@ public class TextCreationTool extends SimpleCreationTool implements ActionListen
         }
         textField.createOverlay(getView(), textHolder);
         textField.requestFocus();
+        textField.getEditorComponent().addKeyListener(this);
         typingTarget = textHolder;
     }
 
