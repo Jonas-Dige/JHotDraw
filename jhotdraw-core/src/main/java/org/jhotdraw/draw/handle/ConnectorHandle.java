@@ -33,11 +33,11 @@ public class ConnectorHandle extends AbstractHandle {
     /**
      * The prototype for the ConnectionFigure to be created
      */
-    private ConnectionFigure prototype;
+    private final ConnectionFigure prototype;
     /**
      * The Connector.
      */
-    private Connector connector;
+    private final Connector connector;
     /**
      * The current connectable Figure.
      */

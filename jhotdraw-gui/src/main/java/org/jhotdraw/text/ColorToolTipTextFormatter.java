@@ -28,7 +28,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class ColorToolTipTextFormatter extends ColorFormatter {
 
     private static final long serialVersionUID = 1L;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     public ColorToolTipTextFormatter() {
         labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");

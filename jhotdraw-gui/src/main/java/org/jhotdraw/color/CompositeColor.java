@@ -33,7 +33,7 @@ public class CompositeColor extends Color {
      * @see #getRGBColorComponents
      * @see #getRGBComponents
      */
-    private float fvalue[] = null;
+    private float[] fvalue = null;
     /**
      * The alpha value as a <code>float</code> component.
      * If <code>frgbvalue</code> is <code>null</code>, this is not valid
@@ -74,7 +74,7 @@ public class CompositeColor extends Color {
      * @see #getComponents
      * @see #getColorComponents
      */
-    public CompositeColor(ColorSpace cspace, float components[], float alpha) {
+    public CompositeColor(ColorSpace cspace, float[] components, float alpha) {
         super(((int) (alpha * 255) << 24) | ColorUtil.toRGB24(cspace, components), true);
         boolean rangeError = false;
         StringBuilder badComponentString = new StringBuilder();
@@ -133,9 +133,7 @@ public class CompositeColor extends Color {
         } else {
             f = compArray;
         }
-        for (int i = 0; i < n; i++) {
-            f[i] = fvalue[i];
-        }
+        System.arraycopy(fvalue, 0, f, 0, n);
         f[n] = falpha;
         return f;
     }
@@ -168,9 +166,7 @@ public class CompositeColor extends Color {
         } else {
             f = compArray;
         }
-        for (int i = 0; i < n; i++) {
-            f[i] = fvalue[i];
-        }
+        System.arraycopy(fvalue, 0, f, 0, n);
         return f;
     }
 
@@ -196,7 +192,7 @@ public class CompositeColor extends Color {
         if (cs == null) {
             cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
         }
-        float f[];
+        float[] f;
         if (fvalue == null) {
             f = new float[3];
             f[0] = ((float) getRed()) / 255f;
@@ -205,14 +201,12 @@ public class CompositeColor extends Color {
         } else {
             f = fvalue;
         }
-        float tmp[] = cs.toCIEXYZ(f);
-        float tmpout[] = cspace.fromCIEXYZ(tmp);
+        float[] tmp = cs.toCIEXYZ(f);
+        float[] tmpout = cspace.fromCIEXYZ(tmp);
         if (compArray == null) {
             compArray = new float[tmpout.length + 1];
         }
-        for (int i = 0; i < tmpout.length; i++) {
-            compArray[i] = tmpout[i];
-        }
+        System.arraycopy(tmpout, 0, compArray, 0, tmpout.length);
         if (fvalue == null) {
             compArray[tmpout.length] = ((float) getAlpha()) / 255f;
         } else {
@@ -242,7 +236,7 @@ public class CompositeColor extends Color {
         if (cs == null) {
             cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
         }
-        float f[];
+        float[] f;
         if (fvalue == null) {
             f = new float[3];
             f[0] = ((float) getRed()) / 255f;
@@ -251,14 +245,12 @@ public class CompositeColor extends Color {
         } else {
             f = fvalue;
         }
-        float tmp[] = cs.toCIEXYZ(f);
-        float tmpout[] = cspace.fromCIEXYZ(tmp);
+        float[] tmp = cs.toCIEXYZ(f);
+        float[] tmpout = cspace.fromCIEXYZ(tmp);
         if (compArray == null) {
             return tmpout;
         }
-        for (int i = 0; i < tmpout.length; i++) {
-            compArray[i] = tmpout[i];
-        }
+        System.arraycopy(tmpout, 0, compArray, 0, tmpout.length);
         return compArray;
     }
 

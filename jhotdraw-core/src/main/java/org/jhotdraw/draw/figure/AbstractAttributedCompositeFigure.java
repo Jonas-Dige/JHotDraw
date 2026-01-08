@@ -66,7 +66,7 @@ public abstract class AbstractAttributedCompositeFigure extends AbstractComposit
 
     @Override
     public Map<AttributeKey<?>, Object> getAttributes() {
-        return (Map<AttributeKey<?>, Object>) new HashMap<>(attributes);
+        return new HashMap<>(attributes);
     }
 
     /**
@@ -155,7 +155,7 @@ public abstract class AbstractAttributedCompositeFigure extends AbstractComposit
     }
 
     public double getStrokeMiterLimitFactor() {
-        Number value = (Number) get(AttributeKeys.STROKE_MITER_LIMIT);
+        Number value = get(AttributeKeys.STROKE_MITER_LIMIT);
         return (value != null) ? value.doubleValue() : 10f;
     }
 

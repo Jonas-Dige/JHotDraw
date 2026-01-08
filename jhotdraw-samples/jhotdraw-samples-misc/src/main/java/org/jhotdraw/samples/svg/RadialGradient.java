@@ -198,8 +198,7 @@ public class RadialGradient implements Gradient {
             that.transform = (AffineTransform) this.transform.clone();
             return that;
         } catch (CloneNotSupportedException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }
@@ -208,8 +207,8 @@ public class RadialGradient implements Gradient {
     public int hashCode() {
         long bits = Double.doubleToLongBits(cx);
         bits += Double.doubleToLongBits(cy) * 37;
-        bits += stopColors[0].hashCode() * 43;
-        bits += stopColors[stopColors.length - 1].hashCode() * 47;
+        bits += stopColors[0].hashCode() * 43L;
+        bits += stopColors[stopColors.length - 1].hashCode() * 47L;
         return (((int) bits) ^ ((int) (bits >> 32)));
     }
 

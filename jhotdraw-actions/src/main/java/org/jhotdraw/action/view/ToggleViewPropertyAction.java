@@ -24,12 +24,12 @@ public class ToggleViewPropertyAction extends AbstractViewAction {
 
     private static final long serialVersionUID = 1L;
     final private String propertyName;
-    private Class<?>[] parameterClass;
-    private Object selectedPropertyValue;
-    private Object deselectedPropertyValue;
+    private final Class<?>[] parameterClass;
+    private final Object selectedPropertyValue;
+    private final Object deselectedPropertyValue;
     final private String setterName;
     final private String getterName;
-    private PropertyChangeListener viewListener = new PropertyChangeListener() {
+    private final PropertyChangeListener viewListener = new PropertyChangeListener() {
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             if (propertyName.equals(evt.getPropertyName())) { // Strings get interned
@@ -68,15 +68,13 @@ public class ToggleViewPropertyAction extends AbstractViewAction {
         View p = getActiveView();
         Object value = getCurrentValue();
         Object newValue = (value == selectedPropertyValue
-                || value != null && selectedPropertyValue != null
-                && value.equals(selectedPropertyValue))
+                || value != null && value.equals(selectedPropertyValue))
                 ? deselectedPropertyValue
                 : selectedPropertyValue;
         try {
-            p.getClass().getMethod(setterName, parameterClass).invoke(p, new Object[]{newValue});
+            p.getClass().getMethod(setterName, parameterClass).invoke(p, newValue);
         } catch (Throwable e) {
-            InternalError error = new InternalError("No " + setterName + " method on " + p);
-            error.initCause(e);
+            InternalError error = new InternalError("No " + setterName + " method on " + p, e);
             throw error;
         }
     }
@@ -87,8 +85,7 @@ public class ToggleViewPropertyAction extends AbstractViewAction {
             try {
                 return p.getClass().getMethod(getterName, (Class[]) null).invoke(p);
             } catch (Throwable e) {
-                InternalError error = new InternalError("No " + getterName + " method on " + p);
-                error.initCause(e);
+                InternalError error = new InternalError("No " + getterName + " method on " + p, e);
                 throw error;
             }
         }
@@ -124,11 +121,9 @@ public class ToggleViewPropertyAction extends AbstractViewAction {
             try {
                 Object value = p.getClass().getMethod(getterName, (Class[]) null).invoke(p);
                 isSelected = value == selectedPropertyValue
-                        || value != null && selectedPropertyValue != null
-                        && value.equals(selectedPropertyValue);
+                        || value != null && value.equals(selectedPropertyValue);
             } catch (Throwable e) {
-                InternalError error = new InternalError("No " + getterName + " method on " + p + " for property " + propertyName);
-                error.initCause(e);
+                InternalError error = new InternalError("No " + getterName + " method on " + p + " for property " + propertyName, e);
                 throw error;
             }
         }

@@ -24,7 +24,8 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public abstract class MoveAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
-    private int dx, dy;
+    private final int dx;
+    private final int dy;
 
     /**
      * Creates a new instance.

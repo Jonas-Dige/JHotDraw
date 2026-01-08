@@ -107,8 +107,7 @@ public abstract class AbstractApplicationModel extends AbstractBean
                 try {
                     viewClass = Class.forName(viewClassName);
                 } catch (Exception e) {
-                    InternalError error = new InternalError("unable to get view class");
-                    error.initCause(e);
+                    InternalError error = new InternalError("unable to get view class", e);
                     throw error;
                 }
             }
@@ -121,8 +120,7 @@ public abstract class AbstractApplicationModel extends AbstractBean
         try {
             return (View) getViewClass().newInstance();
         } catch (Exception e) {
-            InternalError error = new InternalError("unable to create view");
-            error.initCause(e);
+            InternalError error = new InternalError("unable to create view", e);
             throw error;
         }
     }

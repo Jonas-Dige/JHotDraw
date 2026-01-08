@@ -104,7 +104,7 @@ public class SelectionTool extends AbstractTool {
             fireBoundsInvalidated(e.getInvalidatedArea());
         }
     }
-    private TrackerHandler trackerHandler;
+    private final TrackerHandler trackerHandler;
     /**
      * Constant for the name of the selectBehindEnabled property.
      */

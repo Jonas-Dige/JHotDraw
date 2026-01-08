@@ -21,10 +21,10 @@ import java.awt.geom.*;
  */
 public class DoubleStroke implements Stroke {
 
-    private BasicStroke outlineStroke;
-    private double innerWidth;
-    private double outlineWidth;
-    private double miterLimit;
+    private final BasicStroke outlineStroke;
+    private final double innerWidth;
+    private final double outlineWidth;
+    private final double miterLimit;
     private float[] dashes;
     private float dashPhase;
 
@@ -226,11 +226,11 @@ public class DoubleStroke implements Stroke {
         }
     }
 
-    private double[] computeThickLine(double[] seg, int offset, double corners[]) {
-        return computeThickLine(seg[0 + offset], seg[1 + offset], seg[2 + offset], seg[3 + offset], innerWidth, corners);
+    private double[] computeThickLine(double[] seg, int offset, double[] corners) {
+        return computeThickLine(seg[offset], seg[1 + offset], seg[2 + offset], seg[3 + offset], innerWidth, corners);
     }
 
-    private double[] computeThickLine(double x1, double y1, double x2, double y2, double thickness, double corners[]) {
+    private double[] computeThickLine(double x1, double y1, double x2, double y2, double thickness, double[] corners) {
         double dx = x2 - x1;
         double dy = y2 - y1;
         // line length

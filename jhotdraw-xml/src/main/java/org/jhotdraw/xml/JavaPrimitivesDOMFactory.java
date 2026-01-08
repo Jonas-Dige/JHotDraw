@@ -126,16 +126,13 @@ public class JavaPrimitivesDOMFactory implements DOMFactory {
         try {
             return Class.forName(name).newInstance();
         } catch (InstantiationException ex) {
-            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " can not instantiate an object");
-            e.initCause(ex);
+            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " can not instantiate an object", ex);
             throw e;
         } catch (IllegalAccessException ex) {
-            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " is not public");
-            e.initCause(ex);
+            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " is not public", ex);
             throw e;
         } catch (ClassNotFoundException ex) {
-            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " does not exist");
-            e.initCause(ex);
+            IllegalArgumentException e = new IllegalArgumentException("Class " + name + " does not exist", ex);
             throw e;
         }
     }
@@ -277,7 +274,7 @@ public class JavaPrimitivesDOMFactory implements DOMFactory {
         } else if ("string".equals(tagName)) {
             o = in.getText();
         } else if ("enum".equals(tagName)) {
-            o = createEnum(in.getAttribute("type", (String) null), in.getText());
+            o = createEnum(in.getAttribute("type", null), in.getText());
         } else if ("color".equals(tagName)) {
             o = new Color(in.getAttribute("rgba", 0xff));
         } else if ("font".equals(tagName)) {

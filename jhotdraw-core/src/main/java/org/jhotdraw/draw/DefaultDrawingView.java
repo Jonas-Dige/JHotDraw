@@ -54,23 +54,23 @@ public class DefaultDrawingView
      * Holds the selected figures in an ordered put. The ordering reflects the sequence that was
      * used to select the figures.
      */
-    private Set<Figure> selectedFigures = new LinkedHashSet<>();
-    private LinkedList<Handle> selectionHandles = new LinkedList<>();
+    private final Set<Figure> selectedFigures = new LinkedHashSet<>();
+    private final LinkedList<Handle> selectionHandles = new LinkedList<>();
     private boolean isConstrainerVisible = false;
     private Constrainer visibleConstrainer = new GridConstrainer(8, 8);
     private Constrainer invisibleConstrainer = new GridConstrainer();
     private Handle secondaryHandleOwner;
     private Handle activeHandle;
-    private LinkedList<Handle> secondaryHandles = new LinkedList<>();
+    private final LinkedList<Handle> secondaryHandles = new LinkedList<>();
     private boolean handlesAreValid = true;
     private transient Dimension cachedPreferredSize;
     private double scaleFactor = 1;
-    private Point translation = new Point(0, 0);
+    private final Point translation = new Point(0, 0);
     private int detailLevel;
     private DrawingEditor editor;
     private JLabel emptyDrawingLabel;
     protected BufferedImage backgroundTile;
-    private FigureListener handleInvalidator = new FigureAdapter() {
+    private final FigureListener handleInvalidator = new FigureAdapter() {
         @Override
         public void figureHandlesChanged(FigureEvent e) {
             invalidateHandles();
@@ -93,12 +93,12 @@ public class DefaultDrawingView
     /**
      * Holds the drawing area (in view coordinates) which is in the drawing buffer.
      */
-    private Rectangle bufferedArea = new Rectangle();
+    private final Rectangle bufferedArea = new Rectangle();
     /**
      * Holds the drawing area (in view coordinates) which has not been redrawn yet in the drawing
      * buffer.
      */
-    private Rectangle dirtyArea = new Rectangle(0, 0, -1, -1);
+    private final Rectangle dirtyArea = new Rectangle(0, 0, -1, -1);
     private boolean paintEnabled = true;
     private static final boolean IS_WINDOWS;
 
@@ -291,7 +291,7 @@ public class DefaultDrawingView
         public void figureRequestRemove(FigureEvent e) {
         }
     }
-    private EventHandler eventHandler;
+    private final EventHandler eventHandler;
 
     /**
      * Creates new instance.

@@ -382,8 +382,7 @@ public abstract class AbstractCompositeFigure
                 try {
                     p = (Point2D.Double) get(TRANSFORM).inverseTransform(p, new Point2D.Double());
                 } catch (NoninvertibleTransformException ex) {
-                    InternalError error = new InternalError(ex.getMessage());
-                    error.initCause(ex);
+                    InternalError error = new InternalError(ex.getMessage(), ex);
                     throw error;
                 }
             }

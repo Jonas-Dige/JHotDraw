@@ -30,5 +30,5 @@ import java.awt.print.*;
  */
 public interface PrintableView extends View {
 
-    public Pageable createPageable();
+    Pageable createPageable();
 }

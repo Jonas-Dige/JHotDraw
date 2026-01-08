@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,7 +50,7 @@ public class ClientHttpRequest {
     protected void write(String s) throws IOException {
         connect();
         // BEGIN PATCH W. Randelshofer 2008-05-23 use UTF-8
-        os.write(s.getBytes("UTF-8"));
+        os.write(s.getBytes(StandardCharsets.UTF_8));
         // END PATCH W. Randelshofer 2008-05-23 use UTF-8
     }
 
@@ -63,7 +64,7 @@ public class ClientHttpRequest {
         write(s);
         newline();
     }
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     protected static String randomString() {
         return Long.toString(random.nextLong(), 36);

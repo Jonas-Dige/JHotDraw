@@ -102,10 +102,7 @@ public class TextFigure extends AbstractAttributedDecoratedFigure
 
     @Override
     public boolean figureContains(Point2D.Double p) {
-        if (getBounds().contains(p)) {
-            return true;
-        }
-        return false;
+        return getBounds().contains(p);
     }
 
     protected TextLayout getTextLayout() {

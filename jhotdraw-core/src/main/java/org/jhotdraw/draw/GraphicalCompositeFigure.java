@@ -63,12 +63,12 @@ public class GraphicalCompositeFigure extends AbstractCompositeFigure {
     /**
      * Handles figure changes in the children.
      */
-    private PresentationFigureHandler presentationFigureHandler = new PresentationFigureHandler(this);
+    private final PresentationFigureHandler presentationFigureHandler = new PresentationFigureHandler(this);
 
     private static class PresentationFigureHandler extends FigureAdapter implements UndoableEditListener, Serializable {
 
         private static final long serialVersionUID = 1L;
-        private GraphicalCompositeFigure owner;
+        private final GraphicalCompositeFigure owner;
 
         private PresentationFigureHandler(GraphicalCompositeFigure owner) {
             this.owner = owner;
@@ -99,7 +99,7 @@ public class GraphicalCompositeFigure extends AbstractCompositeFigure {
         public void undoableEditHappened(UndoableEditEvent e) {
             owner.fireUndoableEditHappened(e.getEdit());
         }
-    };
+    }
 
     /**
      * Default constructor which uses nothing as presentation

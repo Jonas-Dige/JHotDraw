@@ -127,7 +127,7 @@ public class PertApplet extends JApplet {
                 finished();
             }
 
-            protected void failed(Throwable value) {
+            private void failed(Throwable value) {
                 Container c = getContentPane();
                 c.setLayout(new BorderLayout());
                 c.removeAll();
@@ -138,7 +138,7 @@ public class PertApplet extends JApplet {
                 value.printStackTrace();
             }
 
-            protected void finished() {
+            private void finished() {
                 Container c = getContentPane();
                 initDrawing(getDrawing());
                 c.validate();

@@ -27,7 +27,7 @@ public class FocusWindowAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public static final String ID = "window.focus";
     private View view;
-    private PropertyChangeListener ppc;
+    private final PropertyChangeListener ppc;
 
     /**
      * Creates a new instance.

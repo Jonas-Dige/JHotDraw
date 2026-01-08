@@ -197,8 +197,7 @@ public class BezierPath extends ArrayList<BezierPath.Node>
                 that.y = this.y.clone();
                 return that;
             } catch (CloneNotSupportedException e) {
-                InternalError error = new InternalError();
-                error.initCause(e);
+                InternalError error = new InternalError(e);
                 throw error;
             }
         }
@@ -354,7 +353,7 @@ public class BezierPath extends ArrayList<BezierPath.Node>
         gp.setWindingRule(windingRule);
         if (size() == 0) {
             gp.moveTo(0, 0);
-            gp.lineTo(0, 0 + 1);
+            gp.lineTo(0, 1);
         } else if (size() == 1) {
             Node current = get(0);
             gp.moveTo(current.x[0], current.y[0]);
@@ -427,7 +426,6 @@ public class BezierPath extends ArrayList<BezierPath.Node>
         return generalPath.contains(p);
     }
 
-    ;
     /**
      * Returns true, if the outline of this bezier path contains the specified
      * point.

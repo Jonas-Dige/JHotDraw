@@ -23,8 +23,8 @@ public class TogglePaletteAction extends AbstractAction {
 
     private static final long serialVersionUID = 1L;
     private Window palette;
-    private OSXApplication app;
-    private WindowListener windowHandler;
+    private final OSXApplication app;
+    private final WindowListener windowHandler;
 
     /**
      * Creates a new instance.

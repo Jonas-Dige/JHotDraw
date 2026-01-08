@@ -24,7 +24,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public abstract class MoveConstrainedAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
-    private TranslationDirection dir;
+    private final TranslationDirection dir;
 
     /**
      * Creates a new instance.

@@ -65,7 +65,7 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
     private static final long serialVersionUID = 1L;
     private UndoRedoManager undoManager;
     private DrawingEditor editor;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
     private Preferences prefs;
     private ContainerListener containerHandler;
 
@@ -85,8 +85,8 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
 
     private class ItemChangeHandler implements ItemListener {
 
-        private JToolBar toolbar;
-        private String prefkey;
+        private final JToolBar toolbar;
+        private final String prefkey;
 
         public ItemChangeHandler(JToolBar toolbar, String prefkey) {
             this.toolbar = toolbar;
@@ -299,8 +299,7 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
                     } catch (InterruptedException ex) {
                         // suppress silently
                     } catch (InvocationTargetException ex) {
-                        InternalError ie = new InternalError("Error setting drawing.");
-                        ie.initCause(ex);
+                        InternalError ie = new InternalError("Error setting drawing.", ex);
                         throw ie;
                     }
                 }
@@ -354,8 +353,7 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
             } catch (InterruptedException ex) {
                 // suppress silently
             } catch (InvocationTargetException ex) {
-                InternalError ie = new InternalError("Error setting drawing.");
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Error setting drawing.", ex);
                 throw ie;
             }
         }
@@ -386,8 +384,7 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
             } catch (InterruptedException ex) {
                 // suppress silently
             } catch (InvocationTargetException ex) {
-                InternalError ie = new InternalError("Error getting drawing.");
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Error getting drawing.", ex);
                 throw ie;
             }
         }
@@ -439,8 +436,7 @@ public class SVGDrawingPanel extends JPanel implements Disposable {
             } catch (InterruptedException ex) {
                 // suppress silently
             } catch (InvocationTargetException ex) {
-                InternalError ie = new InternalError("Error getting drawing.");
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Error getting drawing.", ex);
                 throw ie;
             }
         }

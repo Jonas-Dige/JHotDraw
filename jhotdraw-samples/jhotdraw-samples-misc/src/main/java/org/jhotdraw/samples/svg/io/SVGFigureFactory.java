@@ -31,43 +31,43 @@ import org.jhotdraw.samples.svg.Gradient;
  */
 public interface SVGFigureFactory {
 
-    public Figure createRect(
+    Figure createRect(
             double x, double y, double width, double height, double rx, double ry,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createCircle(
+    Figure createCircle(
             double cx, double cy, double r,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createEllipse(
+    Figure createEllipse(
             double cx, double cy, double rx, double ry,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createLine(
+    Figure createLine(
             double x1, double y1, double x2, double y2,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createPolyline(
+    Figure createPolyline(
             Point2D.Double[] points,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createPolygon(
+    Figure createPolygon(
             Point2D.Double[] points,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createPath(
+    Figure createPath(
             BezierPath[] beziers,
             Map<AttributeKey<?>, Object> attributes);
 
-    public CompositeFigure createG(Map<AttributeKey<?>, Object> attributes);
+    CompositeFigure createG(Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createText(
+    Figure createText(
             Point2D.Double[] coordinates, double[] rotate,
             StyledDocument text,
             Map<AttributeKey<?>, Object> attributes);
 
-    public Figure createTextArea(double x, double y, double w, double h,
-            StyledDocument doc, Map<AttributeKey<?>, Object> attributes);
+    Figure createTextArea(double x, double y, double w, double h,
+                          StyledDocument doc, Map<AttributeKey<?>, Object> attributes);
 
     /**
      * Creates a Figure from an image element.
@@ -82,15 +82,15 @@ public interface SVGFigureFactory {
      * image data has not been interpreted.
      * @param attributes Figure attributes.
      */
-    public Figure createImage(double x, double y, double width, double height,
-            byte[] imageData, BufferedImage bufferedImage, Map<AttributeKey<?>, Object> attributes);
+    Figure createImage(double x, double y, double width, double height,
+                       byte[] imageData, BufferedImage bufferedImage, Map<AttributeKey<?>, Object> attributes);
 
-    public Gradient createLinearGradient(
+    Gradient createLinearGradient(
             double x1, double y1, double x2, double y2,
             double[] stopOffsets, Color[] stopColors, double[] stopOpacities,
             boolean isRelativeToFigureBounds, AffineTransform tx);
 
-    public Gradient createRadialGradient(
+    Gradient createRadialGradient(
             double cx, double cy, double fx, double fy, double r,
             double[] stopOffsets, Color[] stopColors, double[] stopOpacities,
             boolean isRelativeToFigureBounds, AffineTransform tx);

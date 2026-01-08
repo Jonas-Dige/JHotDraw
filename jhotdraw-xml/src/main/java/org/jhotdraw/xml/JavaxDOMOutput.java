@@ -8,6 +8,7 @@
 package org.jhotdraw.xml;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -53,7 +54,7 @@ public class JavaxDOMOutput implements DOMOutput {
     /**
      * The factory used to create objects.
      */
-    private DOMFactory factory;
+    private final DOMFactory factory;
 
     /**
      * Creates a new instance.
@@ -69,8 +70,7 @@ public class JavaxDOMOutput implements DOMOutput {
             document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
             current = document;
         } catch (ParserConfigurationException e) {
-            IOException error = new IOException(e.getMessage());
-            error.initCause(e);
+            IOException error = new IOException(e.getMessage(), e);
             throw error;
         }
     }
@@ -81,7 +81,7 @@ public class JavaxDOMOutput implements DOMOutput {
     public void save(OutputStream out) throws IOException {
         try {
             if (doctype != null) {
-                OutputStreamWriter w = new OutputStreamWriter(out, "UTF8");
+                OutputStreamWriter w = new OutputStreamWriter(out, StandardCharsets.UTF_8);
                 w.write("<!DOCTYPE ");
                 w.write(doctype);
                 w.write(">\n");
@@ -90,8 +90,7 @@ public class JavaxDOMOutput implements DOMOutput {
             Transformer t = TransformerFactory.newInstance().newTransformer();
             t.transform(new DOMSource(document), new StreamResult(out));
         } catch (TransformerException e) {
-            IOException error = new IOException(e.getMessage());
-            error.initCause(e);
+            IOException error = new IOException(e.getMessage(), e);
             throw error;
         }
     }
@@ -109,8 +108,7 @@ public class JavaxDOMOutput implements DOMOutput {
             Transformer t = TransformerFactory.newInstance().newTransformer();
             t.transform(new DOMSource(document), new StreamResult(out));
         } catch (TransformerException e) {
-            IOException error = new IOException(e.getMessage());
-            error.initCause(e);
+            IOException error = new IOException(e.getMessage(), e);
             throw error;
         }
     }

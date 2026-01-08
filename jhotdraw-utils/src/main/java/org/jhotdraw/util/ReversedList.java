@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class ReversedList<T> extends AbstractList<T> {
 
-    private List<T> target;
+    private final List<T> target;
 
     /**
      * Creates a new instance of ReversedList

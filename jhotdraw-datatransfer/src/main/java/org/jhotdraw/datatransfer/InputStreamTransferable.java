@@ -18,7 +18,7 @@ import java.io.*;
  */
 public class InputStreamTransferable extends AbstractTransferable {
 
-    private byte[] data;
+    private final byte[] data;
 
     /**
      * Creates a new instance.

@@ -21,10 +21,10 @@ public class ZoomEditorAction extends AbstractDrawingEditorAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "zoomEditor";
-    private double scaleFactor;
-    private AbstractButton button;
-    private String label;
-    private boolean updateAllViews;
+    private final double scaleFactor;
+    private final AbstractButton button;
+    private final String label;
+    private final boolean updateAllViews;
 
     /**
      * Creates a new instance.

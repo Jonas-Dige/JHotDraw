@@ -46,9 +46,9 @@ import org.jhotdraw.draw.event.FigureListener;
 public class FloatingTextField {
 
     private TextHolderFigure editedFigure;
-    private JTextField textField;
+    private final JTextField textField;
     private DrawingView view;
-    private FigureListener figureHandler = new FigureAdapter() {
+    private final FigureListener figureHandler = new FigureAdapter() {
         @Override
         public void attributeChanged(FigureEvent e) {
             updateWidget();

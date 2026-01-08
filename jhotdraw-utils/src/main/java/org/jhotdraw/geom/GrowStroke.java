@@ -24,7 +24,7 @@ import java.awt.geom.PathIterator;
  */
 public class GrowStroke extends DoubleStroke {
 
-    private double grow;
+    private final double grow;
 
     public GrowStroke(double grow, double miterLimit) {
         super(grow * 2d, 1d, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_BEVEL, miterLimit, null, 0f);

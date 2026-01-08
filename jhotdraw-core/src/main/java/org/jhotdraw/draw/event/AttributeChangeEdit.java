@@ -21,10 +21,10 @@ import org.jhotdraw.draw.*;
 public class AttributeChangeEdit<T> extends AbstractUndoableEdit {
 
     private static final long serialVersionUID = 1L;
-    private Figure owner;
-    private AttributeKey<T> name;
-    private T oldValue;
-    private T newValue;
+    private final Figure owner;
+    private final AttributeKey<T> name;
+    private final T oldValue;
+    private final T newValue;
 
     /**
      * Creates a new instance.

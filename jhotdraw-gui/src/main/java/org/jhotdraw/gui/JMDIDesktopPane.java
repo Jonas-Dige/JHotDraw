@@ -29,7 +29,7 @@ import javax.swing.*;
 public class JMDIDesktopPane extends JDesktopPane implements Arrangeable {
 
     private static final long serialVersionUID = 1L;
-    private MDIDesktopManager manager;
+    private final MDIDesktopManager manager;
 
     public JMDIDesktopPane() {
         manager = new MDIDesktopManager(this);
@@ -270,7 +270,7 @@ public class JMDIDesktopPane extends JDesktopPane implements Arrangeable {
 class MDIDesktopManager extends DefaultDesktopManager {
 
     private static final long serialVersionUID = 1L;
-    private JMDIDesktopPane desktop;
+    private final JMDIDesktopPane desktop;
 
     public MDIDesktopManager(JMDIDesktopPane newDesktop) {
         this.desktop = newDesktop;
@@ -329,7 +329,7 @@ class MDIDesktopManager extends DefaultDesktopManager {
         JScrollPane scrollPane = getScrollPane();
         Insets scrollInsets = getScrollPaneInsets();
         if (scrollPane != null) {
-            JInternalFrame allFrames[] = desktop.getAllFrames();
+            JInternalFrame[] allFrames = desktop.getAllFrames();
             for (JInternalFrame allFrame : allFrames) {
                 if (allFrame.getX() + allFrame.getWidth() > x) {
                     x = allFrame.getX() + allFrame.getWidth();

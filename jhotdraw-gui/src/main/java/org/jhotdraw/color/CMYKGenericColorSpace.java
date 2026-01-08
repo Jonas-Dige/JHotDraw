@@ -28,8 +28,7 @@ public class CMYKGenericColorSpace extends ICC_ColorSpace {
             try {
                 instance = new CMYKGenericColorSpace();
             } catch (IOException ex) {
-                InternalError error = new InternalError("Can't instanciate CMYKColorSpace");
-                error.initCause(ex);
+                InternalError error = new InternalError("Can't instanciate CMYKColorSpace", ex);
                 throw error;
             }
         }

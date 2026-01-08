@@ -30,7 +30,7 @@ public class PathTool extends BezierTool {
     /**
      * The path prototype for new figures.
      */
-    private SVGPathFigure pathPrototype;
+    private final SVGPathFigure pathPrototype;
 
     /**
      * Creates a new instance.

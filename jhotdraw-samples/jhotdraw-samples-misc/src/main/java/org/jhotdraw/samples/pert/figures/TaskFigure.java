@@ -45,7 +45,7 @@ public class TaskFigure extends GraphicalCompositeFigure {
      */
     private static class NameAdapter extends FigureAdapter {
 
-        private TaskFigure target;
+        private final TaskFigure target;
 
         public NameAdapter(TaskFigure target) {
             this.target = target;
@@ -61,7 +61,7 @@ public class TaskFigure extends GraphicalCompositeFigure {
 
     private static class DurationAdapter extends FigureAdapter {
 
-        private TaskFigure target;
+        private final TaskFigure target;
 
         public DurationAdapter(TaskFigure target) {
             this.target = target;

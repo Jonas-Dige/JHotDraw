@@ -25,9 +25,9 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class BezierNodeEdit extends AbstractUndoableEdit {
 
     private static final long serialVersionUID = 1L;
-    private BezierFigure owner;
-    private int index;
-    private BezierPath.Node oldValue;
+    private final BezierFigure owner;
+    private final int index;
+    private final BezierPath.Node oldValue;
     private BezierPath.Node newValue;
 
     /**

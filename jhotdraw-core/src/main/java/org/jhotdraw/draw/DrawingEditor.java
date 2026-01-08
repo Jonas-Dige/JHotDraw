@@ -91,23 +91,23 @@ public interface DrawingEditor {
     /**
      * The property name for the active view property.
      */
-    public static final String ACTIVE_VIEW_PROPERTY = "activeView";
+    String ACTIVE_VIEW_PROPERTY = "activeView";
     /**
      * The property name for the active tool property.
      */
-    public static final String TOOL_PROPERTY = "tool";
+    String TOOL_PROPERTY = "tool";
     /**
      * The property name for the input map property.
      */
-    public static final String INPUT_MAP_PROPERTY = "inputMap";
+    String INPUT_MAP_PROPERTY = "inputMap";
     /**
      * The property name for the action map property.
      */
-    public static final String ACTION_MAP_PROPERTY = "actionMap";
+    String ACTION_MAP_PROPERTY = "actionMap";
     /**
      * The prefix for default attribute property changes.
      */
-    public static final String DEFAULT_ATTRIBUTE_PROPERTY_PREFIX = "defaultAttribute.";
+    String DEFAULT_ATTRIBUTE_PROPERTY_PREFIX = "defaultAttribute.";
 
     /**
      * Gets the editor's current drawing.
@@ -176,7 +176,7 @@ public interface DrawingEditor {
      * This is used by Tool to identify the view of which it has received
      * an event.
      */
-    public DrawingView findView(Container c);
+    DrawingView findView(Container c);
 
     /**
      * Sets a default attribute of the editor.
@@ -186,24 +186,24 @@ public interface DrawingEditor {
      * Fires a property change event with the name of the attribute key,
      * and the prefix {@code "defaultAttribute."}.
      */
-    public <T> void setDefaultAttribute(AttributeKey<T> key, T value);
+    <T> void setDefaultAttribute(AttributeKey<T> key, T value);
 
     /**
      * Gets a default attribute from the editor.
      * The default attribute will be used by creation tools, to create a new
      * figure.
      */
-    public <T> T getDefaultAttribute(AttributeKey<T> key);
+    <T> T getDefaultAttribute(AttributeKey<T> key);
 
     /**
      * Applies the default attributes to the specified figure.
      */
-    public void applyDefaultAttributesTo(Figure f);
+    void applyDefaultAttributesTo(Figure f);
 
     /**
      * Returns an immutable Map with the default attributes of this editor.
      */
-    public Map<AttributeKey<?>, Object> getDefaultAttributes();
+    Map<AttributeKey<?>, Object> getDefaultAttributes();
 
     /**
      * Sets a handle attribute of the editor.
@@ -213,7 +213,7 @@ public interface DrawingEditor {
      * @param key AttributeKey.
      * @param value Attribute value.
      */
-    public <T> void setHandleAttribute(AttributeKey<T> key, T value);
+    <T> void setHandleAttribute(AttributeKey<T> key, T value);
 
     /**
      * Gets a handle attribute from the editor.
@@ -225,7 +225,7 @@ public interface DrawingEditor {
      * @return If the handle attribute has been set, returns the previously
      * set value. If the handle attribute has not been set, returns key.getDefaultValue().
      */
-    public <T> T getHandleAttribute(AttributeKey<T> key);
+    <T> T getHandleAttribute(AttributeKey<T> key);
 
     /**
      * Sets the input map used by the tool of this drawing editor as a fall back
@@ -233,7 +233,7 @@ public interface DrawingEditor {
      * <p>
      * This is a bound property.
      */
-    public void setInputMap(InputMap newValue);
+    void setInputMap(InputMap newValue);
 
     /**
      * Sets the input map used by the tool of this drawing editor as a fall back
@@ -244,7 +244,7 @@ public interface DrawingEditor {
      * <p>
      * This is a bound property.
      */
-    public InputMap getInputMap();
+    InputMap getInputMap();
 
     /**
      * Sets the action map used by the tool of this drawing editor as a fall back
@@ -252,7 +252,7 @@ public interface DrawingEditor {
      * <p>
      * This is a bound property.
      */
-    public void setActionMap(ActionMap newValue);
+    void setActionMap(ActionMap newValue);
 
     /**
      * Gets the action map used by the tool of this drawing editor as a fall back
@@ -264,30 +264,30 @@ public interface DrawingEditor {
      * <p>
      * This is a bound property.
      */
-    public ActionMap getActionMap();
+    ActionMap getActionMap();
 
     /**
      * Sets the enabled state of the drawing editor.
      * This is a bound property.
      */
-    public void setEnabled(boolean newValue);
+    void setEnabled(boolean newValue);
 
     /**
      * Gets the enabled state of the drawing editor.
      */
-    public boolean isEnabled();
+    boolean isEnabled();
 
     /**
      * Adds a {@code PropertyChangeListener}.
      *
      * @param listener
      */
-    public void addPropertyChangeListener(PropertyChangeListener listener);
+    void addPropertyChangeListener(PropertyChangeListener listener);
 
     /**
      * Removes a {@code PropertyChangeListener}.
      *
      * @param listener
      */
-    public void removePropertyChangeListener(PropertyChangeListener listener);
+    void removePropertyChangeListener(PropertyChangeListener listener);
 }

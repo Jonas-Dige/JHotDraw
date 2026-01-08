@@ -138,14 +138,14 @@ public class ODGApplicationModel extends DefaultApplicationModel {
     private void addColorButtonsTo(JToolBar bar, DrawingEditor editor) {
         ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
         HashMap<AttributeKey<?>, Object> defaultAttributes = new HashMap<AttributeKey<?>, Object>();
-        STROKE_GRADIENT.put(defaultAttributes, (Gradient) null);
+        STROKE_GRADIENT.put(defaultAttributes, null);
         bar.add(
                 ButtonFactory.createEditorColorButton(editor,
                         STROKE_COLOR, ButtonFactory.WEBSAVE_COLORS, ButtonFactory.WEBSAVE_COLORS_COLUMN_COUNT,
                         "attribute.strokeColor", labels,
                         defaultAttributes));
         defaultAttributes = new HashMap<AttributeKey<?>, Object>();
-        FILL_GRADIENT.put(defaultAttributes, (Gradient) null);
+        FILL_GRADIENT.put(defaultAttributes, null);
         bar.add(
                 ButtonFactory.createEditorColorButton(editor,
                         FILL_COLOR, ButtonFactory.WEBSAVE_COLORS, ButtonFactory.WEBSAVE_COLORS_COLUMN_COUNT,

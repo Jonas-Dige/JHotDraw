@@ -32,7 +32,7 @@ import org.jhotdraw.draw.handle.Handle;
  */
 public class HandleEvent extends EventObject {
 
-    private Rectangle invalidatedArea;
+    private final Rectangle invalidatedArea;
     private static final long serialVersionUID = 1L;
 
     /**

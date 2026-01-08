@@ -92,11 +92,11 @@ public interface Application {
     /**
      * The property name of the activeView property.
      */
-    public static final String ACTIVE_VIEW_PROPERTY = "activeView";
+    String ACTIVE_VIEW_PROPERTY = "activeView";
     /**
      * The property name of the recentURIs property.
      */
-    public static final String RECENT_URIS_PROPERTY = "recentURIs";
+    String RECENT_URIS_PROPERTY = "recentURIs";
 
     /**
      * Launches the application from the main method.
@@ -119,7 +119,7 @@ public interface Application {
      *
      * @param args The arguments of the main method
      */
-    public void launch(String[] args);
+    void launch(String[] args);
 
     /**
      * Configures the application using the provided arguments array.
@@ -132,7 +132,7 @@ public interface Application {
      *
      * @param args The arguments of the main method
      */
-    public void configure(String[] args);
+    void configure(String[] args);
 
     /**
      * Initializes the application.
@@ -144,7 +144,7 @@ public interface Application {
      * for application-specific properties in {@code ResourceBundleUtil}.
      * For example with {@code ResourceBundleUtil.putPropertyNameModifier("os", "mac", "default");}
      */
-    public void init();
+    void init();
 
     /**
      * Starts the application.
@@ -162,7 +162,7 @@ public interface Application {
      * @param uris Upon launch, the application may be requested to open views
      * for a given list of URI's.
      */
-    public void start(List<URI> uris);
+    void start(List<URI> uris);
 
     /**
      * Stops the application without saving any unsaved views.
@@ -172,7 +172,7 @@ public interface Application {
      * <p>
      * This method must be called from AWT Event Dispatcher Thread.
      */
-    public void stop();
+    void stop();
 
     /**
      * Stops the application and then calls System.exit(0).
@@ -182,7 +182,7 @@ public interface Application {
      * <p>
      * This method must be called from AWT Event Dispatcher Thread.
      */
-    public void destroy();
+    void destroy();
 
     /**
      * Creates a new view for this application and initializes it, by calling
@@ -193,7 +193,7 @@ public interface Application {
      *
      * @return the created view
      */
-    public View createView();
+    View createView();
 
     /**
      * Adds a view to this application.
@@ -202,7 +202,7 @@ public interface Application {
      *
      * @param v the view
      */
-    public void add(View v);
+    void add(View v);
 
     /**
      * Removes a view from this application and removes it from the users
@@ -212,35 +212,35 @@ public interface Application {
      *
      * @param v the view
      */
-    public void remove(View v);
+    void remove(View v);
 
     /**
      * Shows a view.
      *
      * @param v the view
      */
-    public void show(View v);
+    void show(View v);
 
     /**
      * Hides a view.
      *
      * @param v the view
      */
-    public void hide(View v);
+    void hide(View v);
 
     /**
      * This is a convenience method for removing a view and disposing it.
      *
      * @param v the view
      */
-    public void dispose(View v);
+    void dispose(View v);
 
     /**
      * Returns a read only collection view of the views of this application.
      *
      * @return the views
      */
-    public Collection<View> views();
+    Collection<View> views();
 
     /**
      * Returns the active view. This is used for OSXApplication and
@@ -252,14 +252,14 @@ public interface Application {
      *
      * @return the active view or null
      */
-    public View getActiveView();
+    View getActiveView();
 
     /**
      * Returns the enabled state of the application.
      *
      * @return the value
      */
-    public boolean isEnabled();
+    boolean isEnabled();
 
     /**
      * Sets the enabled state of the application.
@@ -279,63 +279,63 @@ public interface Application {
      *
      * @param newValue the value
      */
-    public void setEnabled(boolean newValue);
+    void setEnabled(boolean newValue);
 
     /**
      * Adds a property change listener.
      *
      * @param l the listener
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Removes a property change listener.
      *
      * @param l the listener
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Returns the name of the application.
      *
      * @return the value
      */
-    public String getName();
+    String getName();
 
     /**
      * Returns the version of the application.
      *
      * @return the value
      */
-    public String getVersion();
+    String getVersion();
 
     /**
      * Returns the copyright of the application.
      *
      * @return the value
      */
-    public String getCopyright();
+    String getCopyright();
 
     /**
      * Sets the application model.
      *
      * @param newValue the value
      */
-    public void setModel(ApplicationModel newValue);
+    void setModel(ApplicationModel newValue);
 
     /**
      * Returns the application model.
      *
      * @return the value
      */
-    public ApplicationModel getModel();
+    ApplicationModel getModel();
 
     /**
      * Returns true, if this application shares tools among multiple views.
      *
      * @return the value
      */
-    public boolean isSharingToolsAmongViews();
+    boolean isSharingToolsAmongViews();
 
     /**
      * Returns the application component.
@@ -344,21 +344,21 @@ public interface Application {
      *
      * @return the value
      */
-    public Component getComponent();
+    Component getComponent();
 
     /**
      * Adds a palette window to the application.
      *
      * @param palette the palette
      */
-    public void addPalette(Window palette);
+    void addPalette(Window palette);
 
     /**
      * Removes a palette window from the application.
      *
      * @param palette the palette
      */
-    public void removePalette(Window palette);
+    void removePalette(Window palette);
 
     /**
      * Adds a (non-palette) window to the application.
@@ -367,14 +367,14 @@ public interface Application {
      * @param view The View to which this window is associated, or null
      * if the window is associated to the application.
      */
-    public void addWindow(Window window, View view);
+    void addWindow(Window window, View view);
 
     /**
      * Removes a (non-palette) window from the application.
      *
      * @param window the window
      */
-    public void removeWindow(Window window);
+    void removeWindow(Window window);
 
     /**
      * Returns the recently opened URIs. By convention, this is an unmodifiable list.
@@ -385,7 +385,7 @@ public interface Application {
      *
      * @return the recently opened URIs
      */
-    public java.util.List<URI> getRecentURIs();
+    java.util.List<URI> getRecentURIs();
 
     /**
      * Adds an URI to the start of the list of recent URIs.
@@ -400,7 +400,7 @@ public interface Application {
      *
      * @param uri the value
      */
-    public void addRecentURI(URI uri);
+    void addRecentURI(URI uri);
 
     /**
      * Clears the list of recent URIs.
@@ -412,7 +412,7 @@ public interface Application {
      * The most recent URI is used by the <em>Open last URI on launch</em> feature.
      * See {@link org.jhotdraw.api.app}.
      */
-    public void clearRecentURIs();
+    void clearRecentURIs();
 
     /**
      * Creates a file menu for the specified view or for the entire application.
@@ -420,7 +420,7 @@ public interface Application {
      * @param v A view or null.
      * @return A JMenu or null, if the menu is empty.
      */
-    public JMenu createFileMenu(View v);
+    JMenu createFileMenu(View v);
 
     /**
      * Creates an edit menu for the specified view or for the entire application.
@@ -428,7 +428,7 @@ public interface Application {
      * @param v A view or null.
      * @return A JMenu or null, if the menu is empty.
      */
-    public JMenu createEditMenu(View v);
+    JMenu createEditMenu(View v);
 
     /**
      * Creates a view menu for the specified view or for the entire application.
@@ -436,7 +436,7 @@ public interface Application {
      * @param v A view or null.
      * @return A JMenu or null, if the menu is empty.
      */
-    public JMenu createViewMenu(View v);
+    JMenu createViewMenu(View v);
 
     /**
      * Creates a window menu for the specified view or for the entire application.
@@ -444,7 +444,7 @@ public interface Application {
      * @param v A view or null.
      * @return A JMenu or null, if the menu is empty.
      */
-    public JMenu createWindowMenu(View v);
+    JMenu createWindowMenu(View v);
 
     /**
      * Creates a help menu for the specified view of for the entire application.
@@ -452,7 +452,7 @@ public interface Application {
      * @param v A view or null.
      * @return A JMenu or null, if the menu is empty.
      */
-    public JMenu createHelpMenu(View v);
+    JMenu createHelpMenu(View v);
 
     /**
      * Gets an open chooser for the specified view or for the entire application.
@@ -460,7 +460,7 @@ public interface Application {
      * @param v A view or null.
      * @return A chooser.
      */
-    public URIChooser getOpenChooser(View v);
+    URIChooser getOpenChooser(View v);
 
     /**
      * Gets a save chooser for the specified view or for the entire application.
@@ -468,7 +468,7 @@ public interface Application {
      * @param v A view or null.
      * @return A chooser.
      */
-    public URIChooser getSaveChooser(View v);
+    URIChooser getSaveChooser(View v);
 
     /**
      * Gets an export chooser for the specified view or for the entire application.
@@ -476,7 +476,7 @@ public interface Application {
      * @param v A view or null.
      * @return A chooser.
      */
-    public URIChooser getExportChooser(View v);
+    URIChooser getExportChooser(View v);
 
     /**
      * Gets an import chooser for the specified view or for the entire application.
@@ -484,7 +484,7 @@ public interface Application {
      * @param v A view or null.
      * @return A chooser.
      */
-    public URIChooser getImportChooser(View v);
+    URIChooser getImportChooser(View v);
 
     /**
      * Gets an action map for the specified view or for the entire application.
@@ -492,7 +492,7 @@ public interface Application {
      * @param v A view or null
      * @return the action map
      */
-    public ActionMap getActionMap(View v);
+    ActionMap getActionMap(View v);
 
     /**
      * Returns an unmodifiable list of all views of the application.
@@ -502,5 +502,5 @@ public interface Application {
      *
      * @return the views
      */
-    public List<View> getViews();
+    List<View> getViews();
 }

@@ -30,15 +30,15 @@ public class BezierPathIterator implements PathIterator {
     /**
      * The bezier path.
      */
-    private BezierPath path;
+    private final BezierPath path;
     /**
      * The transformation.
      */
-    private AffineTransform affine;
+    private final AffineTransform affine;
     /**
      * ??
      */
-    private static final int CURVE_SIZE[] = {2, 2, 4, 6, 0};
+    private static final int[] CURVE_SIZE = {2, 2, 4, 6, 0};
 
     /**
      * Constructs an iterator given a BezierPath.

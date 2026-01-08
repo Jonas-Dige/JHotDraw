@@ -26,8 +26,8 @@ public class FindDialog extends javax.swing.JDialog {
     private static final long serialVersionUID = 1L;
     private Application app;
     private Matcher matcher;
-    private Preferences prefs;
-    private ResourceBundleUtil labels;
+    private final Preferences prefs;
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new form FindDialog

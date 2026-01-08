@@ -28,7 +28,7 @@ public class PaletteColorChooserMainPanel extends javax.swing.JPanel {
      * applicatin, the application 'remembers' which panel the user had opened
      * before.
      */
-    private static String lastSelectedChooserName = null;
+    private static final String lastSelectedChooserName = null;
 
     /**
      * Creates new form.

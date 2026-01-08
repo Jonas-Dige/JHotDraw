@@ -34,14 +34,14 @@ import org.jhotdraw.color.SimpleHarmonicRule;
 public class JMixer extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JList swatchesList;
-    private DefaultColorSliderModel sliderModel;
+    private final JList swatchesList;
+    private final DefaultColorSliderModel sliderModel;
     private int adjusting;
 
     private class Preset {
 
-        private String name;
-        private int index;
+        private final String name;
+        private final int index;
 
         public Preset(String name, int index) {
             this.name = name;
@@ -112,7 +112,7 @@ public class JMixer extends javax.swing.JPanel {
         scrollPane.setViewportView(swatchesList);
         harmonicWheel.setColorSpace(HSLColorSpace.getInstance());
         scrollPane.setPreferredSize(new Dimension(100, 100));
-        swatchesList.setModel((ListModel) harmonicWheel.getHarmonicColorModel());
+        swatchesList.setModel(harmonicWheel.getHarmonicColorModel());
         swatchesList.setCellRenderer(new ColorListCellRenderer());
         sliderModel = new DefaultColorSliderModel(harmonicWheel.getHarmonicColorModel().getColorSpace());
         sliderModel.configureSlider(1, saturationSlider);

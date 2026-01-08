@@ -17,15 +17,15 @@ import java.awt.Color;
  */
 public interface HarmonicRule {
 
-    public void setBaseIndex();
+    void setBaseIndex();
 
-    public int getBaseIndex();
+    int getBaseIndex();
 
-    public void setDerivedIndices(int... indices);
+    void setDerivedIndices(int... indices);
 
-    public int[] getDerivedIndices();
+    int[] getDerivedIndices();
 
-    public void apply(HarmonicColorModel model);
+    void apply(HarmonicColorModel model);
 
-    public void colorChanged(HarmonicColorModel model, int index, Color oldValue, Color newValue);
+    void colorChanged(HarmonicColorModel model, int index, Color oldValue, Color newValue);
 }

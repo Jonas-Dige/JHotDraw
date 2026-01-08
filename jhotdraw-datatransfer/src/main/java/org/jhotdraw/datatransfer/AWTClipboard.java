@@ -31,7 +31,7 @@ public class AWTClipboard extends AbstractClipboard {
     /**
      * The proxy target.
      */
-    private Clipboard target;
+    private final Clipboard target;
 
     /**
      * Creates a new proxy for the specified target object.

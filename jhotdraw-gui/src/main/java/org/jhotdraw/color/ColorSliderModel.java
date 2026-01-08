@@ -30,21 +30,21 @@ public interface ColorSliderModel {
      *
      * @return ColorSpace.
      */
-    public ColorSpace getColorSpace();
+    ColorSpace getColorSpace();
 
     /**
      * Changes the ColorSpace used by this ColorSliderModel.
      *
      * @param newValue ColorSpace.
      */
-    public void setColorSpace(ColorSpace newValue);
+    void setColorSpace(ColorSpace newValue);
 
     /**
      * Returns the number of components used by this ColorSliderModel.
      *
      * @return Component count.
      */
-    public int getComponentCount();
+    int getComponentCount();
 
     /**
      * Returns the BoundedRangeModel used for the specified component
@@ -54,7 +54,7 @@ public interface ColorSliderModel {
      *
      * @return BoundedRangeModel.
      */
-    public BoundedRangeModel getBoundedRangeModel(int componentIndex);
+    BoundedRangeModel getBoundedRangeModel(int componentIndex);
 
     /**
      * Returns an RGB value based on the value of the specified component index
@@ -64,7 +64,7 @@ public interface ColorSliderModel {
      * @param componentValue
      * @return RGB value.
      */
-    public int getInterpolatedRGB(int componentIndex, float componentValue);
+    int getInterpolatedRGB(int componentIndex, float componentValue);
 
     /**
      * Sets a value for an individual component.
@@ -72,7 +72,7 @@ public interface ColorSliderModel {
      * @param componentIndex
      * @param newValue
      */
-    public void setComponent(int componentIndex, float newValue);
+    void setComponent(int componentIndex, float newValue);
 
     /**
      * Gets a value of an individual component.
@@ -80,28 +80,28 @@ public interface ColorSliderModel {
      * @param componentIndex
      * @return Value
      */
-    public float getComponent(int componentIndex);
+    float getComponent(int componentIndex);
 
     /**
      * Gets all component values.
      *
      * @return Values.
      */
-    public float[] getComponents();
+    float[] getComponents();
 
-    public void addChangeListener(ChangeListener l);
+    void addChangeListener(ChangeListener l);
 
-    public void removeChangeListener(ChangeListener l);
+    void removeChangeListener(ChangeListener l);
 
     /**
      * Configures a JSlider.
      */
-    public void configureSlider(int componentIndex, JSlider slider);
+    void configureSlider(int componentIndex, JSlider slider);
 
     /**
      * Unconfigures a JSlider.
      */
-    public void unconfigureSlider(JSlider slider);
+    void unconfigureSlider(JSlider slider);
 
     /**
      * Returns the color value of the model.
@@ -109,7 +109,7 @@ public interface ColorSliderModel {
      *
      * @return color.
      */
-    public Color getColor();
+    Color getColor();
 
     /**
      * Sets the color value of the model.
@@ -117,5 +117,5 @@ public interface ColorSliderModel {
      *
      * @param newValue .
      */
-    public void setColor(Color newValue);
+    void setColor(Color newValue);
 }

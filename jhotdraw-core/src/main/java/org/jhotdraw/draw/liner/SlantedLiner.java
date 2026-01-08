@@ -214,8 +214,7 @@ public class SlantedLiner
         try {
             return (Liner) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError(ex.getMessage());
-            error.initCause(ex);
+            InternalError error = new InternalError(ex.getMessage(), ex);
             throw error;
         }
     }

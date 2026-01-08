@@ -33,7 +33,7 @@ public class PaletteColorChooserUI extends ColorChooserUI {
     protected PropertyChangeListener propertyChangeListener;
     protected AbstractColorChooserPanel[] defaultChoosers;
     protected JComponent previewPanel;
-    private static TransferHandler defaultTransferHandler = new ColorTransferHandler();
+    private static final TransferHandler defaultTransferHandler = new ColorTransferHandler();
     private MouseListener previewMouseListener;
 
     public static ComponentUI createUI(JComponent c) {
@@ -255,7 +255,7 @@ public class PaletteColorChooserUI extends ColorChooserUI {
             if ("componentOrientation".equals(name)) {
                 ComponentOrientation o = (ComponentOrientation) e.getNewValue();
                 JColorChooser cc = (JColorChooser) e.getSource();
-                if (o != (ComponentOrientation) e.getOldValue()) {
+                if (o != e.getOldValue()) {
                     cc.applyComponentOrientation(o);
                     cc.updateUI();
                 }

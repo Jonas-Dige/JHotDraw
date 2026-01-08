@@ -262,7 +262,7 @@ public abstract class AbstractFigure
      */
     protected <T> void fireAttributeChanged(AttributeKey<T> attribute, T oldValue, T newValue) {
         if (listenerList.getListenerCount() > 0
-                && (oldValue == null || newValue == null || !oldValue.equals(newValue))) {
+                && (oldValue == null || !oldValue.equals(newValue))) {
             FigureEvent event = null;
             // Notify all listeners that have registered interest for
             // Guaranteed to return a non-null array
@@ -610,11 +610,10 @@ public abstract class AbstractFigure
 
     @Override
     public String toString() {
-        StringBuilder buf = new StringBuilder();
-        buf.append(getClass().getName().substring(getClass().getName().lastIndexOf('.') + 1));
-        buf.append('@');
-        buf.append(hashCode());
-        return buf.toString();
+        String buf = getClass().getName().substring(getClass().getName().lastIndexOf('.') + 1) +
+                '@' +
+                hashCode();
+        return buf;
     }
 
     @Override

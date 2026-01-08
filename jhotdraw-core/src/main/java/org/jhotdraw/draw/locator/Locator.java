@@ -35,7 +35,7 @@ public interface Locator {
      *
      * @return a point on the figure.
      */
-    public Point2D.Double locate(Figure owner);
+    Point2D.Double locate(Figure owner);
 
     /**
      * Locates a position on the provided figure relative to the dependent
@@ -43,5 +43,5 @@ public interface Locator {
      *
      * @return a point on the figure.
      */
-    public Point2D.Double locate(Figure owner, Figure dependent);
+    Point2D.Double locate(Figure owner, Figure dependent);
 }

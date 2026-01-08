@@ -42,7 +42,7 @@ public class BezierTool extends AbstractTool {
     /**
      * The prototype for new figures.
      */
-    private BezierFigure prototype;
+    private final BezierFigure prototype;
     /**
      * The created figure.
      */
@@ -51,7 +51,7 @@ public class BezierTool extends AbstractTool {
     /**
      * A localized name for this tool. The presentationName is displayed by the UndoableEdit.
      */
-    private String presentationName;
+    private final String presentationName;
     private Point mouseLocation;
     /**
      * Holds the view on which we are currently creating a figure.

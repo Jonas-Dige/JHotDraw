@@ -41,5 +41,5 @@ import org.jhotdraw.draw.*;
  */
 public interface DragTracker extends Tool {
 
-    public void setDraggedFigure(Figure f);
+    void setDraggedFigure(Figure f);
 }

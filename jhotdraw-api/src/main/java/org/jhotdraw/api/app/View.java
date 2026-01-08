@@ -81,36 +81,36 @@ public interface View extends Disposable {
     /**
      * The name of the uri property.
      */
-    public static final String URI_PROPERTY = "uri";
+    String URI_PROPERTY = "uri";
     /**
      * The name of the application property.
      */
-    public static final String APPLICATION_PROPERTY = "application";
+    String APPLICATION_PROPERTY = "application";
     /**
      * The name of the title property.
      */
-    public static final String TITLE_PROPERTY = "title";
+    String TITLE_PROPERTY = "title";
     /**
      * The name of the enabled property.
      */
-    public static final String ENABLED_PROPERTY = "enabled";
+    String ENABLED_PROPERTY = "enabled";
     /**
      * The name of the hasUnsavedChanges property.
      */
-    public static final String HAS_UNSAVED_CHANGES_PROPERTY = "hasUnsavedChanges";
+    String HAS_UNSAVED_CHANGES_PROPERTY = "hasUnsavedChanges";
     /**
      * The name of the multipleOpenId property.
      */
-    public static final String MULTIPLE_OPEN_ID_PROPERTY = "multipleOpenId";
+    String MULTIPLE_OPEN_ID_PROPERTY = "multipleOpenId";
     /**
      * The name of the showing property.
      */
-    public static final String SHOWING_PROPERTY = "showing";
+    String SHOWING_PROPERTY = "showing";
 
     /**
      * Gets the application to which this view belongs.
      */
-    public Application getApplication();
+    Application getApplication();
 
     /**
      * Sets the application of the view.
@@ -118,17 +118,17 @@ public interface View extends Disposable {
      * Application.remove().
      * This is a bound property.
      */
-    public void setApplication(Application newValue);
+    void setApplication(Application newValue);
 
     /**
      * Returns the visual component of the view.
      */
-    public JComponent getComponent();
+    JComponent getComponent();
 
     /**
      * Returns the enabled state of the view.
      */
-    public boolean isEnabled();
+    boolean isEnabled();
 
     /**
      * Sets the enabled state of the view.
@@ -146,7 +146,7 @@ public interface View extends Disposable {
      *
      * This is a bound property.
      */
-    public void setEnabled(boolean newValue);
+    void setEnabled(boolean newValue);
 
     /**
      * Clears the view, for example by emptying the contents of
@@ -157,7 +157,7 @@ public interface View extends Disposable {
      * <em>Open URI on launch</em>.
      * See {@link org.jhotdraw.api.app}.
      */
-    public void clear();
+    void clear();
 
     /**
      * Whether the view is empty. A view is considered empty if the application
@@ -172,19 +172,19 @@ public interface View extends Disposable {
      *
      * @return True if the view can be reused by open actions.
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Returns true, if the view has unsaved changes.
      * This is a bound property.
      */
-    public boolean hasUnsavedChanges();
+    boolean hasUnsavedChanges();
 
     /**
      * Marks all changes as saved.
      * This changes the state of hasUnsavedChanges to false.
      */
-    public void markChangesAsSaved();
+    void markChangesAsSaved();
 
     /**
      * Executes the specified runnable on the worker thread of the view.
@@ -194,7 +194,7 @@ public interface View extends Disposable {
      * Use this method for long running tasks which affect the contents
      * of the view as a whole. For example for loading and saving a document.
      */
-    public void execute(Runnable worker);
+    void execute(Runnable worker);
 
     /**
      * Initializes the view.
@@ -206,14 +206,14 @@ public interface View extends Disposable {
      * either method clear() must be called
      * or method read, in order to fully initialize a View.
      */
-    public void init();
+    void init();
 
     /**
      * Starts the view.
      * Invoked after a view has been made visible to the user.
      * Multiple view can be visible at the same time.
      */
-    public void start();
+    void start();
 
     /**
      * Activates the view.
@@ -221,20 +221,20 @@ public interface View extends Disposable {
      * Only one view can be active at any given time.
      * This method is only invoked on a started view.
      */
-    public void activate();
+    void activate();
 
     /**
      * Deactivates the view.
      * This occurs, when the user closes the view, or activated another view.
      * This method is only invoked on a started view.
      */
-    public void deactivate();
+    void deactivate();
 
     /**
      * Stops the view.
      * Invoked after a view window has been minimized or made invisible.
      */
-    public void stop();
+    void stop();
 
     /**
      * Gets rid of all the resources of the view.
@@ -243,50 +243,50 @@ public interface View extends Disposable {
      * This is crucial for the responsivenes of an application.
      */
     @Override
-    public void dispose();
+    void dispose();
 
     /**
      * Gets the action map of the view.
      */
-    public ActionMap getActionMap();
+    ActionMap getActionMap();
 
     /**
      * Sets the action map for the view.
      */
-    public void setActionMap(ActionMap m);
+    void setActionMap(ActionMap m);
 
     /**
      * Adds a property change listener.
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Removes a property change listener.
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Sets the multiple open id.
      * The id is used to help distinguish multiply opened views.
      * The id should be displayed in the title of the view.
      */
-    public void setMultipleOpenId(int newValue);
+    void setMultipleOpenId(int newValue);
 
     /**
      * Returns the multiple open id.
      * If a view is open only once this should be 1.
      */
-    public int getMultipleOpenId();
+    int getMultipleOpenId();
 
     /**
      * This is used by Application to keep track if a view is showing.
      */
-    public boolean isShowing();
+    boolean isShowing();
 
     /**
      * This is used by Application to keep track if a view is showing.
      */
-    public void setShowing(boolean newValue);
+    void setShowing(boolean newValue);
 
     /**
      * Sets the title of the view.
@@ -300,12 +300,12 @@ public interface View extends Disposable {
      * <p>
      * This is a bound property.
      */
-    public void setTitle(String newValue);
+    void setTitle(String newValue);
 
     /**
      * Gets the title of the view.
      */
-    public String getTitle();
+    String getTitle();
 
     /**
      * Adds a disposable object, which will be disposed when the view
@@ -313,14 +313,14 @@ public interface View extends Disposable {
      *
      * @param disposable
      */
-    public void addDisposable(Disposable disposable);
+    void addDisposable(Disposable disposable);
 
     /**
      * Removes a disposable object, which was previously added.
      *
      * @param disposable
      */
-    public void removeDisposable(Disposable disposable);
+    void removeDisposable(Disposable disposable);
 
     /**
      * Returns the URI which holds the document of the view.
@@ -328,13 +328,13 @@ public interface View extends Disposable {
      * The URI is used by the <em>Allow multiple views per URI</em> feature.
      * See {@link org.jhotdraw.api.app}.
      */
-    public URI getURI();
+    URI getURI();
 
     /**
      * Sets the uri of the view.
      * This is a bound property.
      */
-    public void setURI(URI newValue);
+    void setURI(URI newValue);
 
     /**
      * Returns true, if this view can be saved to the specified URI.
@@ -348,7 +348,7 @@ public interface View extends Disposable {
      * @param uri An URI. If this parameter is null, a NullPointerException
      * is thrown.
      */
-    public boolean canSaveTo(URI uri);
+    boolean canSaveTo(URI uri);
 
     /**
      * Writes the view to the specified URI.
@@ -359,7 +359,7 @@ public interface View extends Disposable {
      * @param chooser The chooser which was used for selecting the URI. This
      * parameter is null if no chooser was used.
      */
-    public void write(URI uri, URIChooser chooser) throws IOException;
+    void write(URI uri, URIChooser chooser) throws IOException;
 
     /**
      * Reads the view from the specified URI.
@@ -374,5 +374,5 @@ public interface View extends Disposable {
      * @param chooser The chooser which was used for selecting the URI. This
      * parameter is null if no chooser was used.
      */
-    public void read(URI uri, URIChooser chooser) throws IOException;
+    void read(URI uri, URIChooser chooser) throws IOException;
 }

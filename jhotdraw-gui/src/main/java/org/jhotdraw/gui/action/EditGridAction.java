@@ -34,7 +34,7 @@ public class EditGridAction extends AbstractDrawingViewAction {
     private JDialog dialog;
     private EditGridPanel settingsPanel;
     private PropertyChangeListener propertyChangeHandler;
-    private Application app;
+    private final Application app;
 
     /**
      * Creates a new instance.

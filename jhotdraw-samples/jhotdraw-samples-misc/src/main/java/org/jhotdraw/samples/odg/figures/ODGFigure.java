@@ -27,5 +27,5 @@ public interface ODGFigure extends Figure {
      * <li>A text has no characters</li>
      * </ul>
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 }

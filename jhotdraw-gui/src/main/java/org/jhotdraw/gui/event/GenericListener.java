@@ -109,7 +109,7 @@ public abstract class GenericListener {
                 if (listenerMethod.equals(method)) {
                     if (targetMethod.getParameterTypes().length == 0) {
                         // Special treatment for parameterless target methods:
-                        return targetMethod.invoke(target, new Object[0]);
+                        return targetMethod.invoke(target);
                     } else {
                         // Regular treatment for target methods having the same
                         // argument list as the listener method.

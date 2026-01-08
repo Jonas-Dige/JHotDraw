@@ -31,11 +31,12 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class EditCanvasPanel extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
     private Drawing drawing;
-    private JAttributeSlider opacitySlider;
+    private final JAttributeSlider opacitySlider;
     private JColorChooser colorChooser;
-    private DrawingAttributeEditorHandler<Double> opacityFieldHandler, opacitySliderHandler;
+    private final DrawingAttributeEditorHandler<Double> opacityFieldHandler;
+    private final DrawingAttributeEditorHandler<Double> opacitySliderHandler;
 
     /**
      * Creates new form.

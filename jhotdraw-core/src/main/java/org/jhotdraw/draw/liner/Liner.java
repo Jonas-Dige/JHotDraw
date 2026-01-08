@@ -37,7 +37,7 @@ public interface Liner extends Cloneable {
      *
      * @param figure The ConnectionFigure to be lined out.
      */
-    public void lineout(ConnectionFigure figure);
+    void lineout(ConnectionFigure figure);
 
     /**
      * Creates Handle's for the Liner.
@@ -46,7 +46,7 @@ public interface Liner extends Cloneable {
      *
      * @param path The path for which to create handles.
      */
-    public Collection<Handle> createHandles(BezierPath path);
+    Collection<Handle> createHandles(BezierPath path);
 
-    public Liner clone();
+    Liner clone();
 }

@@ -62,7 +62,7 @@ import java.lang.ref.*;
  */
 public class WeakPropertyChangeListener implements PropertyChangeListener {
 
-    private WeakReference<PropertyChangeListener> weakRef;
+    private final WeakReference<PropertyChangeListener> weakRef;
 
     public WeakPropertyChangeListener(PropertyChangeListener target) {
         this.weakRef = new WeakReference<>(target);
@@ -78,8 +78,7 @@ public class WeakPropertyChangeListener implements PropertyChangeListener {
         try {
             src.getClass().getMethod("removePropertyChangeListener", new Class<?>[]{PropertyChangeListener.class}).invoke(src, this);
         } catch (Exception ex) {
-            InternalError ie = new InternalError("Could not remove WeakPropertyChangeListener from " + src + ".");
-            ie.initCause(ex);
+            InternalError ie = new InternalError("Could not remove WeakPropertyChangeListener from " + src + ".", ex);
             throw ie;
         }
     }

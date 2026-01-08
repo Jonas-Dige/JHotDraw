@@ -45,7 +45,8 @@ public abstract class AbstractDrawingEditorAction extends AbstractAction {
                 updateEnabledState();
             }
         }
-    };
+    }
+
     private EventHandler eventHandler = new EventHandler();
 
     /**
@@ -104,7 +105,7 @@ public abstract class AbstractDrawingEditorAction extends AbstractAction {
     public void setUpdateEnabledState(boolean newValue) {
         // Note: eventHandler != null yields true, if we are currently updating
         // the enabled state.
-        if (eventHandler != null != newValue) {
+        if (eventHandler == null == newValue) {
             if (newValue) {
                 eventHandler = new EventHandler();
                 registerEventHandler();

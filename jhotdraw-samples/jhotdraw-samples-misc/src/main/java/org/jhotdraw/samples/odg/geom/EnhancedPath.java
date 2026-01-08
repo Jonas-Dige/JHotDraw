@@ -51,7 +51,7 @@ public class EnhancedPath extends ArrayList<EnhancedPath.Segment>
         /**
          * len is the number of parameters needed by a segment.
          */
-        private int len;
+        private final int len;
 
         SegType(int len) {
             this.len = len;
@@ -196,8 +196,7 @@ public class EnhancedPath extends ArrayList<EnhancedPath.Segment>
                 that.modifiers = this.modifiers.clone();
                 return that;
             } catch (CloneNotSupportedException e) {
-                InternalError error = new InternalError();
-                error.initCause(e);
+                InternalError error = new InternalError(e);
                 throw error;
             }
         }

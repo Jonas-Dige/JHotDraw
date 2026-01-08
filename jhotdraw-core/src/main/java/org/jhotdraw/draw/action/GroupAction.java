@@ -25,12 +25,12 @@ public class GroupAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "edit.groupSelection";
-    private CompositeFigure prototype;
+    private final CompositeFigure prototype;
     /**
      * If this variable is true, this action groups figures.
      * If this variable is false, this action ungroups figures.
      */
-    private boolean isGroupingAction;
+    private final boolean isGroupingAction;
 
     /**
      * Creates a new instance.

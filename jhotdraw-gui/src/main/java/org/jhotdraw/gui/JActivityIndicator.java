@@ -40,7 +40,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class JActivityIndicator extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
-    private ArrayList<ActivityModel> models = new ArrayList<>();
+    private final ArrayList<ActivityModel> models = new ArrayList<>();
 
     private class Handler implements ActivityManagerListener, PropertyChangeListener {
 
@@ -68,10 +68,10 @@ public class JActivityIndicator extends javax.swing.JPanel {
             }
         }
     }
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     private ActivityManager manager;
     private Object progressOwner;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new form JActivityIndicator

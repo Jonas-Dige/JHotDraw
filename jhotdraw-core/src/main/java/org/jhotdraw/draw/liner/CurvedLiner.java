@@ -29,7 +29,7 @@ import org.jhotdraw.xml.DOMStorable;
 public class CurvedLiner
         implements Liner, DOMStorable {
 
-    private double shoulderSize;
+    private final double shoulderSize;
 
     /**
      * Creates a new instance.
@@ -191,8 +191,7 @@ public class CurvedLiner
         try {
             return (Liner) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError(ex.getMessage());
-            error.initCause(ex);
+            InternalError error = new InternalError(ex.getMessage(), ex);
             throw error;
         }
     }

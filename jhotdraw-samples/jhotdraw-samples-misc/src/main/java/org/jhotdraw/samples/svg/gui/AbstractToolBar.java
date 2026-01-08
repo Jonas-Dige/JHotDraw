@@ -180,7 +180,7 @@ public /*abstract*/ class AbstractToolBar extends JDisclosureToolBar implements 
                                 }
                             }
                             parent.revalidate();
-                            ((JComponent) parent.getRootPane().getContentPane()).revalidate();
+                            parent.getRootPane().getContentPane().revalidate();
                         }
                     }
                 };

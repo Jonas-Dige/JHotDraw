@@ -44,11 +44,11 @@ public class GridConstrainer extends AbstractConstrainer {
     /**
      * The color for minor grid cells.
      */
-    private static Color minorColor = new Color(0xebebeb);
+    private static final Color minorColor = new Color(0xebebeb);
     /**
      * The color for major grid cells.
      */
-    private static Color majorColor = new Color(0xcacaca);
+    private static final Color majorColor = new Color(0xcacaca);
     /**
      * The spacing factor for a major grid cell.
      */

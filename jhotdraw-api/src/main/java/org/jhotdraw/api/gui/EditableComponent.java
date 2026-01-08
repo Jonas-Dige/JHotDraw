@@ -40,42 +40,42 @@ public interface EditableComponent {
     /**
      * The name of the "selectionEmpty" property.
      */
-    public static final String SELECTION_EMPTY_PROPERTY = "selectionEmpty";
+    String SELECTION_EMPTY_PROPERTY = "selectionEmpty";
 
     /**
      * Deletes the selected components or the component at (or after) the
      * caret position.
      */
-    public void delete();
+    void delete();
 
     /**
      * Duplicates the selected region.
      */
-    public void duplicate();
+    void duplicate();
 
     /**
      * Selects all.
      */
-    public void selectAll();
+    void selectAll();
 
     /**
      * Selects nothing.
      */
-    public void clearSelection();
+    void clearSelection();
 
     /**
      * Returns true if the selection is empty.
      * This is a bound property.
      */
-    public boolean isSelectionEmpty();
+    boolean isSelectionEmpty();
 
     /**
      * Adds a property change listener.
      */
-    public void addPropertyChangeListener(PropertyChangeListener l);
+    void addPropertyChangeListener(PropertyChangeListener l);
 
     /**
      * Removes a property change listener.
      */
-    public void removePropertyChangeListener(PropertyChangeListener l);
+    void removePropertyChangeListener(PropertyChangeListener l);
 }

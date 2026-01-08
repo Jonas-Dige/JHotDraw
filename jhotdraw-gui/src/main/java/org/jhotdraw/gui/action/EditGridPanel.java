@@ -25,7 +25,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class EditGridPanel extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
     private GridConstrainer constrainer;
 
     /**

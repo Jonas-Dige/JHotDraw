@@ -40,7 +40,7 @@ public class BezierDemo extends javax.swing.JPanel {
             segments = null;
         }
     }
-    private ArrayList<Example> examples = new ArrayList<Example>();
+    private final ArrayList<Example> examples = new ArrayList<Example>();
     private JDialog dumpDialog;
     private JTextArea dumpArea;
 
@@ -86,7 +86,7 @@ public class BezierDemo extends javax.swing.JPanel {
         public void mouseExited(MouseEvent e) {
         }
     }
-    private MouseHandler handler = new MouseHandler();
+    private final MouseHandler handler = new MouseHandler();
 
     private class Canvas extends JPanel {
 
@@ -215,7 +215,7 @@ public class BezierDemo extends javax.swing.JPanel {
             g.drawString((end - start) + " ms", 5, g.getFontMetrics().getHeight());
         }
     }
-    private Canvas canvas;
+    private final Canvas canvas;
 
     /**
      * Creates new form BezierDemo

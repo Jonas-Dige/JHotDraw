@@ -24,7 +24,7 @@ public class PickAttributesAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
     private Set<AttributeKey<?>> excludedAttributes = new HashSet<>(
-            Arrays.asList(new AttributeKey<?>[]{TRANSFORM, TEXT}));
+            Arrays.asList(TRANSFORM, TEXT));
 
     /**
      * Creates a new instance.

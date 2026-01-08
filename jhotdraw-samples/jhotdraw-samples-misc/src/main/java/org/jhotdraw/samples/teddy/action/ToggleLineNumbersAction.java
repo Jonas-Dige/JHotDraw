@@ -25,7 +25,7 @@ public class ToggleLineNumbersAction extends AbstractViewAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "view.toggleLineNumbers";
-    private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.teddy.Labels");
+    private final ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.teddy.Labels");
 
     /**
      * Creates a new instance.

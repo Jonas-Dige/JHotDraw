@@ -65,14 +65,14 @@ public class ODGView extends AbstractView {
      * Each ODGView uses its own undo redo manager.
      * This allows for undoing and redoing actions per view.
      */
-    private UndoRedoManager undo;
+    private final UndoRedoManager undo;
     /**
      * Depending on the type of an application, there may be one editor per
      * view, or a single shared editor for all views.
      */
     private DrawingEditor editor;
-    private GridConstrainer visibleConstrainer = new GridConstrainer(10, 10);
-    private GridConstrainer invisibleConstrainer = new GridConstrainer(1, 1);
+    private final GridConstrainer visibleConstrainer = new GridConstrainer(10, 10);
+    private final GridConstrainer invisibleConstrainer = new GridConstrainer(1, 1);
 
     /**
      * Creates a new view.
@@ -206,8 +206,7 @@ public class ODGView extends AbstractView {
             e.initCause(e);
             throw error;
         } catch (InvocationTargetException e) {
-            InternalError error = new InternalError();
-            error.initCause(e);
+            InternalError error = new InternalError(e);
             throw error;
         }
     }

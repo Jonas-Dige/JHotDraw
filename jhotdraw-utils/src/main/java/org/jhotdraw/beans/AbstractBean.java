@@ -18,7 +18,7 @@ import java.beans.*;
  * @author Werner Randelshofer
  * @version $Id$
  */
-public class AbstractBean extends Object implements java.io.Serializable, Cloneable {
+public class AbstractBean implements java.io.Serializable, Cloneable {
 
     private static final long serialVersionUID = 1L;
     protected PropertyChangeSupport propertySupport = new PropertyChangeSupport(this);
@@ -117,8 +117,7 @@ public class AbstractBean extends Object implements java.io.Serializable, Clonea
         try {
             that = (AbstractBean) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError("Clone failed");
-            error.initCause(ex);
+            InternalError error = new InternalError("Clone failed", ex);
             throw error;
         }
         that.propertySupport = new PropertyChangeSupport(that);

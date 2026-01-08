@@ -141,8 +141,7 @@ public class DefaultSVGFigureFactory implements SVGFigureFactory {
         try {
             figure.setText(doc.getText(0, doc.getLength()));
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
         figure.setAttributes(attributes);
@@ -157,8 +156,7 @@ public class DefaultSVGFigureFactory implements SVGFigureFactory {
         try {
             figure.setText(text.getText(0, text.getLength()));
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
         figure.setAttributes(a);

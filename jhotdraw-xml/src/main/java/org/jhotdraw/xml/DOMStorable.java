@@ -38,7 +38,7 @@ import java.io.*;
  */
 public interface DOMStorable {
 
-    public void write(DOMOutput out) throws IOException;
+    void write(DOMOutput out) throws IOException;
 
-    public void read(DOMInput in) throws IOException;
+    void read(DOMInput in) throws IOException;
 }

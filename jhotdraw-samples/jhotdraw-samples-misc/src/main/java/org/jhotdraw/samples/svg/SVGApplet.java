@@ -13,6 +13,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -59,7 +60,7 @@ public class SVGApplet extends JApplet {
      * Lazily initialized in method getVersion();
      */
     private String version;
-    private long start;
+    private final long start;
 
     public SVGApplet() {
         setBackground(Color.WHITE);
@@ -173,7 +174,7 @@ public class SVGApplet extends JApplet {
                 finished();
             }
 
-            protected void failed(Throwable result) {
+            private void failed(Throwable result) {
                 Container c = getContentPane();
                 c.setLayout(new BorderLayout());
                 c.removeAll();
@@ -196,7 +197,7 @@ public class SVGApplet extends JApplet {
                 mp.revalidate();
             }
 
-            protected void finished() {
+            private void finished() {
                 long end = System.currentTimeMillis();
                 System.out.println("AbstractDrawingApplet startup latency:" + (end - start));
             }
@@ -225,7 +226,7 @@ public class SVGApplet extends JApplet {
             BufferedReader r = null;
             try {
                 InputStream resource = SVGApplet.class.getResourceAsStream("version.txt");
-                r = new BufferedReader(new InputStreamReader(resource, "UTF-8"));
+                r = new BufferedReader(new InputStreamReader(resource, StandardCharsets.UTF_8));
                 version = r.readLine();
             } catch (IOException e) {
                 version = "unknown";
@@ -314,7 +315,7 @@ public class SVGApplet extends JApplet {
             // (Note: The server still needs to set the proper HTTP caching
             // properties to prevent proxies from caching the drawing).
             if (uc instanceof HttpURLConnection) {
-                ((HttpURLConnection) uc).setUseCaches(false);
+                uc.setUseCaches(false);
             }
             // Read the data into a buffer
             int contentLength = uc.getContentLength();

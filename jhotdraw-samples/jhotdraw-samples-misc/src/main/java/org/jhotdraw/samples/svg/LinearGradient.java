@@ -199,8 +199,7 @@ public class LinearGradient implements Gradient {
             that.transform = (AffineTransform) this.transform.clone();
             return that;
         } catch (CloneNotSupportedException ex) {
-            InternalError e = new InternalError();
-            e.initCause(ex);
+            InternalError e = new InternalError(ex);
             throw e;
         }
     }
@@ -223,8 +222,8 @@ public class LinearGradient implements Gradient {
         bits += Double.doubleToLongBits(y1) * 31;
         bits += Double.doubleToLongBits(x2) * 35;
         bits += Double.doubleToLongBits(y2) * 39;
-        bits += stopColors[0].hashCode() * 43;
-        bits += stopColors[stopColors.length - 1].hashCode() * 47;
+        bits += stopColors[0].hashCode() * 43L;
+        bits += stopColors[stopColors.length - 1].hashCode() * 47L;
         return (((int) bits) ^ ((int) (bits >> 32)));
     }
 

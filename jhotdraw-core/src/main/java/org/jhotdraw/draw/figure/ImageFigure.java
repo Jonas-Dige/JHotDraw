@@ -170,7 +170,7 @@ public class ImageFigure extends AbstractAttributedDecoratedFigure
 
     @Override
     public Object getTransformRestoreData() {
-        return (Rectangle2D.Double) rectangle.clone();
+        return rectangle.clone();
     }
 
     // EDITING
@@ -316,8 +316,7 @@ public class ImageFigure extends AbstractAttributedDecoratedFigure
             loadImage(in);
         } catch (Throwable t) {
             ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
-            IOException e = new IOException(labels.getFormatted("file.failedToLoadImage.message", file.getName()));
-            e.initCause(t);
+            IOException e = new IOException(labels.getFormatted("file.failedToLoadImage.message", file.getName()), t);
             throw e;
         }
     }

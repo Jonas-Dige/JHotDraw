@@ -28,7 +28,7 @@ public class PaletteColorWheelChooser extends AbstractColorChooserPanel implemen
 
     private static final long serialVersionUID = 1L;
     private JColorWheel colorWheel;
-    private PaletteColorSliderModel ccModel = new PaletteColorSliderModel(new HSVColorSpace());
+    private final PaletteColorSliderModel ccModel = new PaletteColorSliderModel(new HSVColorSpace());
     private int updatingChooser;
 
     /**

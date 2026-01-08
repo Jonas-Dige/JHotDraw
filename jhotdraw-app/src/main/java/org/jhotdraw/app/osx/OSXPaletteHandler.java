@@ -22,11 +22,11 @@ import org.jhotdraw.api.app.View;
  */
 public class OSXPaletteHandler {
 
-    private HashSet<Window> palettes = new HashSet<>();
-    private HashMap<Window, View> windows = new HashMap<>();
-    private javax.swing.Timer timer;
-    private OSXApplication app;
-    private WindowFocusListener focusHandler = new WindowFocusListener() {
+    private final HashSet<Window> palettes = new HashSet<>();
+    private final HashMap<Window, View> windows = new HashMap<>();
+    private final javax.swing.Timer timer;
+    private final OSXApplication app;
+    private final WindowFocusListener focusHandler = new WindowFocusListener() {
         /**
          * Invoked when the Window is set to be the focused Window, which means
          * that the Window, or one of its subcomponents, will receive keyboard

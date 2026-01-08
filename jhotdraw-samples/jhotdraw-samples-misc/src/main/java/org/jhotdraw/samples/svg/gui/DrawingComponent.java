@@ -28,17 +28,17 @@ public interface DrawingComponent {
     /**
      * Returns the component of the DrawingComponent.
      */
-    public JComponent getComponent();
+    JComponent getComponent();
 
     /**
      * Returns the drawing of the DrawingComponent.
      */
-    public Drawing getDrawing();
+    Drawing getDrawing();
 
     /**
      * Sets the drawing of the DrawingComponent.
      */
-    public void setDrawing(Drawing newValue);
+    void setDrawing(Drawing newValue);
 
     /**
      * Adds an ActionListener.
@@ -49,15 +49,15 @@ public interface DrawingComponent {
      * The ActionListener receives an ActionEvent with action command "cancel"
      * when the user clicks at the cancel button on the drawing component.
      */
-    public void addActionListener(ActionListener listener);
+    void addActionListener(ActionListener listener);
 
     /**
      * Removes an ActionListener.
      */
-    public void removeActionListener(ActionListener listener);
+    void removeActionListener(ActionListener listener);
 
     /**
      * Returns a summary about the changes made on the drawing.
      */
-    public String getSummary();
+    String getSummary();
 }

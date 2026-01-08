@@ -51,8 +51,8 @@ public class NetApplicationModel extends DefaultApplicationModel {
 
     private static class ToolButtonListener implements ItemListener {
 
-        private Tool tool;
-        private DrawingEditor editor;
+        private final Tool tool;
+        private final DrawingEditor editor;
 
         public ToolButtonListener(Tool t, DrawingEditor editor) {
             this.tool = t;

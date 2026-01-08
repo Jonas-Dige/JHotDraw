@@ -69,7 +69,7 @@ public class AnimationSample extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.setProperty("apple.awt.graphics.UseQuartz", "false");
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

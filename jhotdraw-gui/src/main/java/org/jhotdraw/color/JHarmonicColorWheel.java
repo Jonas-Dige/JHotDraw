@@ -28,8 +28,8 @@ public class JHarmonicColorWheel extends JColorWheel {
     public static final String SELECTED_INDEX_PROPERTY = "selectedIndex";
     private HarmonicColorModel harmonicModel;
     private int selectedIndex = -1;
-    private float handleRadius = 4f;
-    private float baseRadius = 7f;
+    private final float handleRadius = 4f;
+    private final float baseRadius = 7f;
 
     private class MouseHandler implements MouseListener, MouseMotionListener {
 
@@ -129,7 +129,7 @@ public class JHarmonicColorWheel extends JColorWheel {
             repaint();
         }
     }
-    private ModelHandler modelHandler;
+    private final ModelHandler modelHandler;
 
     /**
      * Creates new form.

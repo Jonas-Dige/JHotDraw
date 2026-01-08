@@ -31,12 +31,12 @@ public class CombineAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "edit.combinePaths";
-    private CompositeFigure prototype;
+    private final CompositeFigure prototype;
     /**
      * If this variable is true, this action groups figures.
      * If this variable is false, this action ungroups figures.
      */
-    private boolean isCombineAction;
+    private final boolean isCombineAction;
     private ResourceBundleUtil labels
             = ResourceBundleUtil.getBundle("org.jhotdraw.samples.svg.Labels");
 
@@ -223,7 +223,7 @@ public class CombineAction extends AbstractSelectedAction {
         AffineTransform tx = figures.iterator().next().get(TRANSFORM);
         for (Figure f : figures) {
             AffineTransform ftx = f.get(TRANSFORM);
-            if (ftx == tx || ftx != null && tx != null && ftx.equals(tx)) {
+            if (ftx == tx || ftx != null && ftx.equals(tx)) {
             } else {
                 tx = null;
                 break;

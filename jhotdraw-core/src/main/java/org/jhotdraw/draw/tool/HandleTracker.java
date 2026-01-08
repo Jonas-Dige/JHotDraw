@@ -32,5 +32,5 @@ import org.jhotdraw.draw.handle.Handle;
  */
 public interface HandleTracker extends Tool {
 
-    public void setHandles(Handle handle, Collection<Handle> compatibleHandles);
+    void setHandles(Handle handle, Collection<Handle> compatibleHandles);
 }

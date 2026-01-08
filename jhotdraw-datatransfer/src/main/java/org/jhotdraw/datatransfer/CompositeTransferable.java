@@ -18,8 +18,8 @@ import java.util.*;
  */
 public class CompositeTransferable implements Transferable, ClipboardOwner {
 
-    private HashMap<DataFlavor, Transferable> transferables = new HashMap<>();
-    private LinkedList<DataFlavor> flavors = new LinkedList<>();
+    private final HashMap<DataFlavor, Transferable> transferables = new HashMap<>();
+    private final LinkedList<DataFlavor> flavors = new LinkedList<>();
 
     /**
      * Creates a new instance of CompositeTransferable

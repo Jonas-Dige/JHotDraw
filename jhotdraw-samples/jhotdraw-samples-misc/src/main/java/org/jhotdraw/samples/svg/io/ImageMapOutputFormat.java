@@ -61,12 +61,12 @@ public class ImageMapOutputFormat implements OutputFormat {
      * to create scaled image maps.
      */
     private AffineTransform drawingTransform = new AffineTransform();
-    private static boolean DEBUG = true;
+    private static final boolean DEBUG = true;
     /**
      * Set this to true, if AREA elements with <code>nohref="true"</code>
      * shall e included in the image map.
      */
-    private boolean isIncludeNohref = false;
+    private final boolean isIncludeNohref = false;
     /**
      * Image dimension. We only include AREA elements which are within the
      * image dimension.
@@ -213,7 +213,7 @@ public class ImageMapOutputFormat implements OutputFormat {
         } else if (f instanceof SVGPathFigure) {
             SVGPathFigure path = (SVGPathFigure) f;
             if (path.getChildCount() == 1) {
-                BezierFigure bezier = (BezierFigure) path.getChild(0);
+                BezierFigure bezier = path.getChild(0);
                 boolean isLinear = true;
                 for (int i = 0, n = bezier.getNodeCount(); i < n; i++) {
                     if (bezier.getNode(i).getMask() != 0) {
@@ -281,7 +281,7 @@ public class ImageMapOutputFormat implements OutputFormat {
             writeHrefAttribute(elem, f);
             return bounds.intersects(ellipse.getBounds());
         } else {
-            return writePolyAttributes(elem, f, (Shape) ellipse);
+            return writePolyAttributes(elem, f, ellipse);
         }
     }
 
@@ -319,7 +319,7 @@ public class ImageMapOutputFormat implements OutputFormat {
             writeHrefAttribute(elem, f);
             return bounds.intersects(r);
         } else {
-            return writePolyAttributes(elem, f, (Shape) rect);
+            return writePolyAttributes(elem, f, rect);
         }
     }
 

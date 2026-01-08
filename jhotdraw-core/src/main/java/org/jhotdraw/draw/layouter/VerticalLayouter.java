@@ -38,7 +38,7 @@ public class VerticalLayouter extends AbstractLayouter {
     /**
      * This alignment is used, when
      */
-    private Alignment defaultAlignment = Alignment.BLOCK;
+    private final Alignment defaultAlignment = Alignment.BLOCK;
 
     @Override
     public Rectangle2D.Double calculateLayout(CompositeFigure layoutable, Point2D.Double anchor, Point2D.Double lead) {

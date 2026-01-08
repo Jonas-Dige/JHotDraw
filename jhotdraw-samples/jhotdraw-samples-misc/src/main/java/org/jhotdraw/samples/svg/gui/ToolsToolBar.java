@@ -205,7 +205,7 @@ public class ToolsToolBar extends AbstractToolBar {
 
     private static class SelectionToolButtonHandler extends MouseAdapter {
 
-        private DrawingEditor editor;
+        private final DrawingEditor editor;
         private boolean wasSelectedOnPressed = false;
 
         public SelectionToolButtonHandler(DrawingEditor editor) {

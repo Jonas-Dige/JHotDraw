@@ -52,7 +52,7 @@ public class LabeledLineConnectionFigure extends LineConnectionFigure
     private static class ChildHandler extends FigureAdapter implements UndoableEditListener, Serializable {
 
         private static final long serialVersionUID = 1L;
-        private LabeledLineConnectionFigure owner;
+        private final LabeledLineConnectionFigure owner;
 
         private ChildHandler(LabeledLineConnectionFigure owner) {
             this.owner = owner;
@@ -83,7 +83,7 @@ public class LabeledLineConnectionFigure extends LineConnectionFigure
         public void undoableEditHappened(UndoableEditEvent e) {
             owner.fireUndoableEditHappened(e.getEdit());
         }
-    };
+    }
 
     /**
      * Creates a new instance.

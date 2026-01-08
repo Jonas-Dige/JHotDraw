@@ -59,9 +59,7 @@ public class ResourceBundleUtil implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private static final HashSet<String> ACCELERATOR_KEYS = new HashSet<String>(
-            Arrays.asList(new String[]{
-        "shift", "control", "ctrl", "meta", "alt", "altGraph"
-    }));
+            Arrays.asList("shift", "control", "ctrl", "meta", "alt", "altGraph"));
     /**
      * The wrapped resource bundle.
      */
@@ -69,7 +67,7 @@ public class ResourceBundleUtil implements Serializable {
     /**
      * The locale.
      */
-    private Locale locale;
+    private final Locale locale;
     /**
      * The base class
      */
@@ -77,7 +75,7 @@ public class ResourceBundleUtil implements Serializable {
     /**
      * The base name of the resource bundle.
      */
-    private String baseName;
+    private final String baseName;
     /**
      * The global verbose property.
      */
@@ -87,7 +85,7 @@ public class ResourceBundleUtil implements Serializable {
      * The key of this map is the name of the property name modifier,
      * the value of this map is a fallback chain.
      */
-    private static HashMap<String, String[]> propertyNameModifiers = new HashMap<String, String[]>();
+    private static final HashMap<String, String[]> propertyNameModifiers = new HashMap<String, String[]>();
 
     static {
         String osName = System.getProperty("os.name").toLowerCase();
@@ -408,7 +406,7 @@ public class ResourceBundleUtil implements Serializable {
         KeyStroke ks = null;
         try {
             String s = getStringRecursive(key);
-            ks = (s == null) ? (KeyStroke) null : KeyStroke.getKeyStroke(s);
+            ks = (s == null) ? null : KeyStroke.getKeyStroke(s);
         } catch (NoSuchElementException e) {
             // empty allowed
         }
@@ -428,7 +426,7 @@ public class ResourceBundleUtil implements Serializable {
         try {
             String s;
             s = getStringRecursive(key + ".accelerator");
-            ks = (s == null) ? (KeyStroke) null : KeyStroke.getKeyStroke(s);
+            ks = (s == null) ? null : KeyStroke.getKeyStroke(s);
         } catch (MissingResourceException e) {
             if (isVerbose) {
                 System.err.println("Warning ResourceBundleUtil[" + baseName + "] \"" + key + ".accelerator\" not found.");

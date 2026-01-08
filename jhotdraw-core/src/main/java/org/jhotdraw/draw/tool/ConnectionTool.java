@@ -62,7 +62,7 @@ public class ConnectionTool extends AbstractTool {
      * These attributes override the default attributes of the
      * DrawingEditor.
      */
-    private Map<AttributeKey<?>, Object> prototypeAttributes;
+    private final Map<AttributeKey<?>, Object> prototypeAttributes;
     /**
      * The Connector at the start point of the connection.
      */
@@ -89,7 +89,7 @@ public class ConnectionTool extends AbstractTool {
      * A localized name for this tool. The presentationName is displayed by the
      * UndoableEdit.
      */
-    private String presentationName;
+    private final String presentationName;
     /**
      * If this is set to false, the CreationTool does not fire toolDone
      * after a new Figure has been created. This allows to create multiple
@@ -126,8 +126,7 @@ public class ConnectionTool extends AbstractTool {
         try {
             this.prototype = (ConnectionFigure) Class.forName(prototypeClassName).newInstance();
         } catch (Exception e) {
-            InternalError error = new InternalError("Unable to create ConnectionFigure from " + prototypeClassName);
-            error.initCause(e);
+            InternalError error = new InternalError("Unable to create ConnectionFigure from " + prototypeClassName, e);
             throw error;
         }
         this.prototypeAttributes = attributes;

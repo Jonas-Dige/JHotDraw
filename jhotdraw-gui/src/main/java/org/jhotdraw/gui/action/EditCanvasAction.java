@@ -33,7 +33,7 @@ public class EditCanvasAction extends AbstractDrawingViewAction {
     private JFrame frame;
     private EditCanvasPanel settingsPanel;
     private PropertyChangeListener propertyChangeHandler;
-    private Application app;
+    private final Application app;
 
     /**
      * Creates a new instance.

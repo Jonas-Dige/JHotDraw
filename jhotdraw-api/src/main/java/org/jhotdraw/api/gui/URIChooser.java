@@ -30,52 +30,52 @@ public interface URIChooser {
      * Type value indicating that the {@code URIChooser} supports an
      * "Open" file operation.
      */
-    public static final int OPEN_DIALOG = JFileChooser.OPEN_DIALOG;
+    int OPEN_DIALOG = JFileChooser.OPEN_DIALOG;
     /**
      * Type value indicating that the {@code URIChooser} supports a
      * "Save" file operation.
      */
-    public static final int SAVE_DIALOG = JFileChooser.SAVE_DIALOG;
+    int SAVE_DIALOG = JFileChooser.SAVE_DIALOG;
     /**
      * Type value indicating that the {@code URIChooser} supports a
      * developer-specified file operation.
      */
-    public static final int CUSTOM_DIALOG = JFileChooser.CUSTOM_DIALOG;
+    int CUSTOM_DIALOG = JFileChooser.CUSTOM_DIALOG;
     // ********************************
     // ***** Dialog Return Values *****
     // ********************************
     /**
      * Return value if cancel is chosen.
      */
-    public static final int CANCEL_OPTION = JFileChooser.CANCEL_OPTION;
+    int CANCEL_OPTION = JFileChooser.CANCEL_OPTION;
     /**
      * Return value if approve (yes, ok) is chosen.
      */
-    public static final int APPROVE_OPTION = JFileChooser.APPROVE_OPTION;
+    int APPROVE_OPTION = JFileChooser.APPROVE_OPTION;
     /**
      * Return value if an error occured.
      */
-    public static final int ERROR_OPTION = JFileChooser.ERROR_OPTION;
+    int ERROR_OPTION = JFileChooser.ERROR_OPTION;
     // **********************************
     // ***** URIChooser properties *****
     // **********************************
     /**
      * Instruction to cancel the current selection.
      */
-    public static final String CANCEL_SELECTION = JFileChooser.CANCEL_SELECTION;
+    String CANCEL_SELECTION = JFileChooser.CANCEL_SELECTION;
     /**
      * Instruction to approve the current selection
      * (same as pressing yes or ok).
      */
-    public static final String APPROVE_SELECTION = JFileChooser.APPROVE_SELECTION;
+    String APPROVE_SELECTION = JFileChooser.APPROVE_SELECTION;
     /**
      * Identifies a change in the selected URI.
      */
-    public static final String SELECTED_URI_PROPERTY = "selectedURI";
+    String SELECTED_URI_PROPERTY = "selectedURI";
     /**
      * Identifies a change in the dialog title.
      */
-    public static final String DIALOG_TITLE_PROPERTY = JFileChooser.DIALOG_TITLE_CHANGED_PROPERTY;
+    String DIALOG_TITLE_PROPERTY = JFileChooser.DIALOG_TITLE_CHANGED_PROPERTY;
 
     /**
      * Returns the selected URI.
@@ -83,14 +83,14 @@ public interface URIChooser {
      * @see #setSelectedURI
      * @return the selected uri
      */
-    public URI getSelectedURI();
+    URI getSelectedURI();
 
     /**
      * Sets the selected URI.
      *
      * @param uri the selected uri
      */
-    public void setSelectedURI(URI uri);
+    void setSelectedURI(URI uri);
 
     /**
      * Returns the type of this dialog. The default is
@@ -105,7 +105,7 @@ public interface URIChooser {
      *
      * @see #setDialogType
      */
-    public int getDialogType();
+    int getDialogType();
 
     /**
      * Sets the type of this dialog. Use {@code OPEN_DIALOG} when you
@@ -133,7 +133,7 @@ public interface URIChooser {
      * @see #getDialogType
      * @see #setApproveButtonText
      */
-    public void setDialogType(int dialogType);
+    void setDialogType(int dialogType);
 
     /**
      * Returns the text used in the {@code ApproveButton} .
@@ -147,7 +147,7 @@ public interface URIChooser {
      * @see #setDialogType
      * @see #showDialog
      */
-    public String getApproveButtonText();
+    String getApproveButtonText();
 
     /**
      * Sets the text used in the {@code ApproveButton} in the
@@ -158,7 +158,7 @@ public interface URIChooser {
      * @see #getApproveButtonText
      * @see #setDialogType
      */
-    public void setApproveButtonText(String approveButtonText);
+    void setApproveButtonText(String approveButtonText);
 
     /**
      * Returns the approve button's mnemonic.
@@ -167,7 +167,7 @@ public interface URIChooser {
      *
      * @see #setApproveButtonMnemonic
      */
-    public int getApproveButtonMnemonic();
+    int getApproveButtonMnemonic();
 
     /**
      * Sets the approve button's mnemonic using a numeric keycode.
@@ -176,7 +176,7 @@ public interface URIChooser {
      *
      * @see #getApproveButtonMnemonic
      */
-    public void setApproveButtonMnemonic(int mnemonic);
+    void setApproveButtonMnemonic(int mnemonic);
 
     /**
      * Returns the component of the URIChooser.
@@ -185,14 +185,14 @@ public interface URIChooser {
      *
      * @return The component.
      */
-    public JComponent getComponent();
+    JComponent getComponent();
 
     /**
      * Adds an {@code ActionListener} to the chooser.
      *
      * @param l the listener to be added
      */
-    public void addActionListener(ActionListener l);
+    void addActionListener(ActionListener l);
 
     /**
      * Removes an {@code ActionListener} from the chooser.
@@ -201,7 +201,7 @@ public interface URIChooser {
      *
      * @see #addActionListener
      */
-    public void removeActionListener(ActionListener l);
+    void removeActionListener(ActionListener l);
 
     /**
      * Sets the string that goes in the {@code URIChooser} window's
@@ -212,19 +212,19 @@ public interface URIChooser {
      * @see #getDialogTitle
      *
      */
-    public void setDialogTitle(String dialogTitle);
+    void setDialogTitle(String dialogTitle);
 
     /**
      * Gets the string that goes in the {@code URIChooser} 's titlebar.
      *
      * @see #setDialogTitle
      */
-    public String getDialogTitle();
+    String getDialogTitle();
 
     /**
      * Tells the UI to rescan its files list from the current directory.
      */
-    public void rescanCurrentDirectory();
+    void rescanCurrentDirectory();
 
     // **************************************
     // ***** URIChooser Dialog methods *****
@@ -249,7 +249,7 @@ public interface URIChooser {
      * @see java.awt.GraphicsEnvironment#isHeadless
      * @see #showDialog
      */
-    public int showOpenDialog(Component parent) throws HeadlessException;
+    int showOpenDialog(Component parent) throws HeadlessException;
 
     /**
      * Pops up a "Save File" file chooser dialog. Note that the
@@ -271,7 +271,7 @@ public interface URIChooser {
      * @see java.awt.GraphicsEnvironment#isHeadless
      * @see #showDialog
      */
-    public int showSaveDialog(Component parent) throws HeadlessException;
+    int showSaveDialog(Component parent) throws HeadlessException;
 
     /**
      * Pops a custom file chooser dialog with a custom approve button.
@@ -327,5 +327,5 @@ public interface URIChooser {
      * returns true.
      * @see java.awt.GraphicsEnvironment#isHeadless
      */
-    public int showDialog(Component parent, String approveButtonText) throws HeadlessException;
+    int showDialog(Component parent, String approveButtonText) throws HeadlessException;
 }

@@ -140,7 +140,7 @@ public class SVGCreateFromFileTool extends CreationTool {
                         }
                     }
 
-                    protected void failed(Throwable t) {
+                    private void failed(Throwable t) {
                         JOptionPane.showMessageDialog(v.getComponent(),
                                 t.getMessage(),
                                 null,
@@ -182,7 +182,7 @@ public class SVGCreateFromFileTool extends CreationTool {
                         
                     }
 
-                    protected void failed(Throwable t) {
+                    private void failed(Throwable t) {
                         JOptionPane.showMessageDialog(v.getComponent(),
                                 t.getMessage(),
                                 null,

@@ -19,8 +19,8 @@ import javax.swing.text.*;
 public class NumberedParagraphView extends ParagraphView {
 
     public static final short NUMBERS_WIDTH = 30;
-    private static Font numberFont = new Font("Dialog", Font.PLAIN, 10);
-    private NumberedViewFactory viewFactory;
+    private static final Font numberFont = new Font("Dialog", Font.PLAIN, 10);
+    private final NumberedViewFactory viewFactory;
 
     public NumberedParagraphView(Element e, NumberedViewFactory viewFactory) {
         super(e);

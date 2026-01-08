@@ -24,9 +24,9 @@ import org.jhotdraw.draw.*;
 public class DrawingColorIcon extends javax.swing.ImageIcon {
 
     private static final long serialVersionUID = 1L;
-    private DrawingEditor editor;
-    private AttributeKey<Color> key;
-    private Shape colorShape;
+    private final DrawingEditor editor;
+    private final AttributeKey<Color> key;
+    private final Shape colorShape;
 
     /**
      * Creates a new instance.

@@ -22,7 +22,7 @@ import org.jhotdraw.util.ActionUtil;
 public class ToggleVisibleAction extends AbstractAction {
 
     private static final long serialVersionUID = 1L;
-    private Component component;
+    private final Component component;
 
     /**
      * Creates a new instance.

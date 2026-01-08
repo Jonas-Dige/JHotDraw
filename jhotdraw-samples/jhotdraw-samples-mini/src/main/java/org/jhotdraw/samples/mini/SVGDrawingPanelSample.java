@@ -139,14 +139,14 @@ public class SVGDrawingPanelSample extends javax.swing.JFrame {
                     finished();
                 }
 
-                protected void failed(Throwable error) {
+                private void failed(Throwable error) {
                     error.printStackTrace();
                     JOptionPane.showMessageDialog(SVGDrawingPanelSample.this,
                             "<html><b>Couldn't open file \"" + selectedFile.getName() + "\"<br>"
-                            + error.toString(), "Open File", JOptionPane.ERROR_MESSAGE);
+                            + error, "Open File", JOptionPane.ERROR_MESSAGE);
                 }
 
-                protected void finished() {
+                private void finished() {
                     svgPanel.setEnabled(true);
                 }
             }.execute();
@@ -184,14 +184,14 @@ public class SVGDrawingPanelSample extends javax.swing.JFrame {
                     finished();
                 }
 
-                protected void failed(Throwable error) {
+                private void failed(Throwable error) {
                     error.printStackTrace();
                     JOptionPane.showMessageDialog(SVGDrawingPanelSample.this,
                             "<html><b>Couldn't save to file \"" + selectedFile.getName() + "\"<br>"
-                            + error.toString(), "Save As File", JOptionPane.ERROR_MESSAGE);
+                            + error, "Save As File", JOptionPane.ERROR_MESSAGE);
                 }
 
-                protected void finished() {
+                private void finished() {
                     svgPanel.setEnabled(true);
                 }
             }.execute();
@@ -262,7 +262,7 @@ public class SVGDrawingPanelSample extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

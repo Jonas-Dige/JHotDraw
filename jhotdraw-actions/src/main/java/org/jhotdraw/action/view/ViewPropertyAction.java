@@ -23,12 +23,12 @@ import org.jhotdraw.util.ActionUtil;
 public class ViewPropertyAction extends AbstractViewAction {
 
     private static final long serialVersionUID = 1L;
-    private String propertyName;
-    private Class<?>[] parameterClass;
-    private Object propertyValue;
-    private String setterName;
-    private String getterName;
-    private PropertyChangeListener viewListener = new PropertyChangeListener() {
+    private final String propertyName;
+    private final Class<?>[] parameterClass;
+    private final Object propertyValue;
+    private final String setterName;
+    private final String getterName;
+    private final PropertyChangeListener viewListener = new PropertyChangeListener() {
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             if (propertyName.equals(evt.getPropertyName())) { // Strings get interned
@@ -61,10 +61,9 @@ public class ViewPropertyAction extends AbstractViewAction {
     public void actionPerformed(ActionEvent evt) {
         View p = getActiveView();
         try {
-            p.getClass().getMethod(setterName, parameterClass).invoke(p, new Object[]{propertyValue});
+            p.getClass().getMethod(setterName, parameterClass).invoke(p, propertyValue);
         } catch (Throwable e) {
-            InternalError error = new InternalError("Method invocation failed. setter:" + setterName + " object:" + p);
-            error.initCause(e);
+            InternalError error = new InternalError("Method invocation failed. setter:" + setterName + " object:" + p, e);
             throw error;
         }
     }
@@ -92,11 +91,9 @@ public class ViewPropertyAction extends AbstractViewAction {
             try {
                 Object value = p.getClass().getMethod(getterName, (Class[]) null).invoke(p);
                 isSelected = value == propertyValue
-                        || value != null && propertyValue != null
-                        && value.equals(propertyValue);
+                        || value != null && value.equals(propertyValue);
             } catch (Throwable e) {
-                InternalError error = new InternalError("Method invocation failed. getter:" + getterName + " object:" + p);
-                error.initCause(e);
+                InternalError error = new InternalError("Method invocation failed. getter:" + getterName + " object:" + p, e);
                 throw error;
             }
         }

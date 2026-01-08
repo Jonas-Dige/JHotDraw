@@ -33,8 +33,8 @@ public class ArrangeWindowsAction extends AbstractAction {
     public static final String VERTICAL_ID = "window.arrangeVertical";
     public static final String HORIZONTAL_ID = "window.arrangeHorizontal";
     public static final String CASCADE_ID = "window.arrangeCascade";
-    private Arrangeable arrangeable;
-    private Arrangeable.Arrangement arrangement;
+    private final Arrangeable arrangeable;
+    private final Arrangeable.Arrangement arrangement;
 
     /**
      * Creates a new instance.

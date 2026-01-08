@@ -637,7 +637,7 @@ public class OSXApplication extends AbstractApplication {
      */
     private class WindowMenuHandler implements PropertyChangeListener, Disposable {
 
-        private JMenu windowMenu;
+        private final JMenu windowMenu;
         private View view;
 
         public WindowMenuHandler(JMenu windowMenu, View view) {
@@ -699,8 +699,8 @@ public class OSXApplication extends AbstractApplication {
      */
     private class FrameHandler extends WindowAdapter implements PropertyChangeListener, Disposable {
 
-        private JFrame frame;
-        private View view;
+        private final JFrame frame;
+        private final View view;
 
         public FrameHandler(JFrame frame, View view) {
             this.frame = frame;
