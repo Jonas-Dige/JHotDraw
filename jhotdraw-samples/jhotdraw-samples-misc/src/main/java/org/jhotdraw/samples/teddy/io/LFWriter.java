@@ -86,7 +86,7 @@ public class LFWriter extends FilterWriter {
      * @exception IOException If an I/O error occurs
      */
     @Override
-    public void write(char cbuf[], int off, int len) throws IOException {
+    public void write(char[] cbuf, int off, int len) throws IOException {
         int end = off + len;
         for (int i = off; i < end; i++) {
             switch (cbuf[i]) {

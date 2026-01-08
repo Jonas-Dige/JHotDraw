@@ -22,9 +22,9 @@ import javax.swing.plaf.basic.*;
  */
 public class ToolBarPrefsHandler implements ComponentListener, AncestorListener {
 
-    private JToolBar toolbar;
-    private String prefsPrefix;
-    private Preferences prefs;
+    private final JToolBar toolbar;
+    private final String prefsPrefix;
+    private final Preferences prefs;
 
     public ToolBarPrefsHandler(JToolBar toolbar, String prefsPrefix, Preferences prefs) {
         this.toolbar = toolbar;

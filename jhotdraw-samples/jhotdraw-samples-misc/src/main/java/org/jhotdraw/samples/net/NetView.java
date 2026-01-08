@@ -53,13 +53,13 @@ public class NetView extends AbstractView {
      * Each NetView uses its own undo redo manager.
      * This allows for undoing and redoing actions per view.
      */
-    private UndoRedoManager undo;
+    private final UndoRedoManager undo;
     /**
      * Depending on the type of an application, there may be one editor per
      * view, or a single shared editor for all views.
      */
     private DrawingEditor editor;
-    private AbstractButton toggleGridButton;
+    private final AbstractButton toggleGridButton;
 
     /**
      * Creates a new view.

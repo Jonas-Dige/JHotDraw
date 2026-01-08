@@ -23,7 +23,7 @@ import org.jhotdraw.draw.decoration.LineDecoration;
  */
 public class LineDecorationIcon implements Icon {
 
-    private LineFigure lineFigure;
+    private final LineFigure lineFigure;
 
     /**
      * Creates a new instance.

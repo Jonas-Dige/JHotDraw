@@ -32,8 +32,8 @@ import org.jhotdraw.draw.tool.Tool;
 public class ToolEvent extends EventObject {
 
     private static final long serialVersionUID = 1L;
-    private Rectangle invalidatedArea;
-    private DrawingView view;
+    private final Rectangle invalidatedArea;
+    private final DrawingView view;
 
     /**
      * Creates a new instance.

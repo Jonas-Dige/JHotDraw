@@ -21,15 +21,14 @@ import org.jhotdraw.util.Images;
  */
 public class ImageTransferable implements Transferable {
 
-    private Image image;
+    private final Image image;
     public static final DataFlavor IMAGE_PNG_FLAVOR;
 
     static {
         try {
             IMAGE_PNG_FLAVOR = new DataFlavor("image/png");
         } catch (Exception e) {
-            InternalError error = new InternalError("Unable to crate image/png data flavor");
-            error.initCause(e);
+            InternalError error = new InternalError("Unable to crate image/png data flavor", e);
             throw error;
         }
     }

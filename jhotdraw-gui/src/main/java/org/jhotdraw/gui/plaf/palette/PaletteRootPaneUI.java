@@ -21,7 +21,7 @@ import javax.swing.plaf.basic.BasicRootPaneUI;
  */
 public class PaletteRootPaneUI extends BasicRootPaneUI {
 
-    private static RootPaneUI rootPaneUI = new PaletteRootPaneUI();
+    private static final RootPaneUI rootPaneUI = new PaletteRootPaneUI();
 
     public static ComponentUI createUI(JComponent c) {
         return rootPaneUI;
@@ -49,7 +49,7 @@ public class PaletteRootPaneUI extends BasicRootPaneUI {
     protected static class PaletteRootLayout implements LayoutManager2, Serializable {
 
         private static final long serialVersionUID = 1L;
-        private JRootPane rootPane;
+        private final JRootPane rootPane;
 
         public PaletteRootLayout(JRootPane rootPane) {
             this.rootPane = rootPane;

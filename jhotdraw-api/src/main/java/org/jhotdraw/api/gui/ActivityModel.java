@@ -35,68 +35,68 @@ import javax.swing.*;
  */
 public interface ActivityModel extends BoundedRangeModel {
 
-    public static final String INDETERMINATE_PROPERTY = "indeterminate";
-    public static final String NOTE_PROPERTY = "note";
-    public static final String WARNING_PROPERTY = "warning";
-    public static final String ERROR_PROPERTY = "error";
-    public static final String CANCELABLE_PROPERTY = "cancelable";
-    public static final String CANCELED_PROPERTY = "canceled";
-    public static final String CLOSED_PROPERTY = "closed";
+    String INDETERMINATE_PROPERTY = "indeterminate";
+    String NOTE_PROPERTY = "note";
+    String WARNING_PROPERTY = "warning";
+    String ERROR_PROPERTY = "error";
+    String CANCELABLE_PROPERTY = "cancelable";
+    String CANCELED_PROPERTY = "canceled";
+    String CLOSED_PROPERTY = "closed";
 
     /**
      * Gets the owner of the progress model. This is typically a {@link org.jhotdraw.api.app.View}
      * or a {@link org.jhotdraw.api.app.Application}.
      */
-    public Object getOwner();
+    Object getOwner();
 
     /**
      * Set cancelable to false if the operation can not be canceled.
      */
-    public void setCancelable(boolean b);
+    void setCancelable(boolean b);
 
     /**
      * Returns true if the operation can be canceled.
      */
-    public boolean isCancelable();
+    boolean isCancelable();
 
     /**
      * The specified Runnable is executed when the user presses
      * the cancel button.
      */
-    public void setDoCancel(Runnable doCancel);
+    void setDoCancel(Runnable doCancel);
 
     /**
      * Sets the progress observer to indeterminate.
      */
-    public void setIndeterminate(boolean newValue);
+    void setIndeterminate(boolean newValue);
 
     /**
      * Returns true if the progress observer is set to indeterminate.
      */
-    public boolean isIndeterminate();
+    boolean isIndeterminate();
 
     /**
      * Indicate that the operation is closed.
      * If the progress model added itself to the {@code ActivityManager}
      * it MUST remove itself now.
      */
-    public void close();
+    void close();
 
     /**
      * Returns true if the operation is completed.
      */
-    public boolean isClosed();
+    boolean isClosed();
 
     /**
      * Cancels the operation.
      * This method must be invoked from the user event dispatch thread.
      */
-    public void cancel();
+    void cancel();
 
     /**
      * Returns true if the user has hit the Cancel button in the progress dialog.
      */
-    public boolean isCanceled();
+    boolean isCanceled();
 
     /**
      * Specifies the additional note that is displayed along with the
@@ -111,7 +111,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * @param note a String specifying the note to display
      * @see #getNote
      */
-    public void setNote(String note);
+    void setNote(String note);
 
     /**
      * Sets a formatted note.
@@ -121,7 +121,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * ensure that the note is displayed on the screen before they let the
      * activity model continue.
      */
-    public void printf(String format, Object... args);
+    void printf(String format, Object... args);
 
     /**
      * Specifies the additional note that is displayed along with the
@@ -130,7 +130,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * @return a String specifying the note to display
      * @see #setNote
      */
-    public String getNote();
+    String getNote();
 
     /**
      * Specifies the additional warning message that is displayed along with the
@@ -141,7 +141,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * if there is no warning.
      * @see #getWarning
      */
-    public void setWarning(String message);
+    void setWarning(String message);
 
     /**
      * Specifies the warning message that is displayed along with the
@@ -150,7 +150,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * @return a String specifying the message to display, or null if
      * there is no warning.
      */
-    public String getWarning();
+    String getWarning();
 
     /**
      * Specifies the additional error message that is displayed along with the
@@ -161,7 +161,7 @@ public interface ActivityModel extends BoundedRangeModel {
      * if there is no error.
      * @see #getWarning
      */
-    public void setError(String message);
+    void setError(String message);
 
     /**
      * Specifies the error message that is displayed along with the
@@ -170,20 +170,20 @@ public interface ActivityModel extends BoundedRangeModel {
      * @return a String specifying the message to display, or null if
      * there is no error.
      */
-    public String getError();
+    String getError();
 
     /**
      * Adds a property change listener.
      */
-    public void addPropertyChangeListener(PropertyChangeListener listener);
+    void addPropertyChangeListener(PropertyChangeListener listener);
 
     /**
      * Removes a property change listener.
      */
-    public void removePropertyChangeListener(PropertyChangeListener listener);
+    void removePropertyChangeListener(PropertyChangeListener listener);
 
     /**
      * Returns the title of the progress model.
      */
-    public String getTitle();
+    String getTitle();
 }

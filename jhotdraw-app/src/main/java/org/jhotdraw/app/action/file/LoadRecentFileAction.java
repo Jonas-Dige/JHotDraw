@@ -63,7 +63,7 @@ public class LoadRecentFileAction extends AbstractSaveUnsavedChangesAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.loadRecent";
-    private URI uri;
+    private final URI uri;
 
     /**
      * Creates a new instance.
@@ -158,7 +158,7 @@ public class LoadRecentFileAction extends AbstractSaveUnsavedChangesAction {
                 finished();
             }
 
-            protected void failed(Throwable error) {
+            private void failed(Throwable error) {
                 error.printStackTrace();
                 ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
                 JSheet.showMessageSheet(view.getComponent(),
@@ -173,7 +173,7 @@ public class LoadRecentFileAction extends AbstractSaveUnsavedChangesAction {
                 });
             }
 
-            protected void finished() {
+            private void finished() {
                 view.setEnabled(true);
             }
         }.execute();

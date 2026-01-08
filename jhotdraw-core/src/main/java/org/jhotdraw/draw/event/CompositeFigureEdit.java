@@ -24,7 +24,7 @@ import org.jhotdraw.undo.CompositeEdit;
 public class CompositeFigureEdit extends CompositeEdit {
 
     private static final long serialVersionUID = 1L;
-    private Figure figure;
+    private final Figure figure;
 
     /**
      * Creates a new {@code CompositeFigureEdit} which uses

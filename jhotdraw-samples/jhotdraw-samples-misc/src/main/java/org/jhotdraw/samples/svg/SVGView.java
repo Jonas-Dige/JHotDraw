@@ -48,7 +48,7 @@ public class SVGView extends AbstractView {
      * Each SVGView uses its own undo redo manager.
      * This allows for undoing and redoing actions per view.
      */
-    private UndoRedoManager undo;
+    private final UndoRedoManager undo;
     private PropertyChangeListener propertyHandler;
 
     /**
@@ -187,8 +187,7 @@ public class SVGView extends AbstractView {
             e.initCause(e);
             throw error;
         } catch (InvocationTargetException e) {
-            InternalError error = new InternalError();
-            error.initCause(e);
+            InternalError error = new InternalError(e);
             throw error;
         }
     }

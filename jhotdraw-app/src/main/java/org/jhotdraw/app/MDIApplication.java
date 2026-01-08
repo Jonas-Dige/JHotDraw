@@ -608,8 +608,8 @@ public class MDIApplication extends AbstractApplication {
      */
     private class WindowMenuHandler implements PropertyChangeListener {
 
-        private JMenu windowMenu;
-        private View view;
+        private final JMenu windowMenu;
+        private final View view;
 
         public WindowMenuHandler(JMenu windowMenu, View view) {
             this.windowMenu = windowMenu;

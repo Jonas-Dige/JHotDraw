@@ -30,8 +30,8 @@ import org.jhotdraw.beans.WeakPropertyChangeListener;
 public abstract class AbstractViewAction extends AbstractAction {
 
     private static final long serialVersionUID = 1L;
-    private Application app;
-    private View view;
+    private final Application app;
+    private final View view;
     private String propertyName;
     /**
      * Set this to true if the action may create a new view if none exists.
@@ -44,7 +44,7 @@ public abstract class AbstractViewAction extends AbstractAction {
      * the enabled state of the view and the application.
      */
     private boolean combinedEnabled = true;
-    private PropertyChangeListener applicationListener = new PropertyChangeListener() {
+    private final PropertyChangeListener applicationListener = new PropertyChangeListener() {
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             if ((evt.getPropertyName() == null && Application.ACTIVE_VIEW_PROPERTY == null) || (evt.getPropertyName() != null && evt.getPropertyName().equals(Application.ACTIVE_VIEW_PROPERTY))) { // Strings get interned
@@ -52,7 +52,7 @@ public abstract class AbstractViewAction extends AbstractAction {
             }
         }
     };
-    private PropertyChangeListener viewListener = new PropertyChangeListener() {
+    private final PropertyChangeListener viewListener = new PropertyChangeListener() {
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             String name = evt.getPropertyName();

@@ -96,8 +96,9 @@ public class ColorFormatter extends DefaultFormatter {
         RGB_PERCENTAGE,
         HSB_PERCENTAGE,
         GRAY_PERCENTAGE,
-        CMYK_PERCENTAGE;
-    };
+        CMYK_PERCENTAGE
+    }
+
     /**
      * Specifies the preferred output format.
      */
@@ -349,9 +350,7 @@ public class ColorFormatter extends DefaultFormatter {
             setLastUsedInputFormat(Format.GRAY_PERCENTAGE);
             try {
                 return ColorUtil.toColor(ColorSpace.getInstance(ColorSpace.CS_GRAY),
-                        new float[]{
-                            matcher.group(1) == null ? 0f : numberFormat.parse(matcher.group(1)).floatValue() / 100f}
-                );
+                        matcher.group(1) == null ? 0f : numberFormat.parse(matcher.group(1)).floatValue() / 100f);
             } catch (NumberFormatException nfe) {
                 ParseException pe = new ParseException(str, 0);
                 pe.initCause(nfe);
@@ -405,7 +404,7 @@ public class ColorFormatter extends DefaultFormatter {
                     str = "rgb " + c.getRed() + " " + c.getGreen() + " " + c.getBlue();
                     break;
                 case RGB_PERCENTAGE:
-                    str = "rgb% " + numberFormat.format(c.getRed() / 255f) + " " + numberFormat.format(c.getGreen() / 255f) + " " + numberFormat.format(c.getBlue() / 255f) + "";
+                    str = "rgb% " + numberFormat.format(c.getRed() / 255f) + " " + numberFormat.format(c.getGreen() / 255f) + " " + numberFormat.format(c.getBlue() / 255f);
                     break;
                 case HSB_PERCENTAGE: 
                     float[] components;
@@ -416,7 +415,7 @@ public class ColorFormatter extends DefaultFormatter {
                     }
                     str = "hsb " + numberFormat.format(components[0] * 360) + " "
                             + numberFormat.format(components[1] * 100) + " "
-                            + numberFormat.format(components[2] * 100) + "";
+                            + numberFormat.format(components[2] * 100);
                     break;
                 case GRAY_PERCENTAGE: 
                     if (c.getColorSpace().getType() == ColorSpace.TYPE_GRAY) {
@@ -424,7 +423,7 @@ public class ColorFormatter extends DefaultFormatter {
                     } else {
                         components = c.getColorComponents(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
                     }
-                    str = "gray " + numberFormat.format(components[0] * 100) + "";
+                    str = "gray " + numberFormat.format(components[0] * 100);
                     break;
             }
         }

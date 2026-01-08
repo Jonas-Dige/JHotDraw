@@ -35,7 +35,7 @@ public class JNLPClipboard extends AbstractClipboard {
     /**
      * The proxy target.
      */
-    private Object target;
+    private final Object target;
 
     /**
      * Creates a new proxy for the specified target object.
@@ -60,8 +60,7 @@ public class JNLPClipboard extends AbstractClipboard {
         try {
             return (Transferable) target.getClass().getMethod("getContents").invoke(target);
         } catch (Exception ex) {
-            InternalError error = new InternalError("Failed to invoke getContents() on " + target);
-            error.initCause(ex);
+            InternalError error = new InternalError("Failed to invoke getContents() on " + target, ex);
             throw error;
         }
     }
@@ -71,8 +70,7 @@ public class JNLPClipboard extends AbstractClipboard {
         try {
             target.getClass().getMethod("setContents", Transferable.class).invoke(target, contents);
         } catch (Exception ex) {
-            InternalError error = new InternalError("Failed to invoke setContents(Transferable) on " + target);
-            error.initCause(ex);
+            InternalError error = new InternalError("Failed to invoke setContents(Transferable) on " + target, ex);
             throw error;
         }
     }

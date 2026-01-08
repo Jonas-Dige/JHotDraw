@@ -27,8 +27,8 @@ import org.jhotdraw.util.ResourceBundleUtil;
 public class DefaultAttributeAction extends AbstractSelectedAction {
 
     private static final long serialVersionUID = 1L;
-    private AttributeKey<?>[] keys;
-    private Map<AttributeKey<?>, Object> fixedAttributes;
+    private final AttributeKey<?>[] keys;
+    private final Map<AttributeKey<?>, Object> fixedAttributes;
 
     /**
      * Creates a new instance.

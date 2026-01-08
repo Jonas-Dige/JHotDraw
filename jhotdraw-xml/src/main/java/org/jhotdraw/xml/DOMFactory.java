@@ -45,12 +45,12 @@ public interface DOMFactory {
     /**
      * Returns the element name for the specified object.
      */
-    public String getName(Object o);
+    String getName(Object o);
 
     /**
      * Creates an object from the specified element name.
      */
-    public Object create(String name);
+    Object create(String name);
 
     /**
      * Writes the specified object to DOMOutput.
@@ -60,7 +60,7 @@ public interface DOMFactory {
      *
      * @param object The object to be written.
      */
-    public void write(DOMOutput out, Object object) throws IOException;
+    void write(DOMOutput out, Object object) throws IOException;
 
     /**
      * Reads the specified object from {@code DOMInput}.
@@ -74,5 +74,5 @@ public interface DOMFactory {
      * @param in The {@code DOMInput} object which creates the object from an element
      * in a DOM.
      */
-    public Object read(DOMInput in) throws IOException;
+    Object read(DOMInput in) throws IOException;
 }

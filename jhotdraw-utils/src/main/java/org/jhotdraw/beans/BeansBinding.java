@@ -46,8 +46,7 @@ public class BeansBinding {
                         try {
                             getTargetWriteMethod().invoke(target, evt.getNewValue());
                         } catch (Exception ex) {
-                            InternalError ie = new InternalError("Could not set property \"" + targetProperty + "\" on " + target);
-                            ie.initCause(ex);
+                            InternalError ie = new InternalError("Could not set property \"" + targetProperty + "\" on " + target, ex);
                             throw ie;
                         }
                     }
@@ -58,8 +57,7 @@ public class BeansBinding {
                         try {
                             getSourceWriteMethod().invoke(source, evt.getNewValue());
                         } catch (Exception ex) {
-                            InternalError ie = new InternalError("Could not set property \"" + targetProperty + "\" on " + target);
-                            ie.initCause(ex);
+                            InternalError ie = new InternalError("Could not set property \"" + targetProperty + "\" on " + target, ex);
                             throw ie;
                         }
                     }
@@ -67,7 +65,7 @@ public class BeansBinding {
             }
         }
     }
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
     /**
      * Creates a bidirectional binding from a source bean to a target bean.
@@ -98,8 +96,7 @@ public class BeansBinding {
             Method m = bean.getClass().getMethod("addPropertyChangeListener", PropertyChangeListener.class);
             m.invoke(bean, listener);
         } catch (Exception ex) {
-            InternalError ie = new InternalError("Could not add property change listener to " + bean);
-            ie.initCause(ex);
+            InternalError ie = new InternalError("Could not add property change listener to " + bean, ex);
             throw ie;
         }
     }
@@ -109,8 +106,7 @@ public class BeansBinding {
             Method m = bean.getClass().getMethod("removePropertyChangeListener", PropertyChangeListener.class);
             m.invoke(bean, listener);
         } catch (Exception ex) {
-            InternalError ie = new InternalError("Could not remove property change listener from " + bean);
-            ie.initCause(ex);
+            InternalError ie = new InternalError("Could not remove property change listener from " + bean, ex);
             throw ie;
         }
     }
@@ -151,8 +147,7 @@ public class BeansBinding {
             Object value = getSourceReadMethod().invoke(source);
             getTargetWriteMethod().invoke(target, value);
         } catch (Exception ex) {
-            InternalError ie = new InternalError("Could not update target from source.");
-            ie.initCause(ex);
+            InternalError ie = new InternalError("Could not update target from source.", ex);
             throw ie;
         }
     }
@@ -163,8 +158,7 @@ public class BeansBinding {
                 PropertyDescriptor pd = new PropertyDescriptor(targetProperty, target.getClass());
                 targetWriteMethod = pd.getWriteMethod();
             } catch (IntrospectionException ex) {
-                InternalError ie = new InternalError("Could not create target property descriptor for " + target);
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Could not create target property descriptor for " + target, ex);
                 throw ie;
             }
         }
@@ -177,8 +171,7 @@ public class BeansBinding {
                 PropertyDescriptor pd = new PropertyDescriptor(sourceProperty, source.getClass());
                 sourceWriteMethod = pd.getWriteMethod();
             } catch (IntrospectionException ex) {
-                InternalError ie = new InternalError("Could not create source property descriptor for " + source);
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Could not create source property descriptor for " + source, ex);
                 throw ie;
             }
         }
@@ -191,8 +184,7 @@ public class BeansBinding {
                 PropertyDescriptor pd = new PropertyDescriptor(sourceProperty, source.getClass());
                 sourceReadMethod = pd.getReadMethod();
             } catch (IntrospectionException ex) {
-                InternalError ie = new InternalError("Could not create source property descriptor for " + source);
-                ie.initCause(ex);
+                InternalError ie = new InternalError("Could not create source property descriptor for " + source, ex);
                 throw ie;
             }
         }

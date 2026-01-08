@@ -96,8 +96,9 @@ public class JPopupButton extends javax.swing.JButton {
             } else {
             }
         }
-    };
-    private Handler handler = new Handler();
+    }
+
+    private final Handler handler = new Handler();
 
     /**
      * Creates new form JToolBarMenu

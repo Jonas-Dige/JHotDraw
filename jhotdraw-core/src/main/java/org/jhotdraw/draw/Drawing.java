@@ -102,7 +102,7 @@ public interface Drawing extends CompositeFigure, Serializable, DOMStorable {
      * {@link AttributeKeys} defines a number of attribute keys which can be
      * used to determine what to draw on the canvas.
      */
-    public void drawCanvas(Graphics2D g);
+    void drawCanvas(Graphics2D g);
 
     /**
      * Adds a figure to the drawing.

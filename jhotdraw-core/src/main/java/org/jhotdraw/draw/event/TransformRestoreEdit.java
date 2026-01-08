@@ -28,9 +28,9 @@ import org.jhotdraw.util.*;
 public class TransformRestoreEdit extends AbstractUndoableEdit {
 
     private static final long serialVersionUID = 1L;
-    private Figure owner;
-    private Object oldTransformRestoreData;
-    private Object newTransformRestoreData;
+    private final Figure owner;
+    private final Object oldTransformRestoreData;
+    private final Object newTransformRestoreData;
 
     /**
      * Creates a new instance.

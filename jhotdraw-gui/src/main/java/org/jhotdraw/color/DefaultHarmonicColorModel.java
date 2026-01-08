@@ -24,11 +24,11 @@ public class DefaultHarmonicColorModel extends AbstractListModel implements Harm
 
     private static final long serialVersionUID = 1L;
     protected PropertyChangeSupport propertySupport = new PropertyChangeSupport(this);
-    private ArrayList<Color> colors;
-    private ColorSliderModel sliderModel;
+    private final ArrayList<Color> colors;
+    private final ColorSliderModel sliderModel;
     private int base;
-    private ArrayList<HarmonicRule> rules;
-    private float customHueConstraint = 30f / 360f;
+    private final ArrayList<HarmonicRule> rules;
+    private final float customHueConstraint = 30f / 360f;
     private int adjusting;
 
     public DefaultHarmonicColorModel() {
@@ -187,8 +187,7 @@ public class DefaultHarmonicColorModel extends AbstractListModel implements Harm
         try {
             that = (DefaultHarmonicColorModel) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError("Clone failed");
-            error.initCause(ex);
+            InternalError error = new InternalError("Clone failed", ex);
             throw error;
         }
         that.propertySupport = new PropertyChangeSupport(that);

@@ -57,42 +57,42 @@ public interface ApplicationModel {
      *
      * @return the value
      */
-    public String getName();
+    String getName();
 
     /**
      * Returns the version of the application.
      *
      * @return the value
      */
-    public String getVersion();
+    String getVersion();
 
     /**
      * Returns the copyright of the application.
      *
      * @return the value
      */
-    public String getCopyright();
+    String getCopyright();
 
     /**
      * Creates a new view for the application.
      *
      * @return the created view
      */
-    public View createView();
+    View createView();
 
     /**
      * Initializes the application.
      *
      * @param a the application
      */
-    public void initApplication(Application a);
+    void initApplication(Application a);
 
     /**
      * Destroys the application.
      *
      * @param a the application
      */
-    public void destroyApplication(Application a);
+    void destroyApplication(Application a);
 
     /**
      * Initializes the supplied view for the application.
@@ -100,7 +100,7 @@ public interface ApplicationModel {
      * @param a the application
      * @param v the view
      */
-    public void initView(Application a, View v);
+    void initView(Application a, View v);
 
     /**
      * Destroys the supplied view.
@@ -108,7 +108,7 @@ public interface ApplicationModel {
      * @param a the application
      * @param v the view
      */
-    public void destroyView(Application a, View v);
+    void destroyView(Application a, View v);
 
     /**
      * Creates an action map.
@@ -125,7 +125,7 @@ public interface ApplicationModel {
      * if the actions are to be shared by multiple views.
      * @return the created map
      */
-    public ActionMap createActionMap(Application a, View v);
+    ActionMap createActionMap(Application a, View v);
 
     /**
      * Creates tool bars.
@@ -138,12 +138,12 @@ public interface ApplicationModel {
      * if the toolbars are shared by multiple views.
      * @return the created tool bars
      */
-    public List<JToolBar> createToolBars(Application a, View v);
+    List<JToolBar> createToolBars(Application a, View v);
 
     /**
      * Returns the abstract factory for building application menus.
      */
-    public MenuBuilder getMenuBuilder();
+    MenuBuilder getMenuBuilder();
 
     /**
      * Creates an open chooser.
@@ -153,7 +153,7 @@ public interface ApplicationModel {
      * if the chooser is shared by multiple views.
      * @return the created chooser
      */
-    public URIChooser createOpenChooser(Application a, View v);
+    URIChooser createOpenChooser(Application a, View v);
 
     /**
      * Creates an open chooser for directories.
@@ -163,7 +163,7 @@ public interface ApplicationModel {
      * if the chooser is shared by multiple views.
      * @return the created chooser
      */
-    public URIChooser createOpenDirectoryChooser(Application a, View v);
+    URIChooser createOpenDirectoryChooser(Application a, View v);
 
     /**
      * Creates a save chooser.
@@ -173,7 +173,7 @@ public interface ApplicationModel {
      * if the chooser is shared by multiple views.
      * @return the created chooser
      */
-    public URIChooser createSaveChooser(Application a, View v);
+    URIChooser createSaveChooser(Application a, View v);
 
     /**
      * Creates an import chooser.
@@ -183,7 +183,7 @@ public interface ApplicationModel {
      * if the chooser is shared by multiple views.
      * @return the created chooser
      */
-    public URIChooser createImportChooser(Application a, View v);
+    URIChooser createImportChooser(Application a, View v);
 
     /**
      * Creates an export chooser.
@@ -193,7 +193,7 @@ public interface ApplicationModel {
      * if the chooser is shared by multiple views.
      * @return the created chooser
      */
-    public URIChooser createExportChooser(Application a, View v);
+    URIChooser createExportChooser(Application a, View v);
 
     /**
      * Returns true if the application should open the last opened URI on launch
@@ -204,7 +204,7 @@ public interface ApplicationModel {
      *
      * @return True if last used URI shall be opened on launch.
      */
-    public boolean isOpenLastURIOnLaunch();
+    boolean isOpenLastURIOnLaunch();
 
     /**
      * Returns true if the application may open multiple views for the same
@@ -215,5 +215,5 @@ public interface ApplicationModel {
      *
      * @return True if the application may open multiple views for the same URI.
      */
-    public boolean isAllowMultipleViewsPerURI();
+    boolean isAllowMultipleViewsPerURI();
 }

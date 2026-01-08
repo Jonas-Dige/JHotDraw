@@ -61,9 +61,10 @@ public class JActivityView extends javax.swing.JPanel {
                 }
             });
         }
-    };
-    private Handler handler = new Handler();
-    private ResourceBundleUtil labels;
+    }
+
+    private final Handler handler = new Handler();
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates a new JActivityView.

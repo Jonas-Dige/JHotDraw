@@ -86,7 +86,7 @@ public class JLifeFormattedTextField extends JFormattedTextField {
     @Override
     public void setValue(Object newValue) {
         Object oldValue = this.value;
-        if (oldValue != null && newValue != null && oldValue.equals(newValue)) {
+        if (oldValue != null && oldValue.equals(newValue)) {
             return;
         }
         if (newValue != null && getFormatterFactory() == null) {

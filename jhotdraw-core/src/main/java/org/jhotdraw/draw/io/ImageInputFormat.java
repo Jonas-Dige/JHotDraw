@@ -53,23 +53,23 @@ public class ImageInputFormat implements InputFormat {
     /**
      * The prototype for creating a figure that holds the imported image.
      */
-    private ImageHolderFigure prototype;
+    private final ImageHolderFigure prototype;
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String[] fileExtensions;
+    private final String[] fileExtensions;
     /**
      * Image IO image format name.
      */
-    private String formatName;
+    private final String formatName;
     /**
      * The mime types which must be matched.
      */
-    private String[] mimeTypes;
+    private final String[] mimeTypes;
 
     /**
      * Creates a new image input format for all formats supported by
@@ -102,7 +102,7 @@ public class ImageInputFormat implements InputFormat {
      * @param mimeTypes The mime typse used for filtering data flavors from
      * Transferable objects.
      */
-    public ImageInputFormat(ImageHolderFigure prototype, String formatName, String description, String fileExtensions[], String[] mimeTypes) {
+    public ImageInputFormat(ImageHolderFigure prototype, String formatName, String description, String[] fileExtensions, String[] mimeTypes) {
         this.prototype = prototype;
         this.formatName = formatName;
         this.description = description;
@@ -196,7 +196,7 @@ public class ImageInputFormat implements InputFormat {
         for (DataFlavor flavor : t.getTransferDataFlavors()) {
             if (DataFlavor.imageFlavor.match(flavor)) {
                 importFlavor = flavor;
-                break SearchLoop;
+                break;
             }
             for (String mimeType : mimeTypes) {
                 if (flavor.isMimeTypeEqual(mimeType)) {

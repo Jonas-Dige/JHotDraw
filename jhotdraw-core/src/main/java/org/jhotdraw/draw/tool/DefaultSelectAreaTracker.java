@@ -46,21 +46,21 @@ public class DefaultSelectAreaTracker extends AbstractTool implements SelectArea
     /**
      * The bounds of the rubberband.
      */
-    private Rectangle rubberband = new Rectangle();
+    private final Rectangle rubberband = new Rectangle();
     /**
      * Rubberband color. When this is null, the tracker does not
      * draw the rubberband.
      */
-    private Color rubberbandColor = Color.BLACK;
+    private final Color rubberbandColor = Color.BLACK;
     /**
      * Rubberband stroke.
      */
-    private Stroke rubberbandStroke = new BasicStroke();
+    private final Stroke rubberbandStroke = new BasicStroke();
     /**
      * The hover handles, are the handles of the figure over which the
      * mouse pointer is currently hovering.
      */
-    private LinkedList<Handle> hoverHandles = new LinkedList<>();
+    private final LinkedList<Handle> hoverHandles = new LinkedList<>();
     /**
      * The hover Figure is the figure, over which the mouse is currently
      * hovering.

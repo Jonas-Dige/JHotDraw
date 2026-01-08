@@ -22,7 +22,7 @@ import org.w3c.dom.Element;
  */
 public class StyleManager {
 
-    private java.util.List<CSSRule> rules;
+    private final java.util.List<CSSRule> rules;
 
     public StyleManager() {
         rules = new ArrayList<CSSRule>();

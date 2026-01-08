@@ -365,7 +365,7 @@ public class Geom {
      * Gets the square distance between two points.
      */
     public static long length2(int x1, int y1, int x2, int y2) {
-        return (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+        return (long) (x2 - x1) * (x2 - x1) + (long) (y2 - y1) * (y2 - y1);
     }
 
     /**
@@ -708,7 +708,7 @@ public class Geom {
         //      If s=0 C is on AB
         int xdiff = xb - xa;
         int ydiff = yb - ya;
-        long l2 = xdiff * xdiff + ydiff * ydiff;
+        long l2 = (long) xdiff * xdiff + (long) ydiff * ydiff;
         if (l2 == 0) {
             return Geom.length(xa, ya, xc, yc);
         }

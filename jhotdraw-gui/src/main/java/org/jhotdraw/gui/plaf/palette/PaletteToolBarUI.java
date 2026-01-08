@@ -54,7 +54,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     private Handler handler;
     protected Integer constraintBeforeFloating = 0;
     // Rollover button implementation.
-    private static String IS_ROLLOVER = "JToolBar.isRollover";
+    private static final String IS_ROLLOVER = "JToolBar.isRollover";
     /*private*/ static String IS_DIVIDER_DRAWN = "Palette.ToolBar.isDividerDrawn";
     // client properties
     /* The value of this client property must be an Icon or null. */
@@ -67,8 +67,8 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     private static Border nonRolloverBorder;
     private static Border nonRolloverToggleBorder;
     private boolean rolloverBorders = false;
-    private HashMap<AbstractButton, Border> borderTable = new HashMap<>();
-    private HashMap<AbstractButton, Boolean> rolloverTable = new HashMap<>();
+    private final HashMap<AbstractButton, Border> borderTable = new HashMap<>();
+    private final HashMap<AbstractButton, Boolean> rolloverTable = new HashMap<>();
     /**
      * As of Java 2 platform v1.3 this previously undocumented field is no
      * longer used.
@@ -109,7 +109,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
      */
     @Deprecated
     protected KeyStroke rightKey;
-    private static String FOCUSED_COMP_INDEX = "JToolBar.focusedCompIndex";
+    private static final String FOCUSED_COMP_INDEX = "JToolBar.focusedCompIndex";
 
     public static ComponentUI createUI(JComponent c) {
         return new PaletteToolBarUI();
@@ -143,7 +143,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
         uninstallListeners();
         uninstallKeyboardActions();
         // Clear instance vars
-        if (isFloating() == true) {
+        if (isFloating()) {
             setFloating(false, null);
         }
         floatingToolBar = null;
@@ -486,7 +486,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
             frame = (Window) floatingToolBar;
         }
         DragWindow w = new DragWindow(frame);
-        JRootPane rp = ((RootPaneContainer) w).getRootPane();
+        JRootPane rp = w.getRootPane();
         rp.putClientProperty("Window.alpha", 0.6f);
         return w;
     }
@@ -642,7 +642,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
             // Only set the border if its the default border
             if (b.getBorder() instanceof UIResource) {
                 if (b instanceof JToggleButton) {
-                    ((JToggleButton) b).setBorder(nonRolloverToggleBorder);
+                    b.setBorder(nonRolloverToggleBorder);
                 } else {
                     b.setBorder(nonRolloverBorder);
                 }
@@ -686,7 +686,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     }
 
     public void setFloating(boolean b, Point p) {
-        if (toolBar.isFloatable() == true) {
+        if (toolBar.isFloatable()) {
             if (dragWindow != null) {
                 dragWindow.setVisible(false);
             }
@@ -845,7 +845,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     }
 
     protected void dragTo(Point position, Point origin) {
-        if (toolBar.isFloatable() == true) {
+        if (toolBar.isFloatable()) {
             try {
                 if (dragWindow == null) {
                     dragWindow = createDragWindow(toolBar);
@@ -880,7 +880,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
                     dragWindow.setBorderColor(floatingBorderColor);
                 }
                 dragWindow.setLocation(dragPoint.x, dragPoint.y);
-                if (dragWindow.isVisible() == false) {
+                if (!dragWindow.isVisible()) {
                     //Dimension size = toolBar.getPreferredSize();
                     Dimension size = toolBar.getSize();
                     dragWindow.setSize(size.width, size.height);
@@ -893,7 +893,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
     }
 
     protected void floatAt(Point position, Point origin) {
-        if (toolBar.isFloatable() == true) {
+        if (toolBar.isFloatable()) {
             try {
                 Point offset = dragWindow.getOffset();
                 if (offset == null) {
@@ -1079,7 +1079,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
             if (!tb.isEnabled()) {
                 return;
             }
-            if (isDragging == true) {
+            if (isDragging) {
                 Point position = evt.getPoint();
                 if (origin == null) {
                     origin = evt.getComponent().getLocationOnScreen();
@@ -1162,7 +1162,7 @@ public class PaletteToolBarUI extends ToolBarUI implements SwingConstants {
 
         @Override
         public void windowClosing(WindowEvent w) {
-            if (toolBar.isFloatable() == true) {
+            if (toolBar.isFloatable()) {
                 if (dragWindow != null) {
                     dragWindow.setVisible(false);
                 }

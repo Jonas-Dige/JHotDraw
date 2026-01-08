@@ -34,10 +34,10 @@ public class JColorWheel extends JPanel {
         POLAR,
         SQUARE,
         DISK,
-        COMPLEX;
+        COMPLEX
     }
     private Type type = Type.POLAR;
-    private ColorSpace sys;
+    private final ColorSpace sys;
     protected Insets wheelInsets;
     protected Image colorWheelImage;
     protected AbstractColorWheelImageProducer colorWheelProducer;
@@ -89,7 +89,7 @@ public class JColorWheel extends JPanel {
             repaint();
         }
     }
-    private ModelHandler modelHandler;
+    private final ModelHandler modelHandler;
 
     /**
      * Creates a new instance.

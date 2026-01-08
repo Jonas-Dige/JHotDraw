@@ -55,7 +55,7 @@ public class JActivityWindow extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
     private static JActivityWindow instance;
-    private JPanel progressPanel;
+    private final JPanel progressPanel;
     private ActivityManager manager;
     private Object activityOwner;
     /**
@@ -64,22 +64,22 @@ public class JActivityWindow extends javax.swing.JFrame {
      *
      * FIXME - Changing this value to -1 requires changing code in JActivityView.
      */
-    private int normalRemovalDelay = 1500;
+    private final int normalRemovalDelay = 1500;
     /**
      * Delay for automatic removal of completed activities with a warning.
      * Specify 0 for immediate removal. Specify -1 for no removal.
      *
      * FIXME - Changing this value to -1 requires changing code in JActivityView.
      */
-    private int warningRemovalDelay = 3000;
+    private final int warningRemovalDelay = 3000;
     /**
      * Delay for automatic removal of completed activities with an error.
      * Specify 0 for immediate removal. Specify -1 for no removal.
      *
      * FIXME - Changing this value to -1 requires changing code in JActivityView.
      */
-    private int errorRemovalDelay = -1;
-    private HashMap<ActivityModel, JActivityView> views = new HashMap<>();
+    private final int errorRemovalDelay = -1;
+    private final HashMap<ActivityModel, JActivityView> views = new HashMap<>();
 
     private class Handler implements ActivityManagerListener, PropertyChangeListener {
 
@@ -108,7 +108,7 @@ public class JActivityWindow extends javax.swing.JFrame {
             if (delay == 0) {
                 tt.actionPerformed(null);
             } else {
-                Timer t = new Timer(pm.getError() != null ? delay : delay, tt);
+                Timer t = new Timer(delay, tt);
                 t.setRepeats(false);
                 t.start();
             }
@@ -121,8 +121,8 @@ public class JActivityWindow extends javax.swing.JFrame {
             }
         }
     }
-    private Handler handler = new Handler();
-    private ResourceBundleUtil labels;
+    private final Handler handler = new Handler();
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new form JActivityWindow

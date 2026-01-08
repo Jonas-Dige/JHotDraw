@@ -28,7 +28,7 @@ public class SVGZInputFormat extends SVGInputFormat {
 
     @Override
     public javax.swing.filechooser.FileFilter getFileFilter() {
-        return new FileNameExtensionFilter("Scalable Vector Graphics (SVG, SVGZ)", new String[]{"svg", "svgz"});
+        return new FileNameExtensionFilter("Scalable Vector Graphics (SVG, SVGZ)", "svg", "svgz");
     }
 
     @Override

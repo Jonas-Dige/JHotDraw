@@ -31,15 +31,15 @@ import org.jhotdraw.util.*;
 public class TransformEdit extends AbstractUndoableEdit {
 
     private static final long serialVersionUID = 1L;
-    private Collection<Figure> figures;
-    private AffineTransform tx;
+    private final Collection<Figure> figures;
+    private final AffineTransform tx;
 
     /**
      * Creates a new instance.
      */
     public TransformEdit(Figure figure, AffineTransform tx) {
         figures = new LinkedList<>();
-        ((LinkedList<Figure>) figures).add(figure);
+        figures.add(figure);
         this.tx = (AffineTransform) tx.clone();
     }
 

@@ -21,13 +21,14 @@ import java.awt.image.*;
  */
 public class ColorTrackImageProducer extends MemoryImageSource {
 
-    private int[] pixels;
-    private int w, h;
-    private int trackBuffer;
+    private final int[] pixels;
+    private final int w;
+    private final int h;
+    private final int trackBuffer;
     private ColorSliderModel colorizer = new DefaultColorSliderModel(ColorSpace.getInstance(ColorSpace.CS_sRGB));
     private boolean isDirty = true;
     private int componentIndex = 0;
-    private boolean isHorizontal;
+    private final boolean isHorizontal;
 
     /**
      * Creates a new instance.

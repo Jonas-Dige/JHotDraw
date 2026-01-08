@@ -99,8 +99,7 @@ public class ColorUtil {
         try {
             return formatter.valueToString(c);
         } catch (ParseException ex) {
-            InternalError error = new InternalError("Unable to generate tool tip text from color " + c);
-            error.initCause(ex);
+            InternalError error = new InternalError("Unable to generate tool tip text from color " + c, ex);
             throw error;
         }
     }

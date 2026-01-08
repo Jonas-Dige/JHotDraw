@@ -60,7 +60,7 @@ public class DeleteAction extends TextAction {
      * The target of the action or null if the action acts on the currently
      * focused component.
      */
-    private JComponent target;
+    private final JComponent target;
     /**
      * This variable keeps a strong reference on the property change listener.
      */

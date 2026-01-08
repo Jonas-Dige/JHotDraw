@@ -56,7 +56,7 @@ public class SVGApplicationModel extends DefaultApplicationModel {
      */
     public static final String OUTPUT_FORMAT_MAP_CLIENT_PROPERTY = "OutputFormatMap";
     private static final double[] SCALE_FACTORS = {5, 4, 3, 2, 1.5, 1.25, 1, 0.75, 0.5, 0.25, 0.10};
-    private GridConstrainer gridConstrainer;
+    private final GridConstrainer gridConstrainer;
     /**
      * This editor is shared by all views.
      */

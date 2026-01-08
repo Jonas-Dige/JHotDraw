@@ -28,12 +28,12 @@ import org.jhotdraw.util.*;
 public class ODGPropertiesPanel extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
-    private ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.odg.Labels");
+    private final ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.odg.Labels");
     private DrawingEditor editor;
-    private JAttributeSlider opacitySlider;
-    private FigureAttributeEditorHandler<Double> opacityFieldHandler;
-    private FigureAttributeEditorHandler<Double> opacitySliderHandler;
-    private FigureAttributeEditorHandler<String> linkFieldHandler;
+    private final JAttributeSlider opacitySlider;
+    private final FigureAttributeEditorHandler<Double> opacityFieldHandler;
+    private final FigureAttributeEditorHandler<Double> opacitySliderHandler;
+    private final FigureAttributeEditorHandler<String> linkFieldHandler;
 
     /**
      * Creates new instance.

@@ -28,7 +28,7 @@ import javax.swing.event.ChangeListener;
 public class PreferencesUtil
         extends Preferences {
 
-    private HashMap<String, Object> map = new HashMap<>();
+    private final HashMap<String, Object> map = new HashMap<>();
     private boolean isUserNode;
     private static HashMap<Package, Preferences> systemNodes;
     private static HashMap<Package, Preferences> userNodes;
@@ -119,7 +119,7 @@ public class PreferencesUtil
 
     @Override
     public String[] keys() throws BackingStoreException {
-        return map.keySet().toArray(new String[map.keySet().size()]);
+        return map.keySet().toArray(new String[map.size()]);
     }
 
     @Override
@@ -364,7 +364,7 @@ public class PreferencesUtil
         Dimension preferredSize = window.getPreferredSize();
         Rectangle bounds = new Rectangle(
                 prefs.getInt(name + ".x", x + screenBounds.x),
-                prefs.getInt(name + ".y", 0 + screenBounds.y),
+                prefs.getInt(name + ".y", screenBounds.y),
                 preferredSize.width,
                 preferredSize.height);
         if (!screenBounds.contains(bounds)) {

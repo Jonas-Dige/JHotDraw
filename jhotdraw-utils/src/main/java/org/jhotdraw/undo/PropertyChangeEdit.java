@@ -26,15 +26,15 @@ public class PropertyChangeEdit extends AbstractUndoableEdit {
     /**
      * The object to be provided as the "source" of the JavaBeans property.
      */
-    private Object source;
+    private final Object source;
     /**
      * The name of the JavaBeans property.
      */
-    private String propertyName;
+    private final String propertyName;
     /**
      * The old value of the JavaBeans property.
      */
-    private Object oldValue;
+    private final Object oldValue;
     /**
      * The new value of the JavaBeans property.
      */
@@ -73,8 +73,7 @@ public class PropertyChangeEdit extends AbstractUndoableEdit {
             PropertyDescriptor desc = new PropertyDescriptor(propertyName, source.getClass());
             return desc.getWriteMethod();
         } catch (Exception e) {
-            InternalError ie = new InternalError("Couldn't find setter for property \"" + propertyName + "\" in " + source);
-            ie.initCause(e);
+            InternalError ie = new InternalError("Couldn't find setter for property \"" + propertyName + "\" in " + source, e);
             throw ie;
         }
     }
@@ -88,8 +87,7 @@ public class PropertyChangeEdit extends AbstractUndoableEdit {
         try {
             getSetter().invoke(source, oldValue);
         } catch (Exception e) {
-            InternalError ie = new InternalError("Couldn't invoke setter for property \"" + propertyName + "\" in " + source);
-            ie.initCause(e);
+            InternalError ie = new InternalError("Couldn't invoke setter for property \"" + propertyName + "\" in " + source, e);
             throw ie;
         }
     }
@@ -103,8 +101,7 @@ public class PropertyChangeEdit extends AbstractUndoableEdit {
         try {
             getSetter().invoke(source, newValue);
         } catch (Exception e) {
-            InternalError ie = new InternalError("Couldn't invoke setter for property \"" + propertyName + "\" in " + source);
-            ie.initCause(e);
+            InternalError ie = new InternalError("Couldn't invoke setter for property \"" + propertyName + "\" in " + source, e);
             throw ie;
         }
     }

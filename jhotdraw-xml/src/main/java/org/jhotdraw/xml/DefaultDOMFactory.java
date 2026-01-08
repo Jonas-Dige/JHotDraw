@@ -86,8 +86,7 @@ public class DefaultDOMFactory extends JavaPrimitivesDOMFactory {
             try {
                 return ((Class<?>) o).newInstance();
             } catch (Exception e) {
-                IllegalArgumentException error = new IllegalArgumentException("Storable class not instantiable by factory: " + name);
-                error.initCause(e);
+                IllegalArgumentException error = new IllegalArgumentException("Storable class not instantiable by factory: " + name, e);
                 throw error;
             }
         } else {
@@ -95,8 +94,7 @@ public class DefaultDOMFactory extends JavaPrimitivesDOMFactory {
                 return o.getClass().getMethod("clone", (Class<?>[]) null).
                         invoke(o, (Object[]) null);
             } catch (Exception e) {
-                IllegalArgumentException error = new IllegalArgumentException("Storable prototype not cloneable by factory. Name: " + name);
-                error.initCause(e);
+                IllegalArgumentException error = new IllegalArgumentException("Storable prototype not cloneable by factory. Name: " + name, e);
                 throw error;
             }
         }

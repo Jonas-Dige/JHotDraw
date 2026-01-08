@@ -161,7 +161,7 @@ public class CompositeEdit extends CompoundEdit {
      */
     @Override
     public boolean isSignificant() {
-        return (isSignificant) ? super.isSignificant() : false;
+        return isSignificant && super.isSignificant();
         //return isSignificant;
     }
 

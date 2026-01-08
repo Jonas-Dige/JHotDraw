@@ -71,7 +71,7 @@ public abstract class AbstractAttributedFigure extends AbstractFigure implements
 
     @Override
     public Map<AttributeKey<?>, Object> getAttributes() {
-        return (Map<AttributeKey<?>, Object>) new HashMap<>(attributes);
+        return new HashMap<>(attributes);
     }
 
     @Override
@@ -135,7 +135,7 @@ public abstract class AbstractAttributedFigure extends AbstractFigure implements
     }
 
     public double getStrokeMiterLimitFactor() {
-        Number value = (Number) get(AttributeKeys.STROKE_MITER_LIMIT);
+        Number value = get(AttributeKeys.STROKE_MITER_LIMIT);
         return (value != null) ? value.doubleValue() : 10f;
     }
 

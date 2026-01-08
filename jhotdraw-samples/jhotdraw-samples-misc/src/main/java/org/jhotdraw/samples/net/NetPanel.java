@@ -41,9 +41,9 @@ import org.jhotdraw.util.*;
 public class NetPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private UndoRedoManager undoManager;
+    private final UndoRedoManager undoManager;
     private Drawing drawing;
-    private DrawingEditor editor;
+    private final DrawingEditor editor;
 
     /**
      * Creates new instance.

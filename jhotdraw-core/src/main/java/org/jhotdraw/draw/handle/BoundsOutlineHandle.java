@@ -21,14 +21,14 @@ import org.jhotdraw.draw.figure.Figure;
  */
 public class BoundsOutlineHandle extends AbstractHandle {
 
-    private AttributeKey<Stroke> stroke1Enabled;
-    private AttributeKey<Stroke> stroke2Enabled;
-    private AttributeKey<Stroke> stroke1Disabled;
-    private AttributeKey<Stroke> stroke2Disabled;
-    private AttributeKey<Color> strokeColor1Enabled;
-    private AttributeKey<Color> strokeColor2Enabled;
-    private AttributeKey<Color> strokeColor1Disabled;
-    private AttributeKey<Color> strokeColor2Disabled;
+    private final AttributeKey<Stroke> stroke1Enabled;
+    private final AttributeKey<Stroke> stroke2Enabled;
+    private final AttributeKey<Stroke> stroke1Disabled;
+    private final AttributeKey<Stroke> stroke2Disabled;
+    private final AttributeKey<Color> strokeColor1Enabled;
+    private final AttributeKey<Color> strokeColor2Enabled;
+    private final AttributeKey<Color> strokeColor1Disabled;
+    private final AttributeKey<Color> strokeColor2Disabled;
 
     /**
      * Creates a bounds outline handle for resizing a component.

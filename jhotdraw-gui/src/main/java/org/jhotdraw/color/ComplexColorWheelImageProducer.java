@@ -38,7 +38,8 @@ public class ComplexColorWheelImageProducer extends AbstractColorWheelImageProdu
      * color wheel.
      */
     protected int[] alphas;
-    private boolean flipX, flipY;
+    private final boolean flipX;
+    private final boolean flipY;
 
     /**
      * Creates a new instance.

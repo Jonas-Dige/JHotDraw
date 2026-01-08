@@ -102,7 +102,7 @@ public class HSVHarmonicColorWheelImageProducer extends PolarColorWheelImageProd
                 } else {
                     alphas[index] = (int) ((blend - Math.min(blend, r - 1f)) * 255 / blend) << 24;
                     radials[index] = 1f;
-                    brights[index] = Math.max(0, Math.round(Math.min(1f, 1.5f - sat * 1f) * 10f) / 10f);
+                    brights[index] = Math.max(0, Math.round(Math.min(1f, 1.5f - sat) * 10f) / 10f);
                     //brights[index] = 0f;
                 }
                 if (alphas[index] != 0) {

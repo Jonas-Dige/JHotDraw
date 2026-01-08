@@ -23,8 +23,8 @@ import javax.swing.plaf.*;
 public class ColorWheelChooser extends AbstractColorChooserPanel implements UIResource {
 
     private static final long serialVersionUID = 1L;
-    private JColorWheel colorWheel;
-    private ColorSliderModel ccModel = new DefaultColorSliderModel(HSBColorSpace.getInstance());
+    private final JColorWheel colorWheel;
+    private final ColorSliderModel ccModel = new DefaultColorSliderModel(HSBColorSpace.getInstance());
     private int updatingChooser;
 
     /**

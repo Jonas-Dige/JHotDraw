@@ -33,11 +33,11 @@ public class JavaxDOMInput implements DOMInput {
      * the XML DOM. A key in this map is a String representing a marshalled
      * reference. A value in this map is an unmarshalled Object.
      */
-    private HashMap<String, Object> idobjects = new HashMap<String, Object>();
+    private final HashMap<String, Object> idobjects = new HashMap<String, Object>();
     /**
      * The document used for input.
      */
-    private Document document;
+    private final Document document;
     /**
      * The current node used for input.
      */
@@ -45,7 +45,7 @@ public class JavaxDOMInput implements DOMInput {
     /**
      * The factory used to create objects from XML tag names.
      */
-    private DOMFactory factory;
+    private final DOMFactory factory;
     protected static DocumentBuilder documentBuilder;
 
     /**
@@ -62,8 +62,7 @@ public class JavaxDOMInput implements DOMInput {
                 factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
                 documentBuilder = factory.newDocumentBuilder();
             } catch (Exception ex) {
-                InternalError error = new InternalError("Unable to create DocumentBuilder");
-                error.initCause(ex);
+                InternalError error = new InternalError("Unable to create DocumentBuilder", ex);
                 throw error;
             }
         }
@@ -76,8 +75,7 @@ public class JavaxDOMInput implements DOMInput {
             document = getBuilder().parse(in);
             current = document;
         } catch (SAXException ex) {
-            IOException e = new IOException(ex.getMessage());
-            e.initCause(ex);
+            IOException e = new IOException(ex.getMessage(), ex);
             throw e;
         }
     }
@@ -88,8 +86,7 @@ public class JavaxDOMInput implements DOMInput {
             document = getBuilder().parse(new InputSource(in));
             current = document;
         } catch (SAXException ex) {
-            IOException e = new IOException(ex.getMessage());
-            e.initCause(ex);
+            IOException e = new IOException(ex.getMessage(), ex);
             throw e;
         }
     }

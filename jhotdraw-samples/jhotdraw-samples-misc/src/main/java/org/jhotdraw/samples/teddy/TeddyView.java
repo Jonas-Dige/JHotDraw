@@ -226,8 +226,7 @@ public class TeddyView extends AbstractView {
         } catch (InterruptedException e) {
             // ignore
         } catch (InvocationTargetException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
     }
@@ -259,8 +258,7 @@ public class TeddyView extends AbstractView {
         } catch (InterruptedException e) {
             // ignore
         } catch (InvocationTargetException e) {
-            InternalError error = new InternalError(e.getMessage());
-            error.initCause(e);
+            InternalError error = new InternalError(e.getMessage(), e);
             throw error;
         }
     }

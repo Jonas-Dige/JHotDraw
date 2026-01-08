@@ -217,9 +217,7 @@ public class ODGPathFigure extends AbstractAttributedCompositeFigure implements 
             }
         }
         if (!isClosed) {
-            if (Shapes.outlineContains(getPath(), p, tolerance)) {
-                return true;
-            }
+            return Shapes.outlineContains(getPath(), p, tolerance);
         }
         return false;
     }
@@ -474,7 +472,7 @@ public class ODGPathFigure extends AbstractAttributedCompositeFigure implements 
 
     @Override
     public void add(final int index, final Figure figure) {
-        super.add(index, (ODGBezierFigure) figure);
+        super.add(index, figure);
     }
 
     @Override
@@ -493,7 +491,7 @@ public class ODGPathFigure extends AbstractAttributedCompositeFigure implements 
         AffineTransform tx = get(TRANSFORM);
         if (tx != null) {
             for (Figure child : getChildren()) {
-                ((ODGBezierFigure) child).transform(tx);
+                child.transform(tx);
                 ((ODGBezierFigure) child).flattenTransform();
             }
         }

@@ -186,8 +186,7 @@ public class ODGInputFormat implements InputFormat {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(in);
         } catch (ParserConfigurationException | SAXException ex) {
-            IOException e = new IOException(ex.getMessage());
-            e.initCause(ex);
+            IOException e = new IOException(ex.getMessage(), ex);
             throw e;
         }
 

@@ -25,7 +25,7 @@ public class CombineAction extends GroupAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "edit.combinePaths";
-    private ResourceBundleUtil labels
+    private final ResourceBundleUtil labels
             = ResourceBundleUtil.getBundle("org.jhotdraw.samples.odg.Labels");
 
     /**
@@ -80,7 +80,7 @@ public class CombineAction extends GroupAction {
         view.clearSelection();
         view.getDrawing().add(group);
         group.willChange();
-        ((ODGPathFigure) group).removeAllChildren();
+        group.removeAllChildren();
         for (Map.Entry<AttributeKey<?>, Object> entry : figures.iterator().next().getAttributes().entrySet()) {
             group.set((AttributeKey<Object>) entry.getKey(), entry.getValue());
         }

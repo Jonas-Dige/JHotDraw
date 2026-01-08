@@ -21,7 +21,7 @@ public class SplitAction extends CombineAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "edit.splitPath";
-    private ResourceBundleUtil labels
+    private final ResourceBundleUtil labels
             = ResourceBundleUtil.getBundle("org.jhotdraw.samples.svg.Labels");
 
     /**

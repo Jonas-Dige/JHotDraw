@@ -20,13 +20,13 @@ import org.jhotdraw.draw.*;
  */
 public interface Gradient extends Cloneable {
 
-    public Paint getPaint(Figure f, double opacity);
+    Paint getPaint(Figure f, double opacity);
 
-    public boolean isRelativeToFigureBounds();
+    boolean isRelativeToFigureBounds();
 
-    public void transform(AffineTransform tx);
+    void transform(AffineTransform tx);
 
-    public Object clone();
+    Object clone();
 
-    public void makeRelativeToFigureBounds(Figure f);
+    void makeRelativeToFigureBounds(Figure f);
 }

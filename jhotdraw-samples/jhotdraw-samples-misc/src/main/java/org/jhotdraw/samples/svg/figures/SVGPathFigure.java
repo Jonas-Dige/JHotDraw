@@ -239,9 +239,7 @@ public class SVGPathFigure extends AbstractAttributedCompositeFigure implements 
             }
         }
         if (!isClosed) {
-            if (Shapes.outlineContains(getPath(), p, tolerance)) {
-                return true;
-            }
+            return Shapes.outlineContains(getPath(), p, tolerance);
         }
         return false;
     }
@@ -493,7 +491,7 @@ public class SVGPathFigure extends AbstractAttributedCompositeFigure implements 
 
     @Override
     public void add(final int index, final Figure figure) {
-        super.add(index, (SVGBezierFigure) figure);
+        super.add(index, figure);
     }
 
     @Override

@@ -198,7 +198,7 @@ public class OpenFileAction extends AbstractApplicationAction {
                 }
             }
 
-            protected void failed(Throwable value) {
+            private void failed(Throwable value) {
                 value.printStackTrace();
                 view.setEnabled(true);
                 app.setEnabled(true);

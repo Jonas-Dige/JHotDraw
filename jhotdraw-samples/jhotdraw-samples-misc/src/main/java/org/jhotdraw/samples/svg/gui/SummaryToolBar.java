@@ -20,7 +20,7 @@ import org.jhotdraw.util.*;
 public class SummaryToolBar extends JToolBar {
 
     private static final long serialVersionUID = 1L;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new instance.

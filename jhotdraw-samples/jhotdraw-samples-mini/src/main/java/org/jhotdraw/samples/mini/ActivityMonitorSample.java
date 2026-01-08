@@ -26,7 +26,7 @@ import org.jhotdraw.gui.JActivityWindow;
 public class ActivityMonitorSample extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
-    private ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    private final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     private int count;
 
     /**
@@ -262,7 +262,7 @@ private void startPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s
                     pm.setWarning("A warning occured.");
                 }
                 long startTime = System.currentTimeMillis();
-                long endTime = startTime + duration * 1000;
+                long endTime = startTime + duration * 1000L;
                 pm.setMaximum(duration);
                 pm.setValue(0);
                 pm.setIndeterminate(false);
@@ -301,7 +301,7 @@ private void indicatorClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

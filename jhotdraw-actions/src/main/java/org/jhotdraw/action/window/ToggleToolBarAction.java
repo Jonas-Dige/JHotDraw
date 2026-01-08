@@ -22,7 +22,7 @@ public class ToggleToolBarAction extends AbstractAction {
 
     private static final long serialVersionUID = 1L;
     private JToolBar toolBar;
-    private PropertyChangeListener propertyHandler;
+    private final PropertyChangeListener propertyHandler;
 
     /**
      * Creates a new instance.

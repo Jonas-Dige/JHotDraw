@@ -56,7 +56,7 @@ public class OpenRecentFileAction extends AbstractApplicationAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.openRecent";
-    private URI uri;
+    private final URI uri;
 
     /**
      * Creates a new instance.
@@ -153,7 +153,7 @@ public class OpenRecentFileAction extends AbstractApplicationAction {
                 }
             }
 
-            protected void failed(Throwable value) {
+            private void failed(Throwable value) {
                 value.printStackTrace();
                 String message = value.getMessage() != null ? value.getMessage() : value.toString();
                 ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");

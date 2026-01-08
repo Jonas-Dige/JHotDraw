@@ -35,7 +35,7 @@ public class LinkToolBar extends AbstractToolBar {
 
     private static final long serialVersionUID = 1L;
     private SelectionComponentDisplayer displayer;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new instance.

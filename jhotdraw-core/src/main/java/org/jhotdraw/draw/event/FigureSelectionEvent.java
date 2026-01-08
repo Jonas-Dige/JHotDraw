@@ -31,8 +31,8 @@ import org.jhotdraw.draw.*;
 public class FigureSelectionEvent extends java.util.EventObject {
 
     private static final long serialVersionUID = 1L;
-    private Set<Figure> oldValue;
-    private Set<Figure> newValue;
+    private final Set<Figure> oldValue;
+    private final Set<Figure> newValue;
 
     /**
      * Creates a new instance.

@@ -38,15 +38,15 @@ import org.jhotdraw.xml.*;
  */
 public class DOMStorableInputOutputFormat implements OutputFormat, InputFormat {
 
-    private DOMFactory factory;
+    private final DOMFactory factory;
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
@@ -54,11 +54,11 @@ public class DOMStorableInputOutputFormat implements OutputFormat, InputFormat {
     /**
      * The mime type is used for clipboard access.
      */
-    private String mimeType;
+    private final String mimeType;
     /**
      * The data flavor constructed from the mime type.
      */
-    private DataFlavor dataFlavor;
+    private final DataFlavor dataFlavor;
 
     /**
      * Creates a new instance with format name "Drawing", file extension "xml"
@@ -86,8 +86,7 @@ public class DOMStorableInputOutputFormat implements OutputFormat, InputFormat {
         try {
             this.dataFlavor = new DataFlavor(mimeType);
         } catch (ClassNotFoundException ex) {
-            InternalError error = new InternalError("Unable to create data flavor for mime type:" + mimeType);
-            error.initCause(ex);
+            InternalError error = new InternalError("Unable to create data flavor for mime type:" + mimeType, ex);
             throw error;
         }
     }

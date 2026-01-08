@@ -38,7 +38,7 @@ public class WheelsAndSlidersMain extends javax.swing.JPanel {
     private static final long serialVersionUID = 1L;
     private Color color;
     private JLabel colorLabel;
-    private LinkedList<ColorSliderModel> models;
+    private final LinkedList<ColorSliderModel> models;
 
     private class Handler implements ChangeListener {
 
@@ -67,7 +67,7 @@ public class WheelsAndSlidersMain extends javax.swing.JPanel {
             adjusting--;
         }
     }
-    private Handler handler;
+    private final Handler handler;
 
     /**
      * Creates new form.
@@ -147,7 +147,7 @@ public class WheelsAndSlidersMain extends javax.swing.JPanel {
             tf.setEditable(false);
             tf.setColumns(4);
             ChangeListener cl = new ChangeListener() {
-                NumberFormat df = NumberFormat.getNumberInstance();
+                final NumberFormat df = NumberFormat.getNumberInstance();
 
                 @Override
                 public void stateChanged(ChangeEvent e) {
@@ -197,7 +197,7 @@ public class WheelsAndSlidersMain extends javax.swing.JPanel {
             tf.setEditable(false);
             tf.setColumns(4);
             ChangeListener cl = new ChangeListener() {
-                NumberFormat df = NumberFormat.getNumberInstance();
+                final NumberFormat df = NumberFormat.getNumberInstance();
 
                 @Override
                 public void stateChanged(ChangeEvent e) {

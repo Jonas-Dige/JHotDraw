@@ -71,7 +71,7 @@ public class SVGInputFormat implements InputFormat {
     /**
      * The SVGFigure factory is used to create Figure's for the drawing.
      */
-    private SVGFigureFactory factory;
+    private final SVGFigureFactory factory;
     /**
      * URL pointing to the SVG input file. This is used as a base URL for
      * resources that are referenced from the SVG file.
@@ -94,7 +94,7 @@ public class SVGInputFormat implements InputFormat {
     /**
      * FontFormatter for parsing font family names.
      */
-    private FontFormatter fontFormatter = new FontFormatter();
+    private final FontFormatter fontFormatter = new FontFormatter();
 
     /**
      * Each SVG element establishes a new Viewport.
@@ -131,7 +131,7 @@ public class SVGInputFormat implements InputFormat {
          * XXX - use a more sophisticated variable here
          */
         public boolean isPreserveAspectRatio = true;
-        private HashMap<AttributeKey<?>, Object> attributes = new HashMap<AttributeKey<?>, Object>();
+        private final HashMap<AttributeKey<?>, Object> attributes = new HashMap<AttributeKey<?>, Object>();
 
         @Override
         public String toString() {
@@ -890,8 +890,7 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
         Figure figure = factory.createText(coordinates, rotate, doc, a);
@@ -939,8 +938,7 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
         Figure figure = factory.createTextArea(x, y, w, h, doc, a);
@@ -970,48 +968,46 @@ public class SVGInputFormat implements InputFormat {
                 }
             }
         } catch (BadLocationException e) {
-            InternalError ex = new InternalError(e.getMessage());
-            ex.initCause(e);
+            InternalError ex = new InternalError(e.getMessage(), e);
             throw ex;
         }
     }
     private static final HashSet<String> SUPPORTED_FEATURES = new HashSet<String>(
-            Arrays.asList(new String[]{
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static-DOM",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-animated",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-all",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#CoreAttribute",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#NavigationAttribute",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Structure",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessing",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessingAttribute",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Image",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#Prefetch",
-        //"http://www.w3.org/Graphics/SVG/feature/1.2/#Discard",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Shape",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Text",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#PaintAttribute",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#OpacityAttribute",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#GraphicsAttribute",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Gradient",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#SolidColor",
-        "http://www.w3.org/Graphics/SVG/feature/1.2/#Hyperlinking", //"http://www.w3.org/Graphics/SVG/feature/1.2/#XlinkAttribute",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ExternalResourcesRequired",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Scripting",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Handler",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Listener",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TimedAnimation",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Animation",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Audio",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Video",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Font",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Extensibility",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#MediaAttribute",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TransformedVideo",
-    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ComposedVideo",
-    }));
+            Arrays.asList("http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-static-DOM",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-animated",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#SVG-all",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#CoreAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#NavigationAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Structure",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessing",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#ConditionalProcessingAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Image",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Prefetch",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Discard",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Shape",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Text",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#PaintAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#OpacityAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#GraphicsAttribute",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Gradient",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#SolidColor",
+                    "http://www.w3.org/Graphics/SVG/feature/1.2/#Hyperlinking" //"http://www.w3.org/Graphics/SVG/feature/1.2/#XlinkAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ExternalResourcesRequired",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Scripting",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Handler",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Listener",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TimedAnimation",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Animation",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Audio",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Video",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Font",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#Extensibility",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#MediaAttribute",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#TransformedVideo",
+                    //"http://www.w3.org/Graphics/SVG/feature/1.2/#ComposedVideo",
+            ));
 
     /**
      * Evaluates an SVG "switch" element.
@@ -1155,7 +1151,7 @@ public class SVGInputFormat implements InputFormat {
         } else {
             value = defaultValue;
         }
-        if (value != null && value.toLowerCase().equals("currentcolor") && !attributeName.equals("color")) {
+        if (value != null && value.equalsIgnoreCase("currentcolor") && !attributeName.equals("color")) {
             // Lets do some magic stuff for "currentColor" attribute value
             value = readInheritColorAttribute(elem, "color", "defaultValue");
         }

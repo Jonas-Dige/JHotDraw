@@ -63,7 +63,7 @@ public class SaveFileAction extends AbstractViewAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.save";
-    private boolean saveAs;
+    private final boolean saveAs;
     private Component oldFocusOwner;
 
     /**
@@ -164,7 +164,7 @@ public class SaveFileAction extends AbstractViewAction {
                 finished();
             }
            
-            protected void failed(Throwable value) {
+            private void failed(Throwable value) {
                 value.printStackTrace();
                 String message = value.getMessage() != null ? value.getMessage() : value.toString();
                 ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
@@ -175,7 +175,7 @@ public class SaveFileAction extends AbstractViewAction {
                         JOptionPane.ERROR_MESSAGE);
             }
 
-            protected void finished() {
+            private void finished() {
                 view.setEnabled(true);
                 SwingUtilities.getWindowAncestor(view.getComponent()).toFront();
                 if (oldFocusOwner != null) {

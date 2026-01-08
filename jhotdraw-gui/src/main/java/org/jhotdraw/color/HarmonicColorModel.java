@@ -20,39 +20,39 @@ import javax.swing.ListModel;
  */
 public interface HarmonicColorModel extends ListModel {
 
-    public static final String COLOR_SPACE_PROPERTY = "colorSpace";
+    String COLOR_SPACE_PROPERTY = "colorSpace";
 
-    public void setBase(int newValue);
+    void setBase(int newValue);
 
-    public int getBase();
+    int getBase();
 
-    public void addRule(HarmonicRule rule);
+    void addRule(HarmonicRule rule);
 
-    public void removeAllRules();
+    void removeAllRules();
 
-    public void applyRules();
+    void applyRules();
 
-    public ColorSpace getColorSpace();
+    ColorSpace getColorSpace();
 
-    public void setColorSpace(ColorSpace newValue);
+    void setColorSpace(ColorSpace newValue);
 
-    public void setSize(int newValue);
+    void setSize(int newValue);
 
-    public int size();
+    int size();
 
-    public boolean isAdjusting();
+    boolean isAdjusting();
 
-    public boolean add(Color c);
+    boolean add(Color c);
 
-    public void set(int index, Color color);
+    void set(int index, Color color);
 
-    public Color get(int index);
+    Color get(int index);
 
-    public float[] RGBtoComponent(int rgb, float[] hsb);
+    float[] RGBtoComponent(int rgb, float[] hsb);
 
-    public int componentToRGB(float h, float s, float b);
+    int componentToRGB(float h, float s, float b);
 
-    public void addPropertyChangeListener(PropertyChangeListener listener);
+    void addPropertyChangeListener(PropertyChangeListener listener);
 
-    public void removePropertyChangeListener(PropertyChangeListener listener);
+    void removePropertyChangeListener(PropertyChangeListener listener);
 }

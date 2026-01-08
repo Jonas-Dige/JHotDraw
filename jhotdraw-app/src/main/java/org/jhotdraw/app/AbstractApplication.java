@@ -70,7 +70,7 @@ import org.jhotdraw.util.prefs.PreferencesUtil;
 public abstract class AbstractApplication extends AbstractBean implements Application {
 
     private static final long serialVersionUID = 1L;
-    private LinkedList<View> views = new LinkedList<>();
+    private final LinkedList<View> views = new LinkedList<>();
     private Collection<View> unmodifiableViews;
     private boolean isEnabled = true;
     protected ResourceBundleUtil labels;
@@ -78,7 +78,7 @@ public abstract class AbstractApplication extends AbstractBean implements Applic
     private Preferences prefs;
     private View activeView;
     public static final String VIEW_COUNT_PROPERTY = "viewCount";
-    private LinkedList<URI> recentURIs = new LinkedList<>();
+    private final LinkedList<URI> recentURIs = new LinkedList<>();
     private static final int MAX_RECENT_FILES_COUNT = 10;
     private ActionMap actionMap;
     private URIChooser openChooser;
@@ -493,9 +493,7 @@ public abstract class AbstractApplication extends AbstractBean implements Applic
     public void addRecentURI(URI uri) {
         @SuppressWarnings("unchecked")
         java.util.List<URI> oldValue = (java.util.List<URI>) recentURIs.clone();
-        if (recentURIs.contains(uri)) {
-            recentURIs.remove(uri);
-        }
+        recentURIs.remove(uri);
         recentURIs.addFirst(uri);
         if (recentURIs.size() > MAX_RECENT_FILES_COUNT) {
             recentURIs.removeLast();
@@ -533,9 +531,9 @@ public abstract class AbstractApplication extends AbstractBean implements Applic
      */
     private class OpenRecentMenuHandler implements PropertyChangeListener, Disposable {
 
-        private JMenu openRecentMenu;
-        private LinkedList<Action> openRecentActions = new LinkedList<>();
-        private View view;
+        private final JMenu openRecentMenu;
+        private final LinkedList<Action> openRecentActions = new LinkedList<>();
+        private final View view;
 
         public OpenRecentMenuHandler(JMenu openRecentMenu, View view) {
             this.openRecentMenu = openRecentMenu;

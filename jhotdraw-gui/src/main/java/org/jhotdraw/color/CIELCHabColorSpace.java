@@ -34,15 +34,15 @@ public class CIELCHabColorSpace extends AbstractNamedColorSpace {
      * The XYZ coordinates of the CIE Standard Illuminant D65 reference white.
      */
     private static final double[] D65 = {0.9505d, 1d, 1.0890d};
-    private double Xr;
+    private final double Xr;
     /**
      * The Y coordinate of the D50 reference white.
      */
-    private double Yr;
+    private final double Yr;
     /**
      * The Z coordinate of the D50 reference white.
      */
-    private double Zr;
+    private final double Zr;
     private static final double EPS = 216d / 24389d;
     private static final double K = 24389d / 27d;
     private static final ColorSpace SRGB = ColorSpace.getInstance(ColorSpace.CS_sRGB);

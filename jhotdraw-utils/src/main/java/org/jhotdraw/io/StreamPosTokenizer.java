@@ -34,8 +34,8 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
      * rlw
      */
     private int startpos = -1, endpos = -1;
-    private LinkedList<Integer> unread = new LinkedList<>();
-    private char buf[] = new char[20];
+    private final LinkedList<Integer> unread = new LinkedList<>();
+    private char[] buf = new char[20];
     /**
      * The next character to be considered by the nextToken method. May also
      * be NEED_CHAR to indicate that a new character should be read, or SKIP_LF
@@ -59,7 +59,7 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
     private char[] slashSlash = new char[]{'/', '/'};
     private char[] slashStar = new char[]{'/', '*'};
     private char[] starSlash = new char[]{'*', '/'};
-    private byte ctype[] = new byte[256];
+    private final byte[] ctype = new byte[256];
     private static final byte CT_WHITESPACE = 1;
     private static final byte CT_DIGIT = 2;
     private static final byte CT_ALPHA = 4;
@@ -502,7 +502,7 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
             pushedBack = false;
             return ttype;
         }
-        byte ct[] = ctype;
+        byte[] ct = ctype;
         sval = null;
         int c = peekc;
         if (c < 0) {
@@ -568,7 +568,6 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
         // rlw
         startpos = readpos - 1;
         // rlw hexadecimal
-        hex:
         if (((ctype & CT_DIGIT) != 0)
                 && c == '0' && isParseHexNumbers) {
             c = read();
@@ -720,7 +719,7 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
             int i = 0;
             do {
                 if (i >= buf.length) {
-                    char nb[] = new char[buf.length * 2];
+                    char[] nb = new char[buf.length * 2];
                     System.arraycopy(buf, 0, nb, 0, buf.length);
                     buf = nb;
                 }
@@ -796,7 +795,7 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
                     d = read();
                 }
                 if (i >= buf.length) {
-                    char nb[] = new char[buf.length * 2];
+                    char[] nb = new char[buf.length * 2];
                     System.arraycopy(buf, 0, nb, 0, buf.length);
                     buf = nb;
                 }
@@ -1110,7 +1109,7 @@ public final class StreamPosTokenizer /*extends StreamTokenizer*/ {
                 ret = "NOTHING";
                 break;
             default:
-                char s[] = new char[3];
+                char[] s = new char[3];
                 s[0] = s[2] = '\'';
                 s[1] = (char) ttype;
                 ret = new String(s);

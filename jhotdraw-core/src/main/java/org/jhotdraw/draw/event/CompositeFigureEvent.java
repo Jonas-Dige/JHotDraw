@@ -32,9 +32,9 @@ import org.jhotdraw.draw.*;
 public class CompositeFigureEvent extends EventObject {
 
     private static final long serialVersionUID = 1L;
-    private Rectangle2D.Double invalidatedArea;
-    private Figure child;
-    private int index;
+    private final Rectangle2D.Double invalidatedArea;
+    private final Figure child;
+    private final int index;
 
     /**
      * Constructs an event for the provided CompositeFigure.

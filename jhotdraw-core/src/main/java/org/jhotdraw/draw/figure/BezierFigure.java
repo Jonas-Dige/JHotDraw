@@ -204,9 +204,7 @@ public class BezierFigure extends AbstractAttributedFigure {
                 Point2D.Double p1 = path.get(path.size() - 1, 0);
                 Point2D.Double p2 = cp.get(path.size() - 1, 0);
                 // FIXME - Check here, if caps path contains the point
-                if (Geom.lineContainsPoint(p1.x, p1.y, p2.x, p2.y, p.x, p.y, tolerance)) {
-                    return true;
-                }
+                return Geom.lineContainsPoint(p1.x, p1.y, p2.x, p2.y, p.x, p.y, tolerance);
             }
         }
         return false;

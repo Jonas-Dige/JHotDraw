@@ -30,9 +30,9 @@ public abstract class QuadTreeCompositeFigure
         extends AbstractCompositeFigure {
 
     private static final long serialVersionUID = 1L;
-    private QuadTree<Figure> quadTree = new QuadTree<>();
+    private final QuadTree<Figure> quadTree = new QuadTree<>();
     private boolean needsSorting = false;
-    private FigureHandler figureHandler;
+    private final FigureHandler figureHandler;
     private Dimension2DDouble canvasSize;
 
     /**

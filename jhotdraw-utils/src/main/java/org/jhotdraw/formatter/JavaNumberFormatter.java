@@ -234,19 +234,19 @@ public class JavaNumberFormatter extends DefaultFormatter {
         } else if (value instanceof Long) {
             long v = ((Long) value);
             v = (long) (v * multiplier);
-            buf.append(Long.toString(v));
+            buf.append(v);
         } else if (value instanceof Integer) {
             int v = ((Integer) value);
             v = (int) (v * multiplier);
-            buf.append(Integer.toString(v));
+            buf.append(v);
         } else if (value instanceof Byte) {
             byte v = ((Byte) value);
             v = (byte) (v * multiplier);
-            buf.append(Byte.toString(v));
+            buf.append(v);
         } else if (value instanceof Short) {
             short v = ((Short) value);
             v = (short) (v * multiplier);
-            buf.append(Short.toString(v));
+            buf.append(v);
         }
         if (buf.length() != 0) {
             if (unit != null) {
@@ -334,7 +334,7 @@ public class JavaNumberFormatter extends DefaultFormatter {
     @SuppressWarnings("unchecked")
     boolean isValidValue(Object value, boolean wantsCCE) {
         try {
-            if (min != null && min.compareTo((Number) value) > 0) {
+            if (min != null && min.compareTo(value) > 0) {
                 return false;
             }
         } catch (ClassCastException cce) {
@@ -344,7 +344,7 @@ public class JavaNumberFormatter extends DefaultFormatter {
             return false;
         }
         try {
-            if (max != null && max.compareTo((Number) value) < 0) {
+            if (max != null && max.compareTo(value) < 0) {
                 return false;
             }
         } catch (ClassCastException cce) {

@@ -17,7 +17,7 @@ import java.awt.*;
  */
 public class StrokeIcon implements javax.swing.Icon {
 
-    private Stroke stroke;
+    private final Stroke stroke;
 
     /**
      * Creates a new instance.

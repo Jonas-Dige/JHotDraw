@@ -43,8 +43,8 @@ public class ActivityManager {
         }
         return instance;
     }
-    private ArrayList<ActivityModel> models = new ArrayList<>();
-    private ArrayList<ActivityManagerListener> listeners = new ArrayList<>();
+    private final ArrayList<ActivityModel> models = new ArrayList<>();
+    private final ArrayList<ActivityManagerListener> listeners = new ArrayList<>();
 
     /**
      * Adds a listener to the progress manager.

@@ -18,7 +18,7 @@ import java.awt.geom.*;
 public class GeneralPathTip extends AbstractLineDecoration {
 
     private static final long serialVersionUID = 1L;
-    private Path2D.Double path;
+    private final Path2D.Double path;
     double decorationRadius;
 
     /**

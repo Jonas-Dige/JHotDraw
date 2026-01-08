@@ -31,7 +31,7 @@ public class PaletteHSBChooser
         implements UIResource {
 
     private static final long serialVersionUID = 1L;
-    private ColorSliderModel ccModel = new PaletteColorSliderModel(new HSBColorSpace());
+    private final ColorSliderModel ccModel = new PaletteColorSliderModel(new HSBColorSpace());
     private int updatingChooser;
     private PaletteLookAndFeel labels;
 

@@ -22,11 +22,11 @@ public class Matcher {
     /**
      * The document to be examined.
      */
-    private Document document;
+    private final Document document;
     /**
      * The string to be matched.
      */
-    private String findString;
+    private final String findString;
     /**
      * The start index for the next findNext operation.
      */
@@ -34,15 +34,15 @@ public class Matcher {
     /**
      * The array of lower case matching chars.
      */
-    private char[] matchLowerCase;
+    private final char[] matchLowerCase;
     /**
      * The array of upper case matching chars.
      */
-    private char[] matchUpperCase;
+    private final char[] matchUpperCase;
     /**
      * The match type.
      */
-    private MatchType matchType;
+    private final MatchType matchType;
 
     /**
      * Creates a new instance of Matcher which performs a case sensitive search.

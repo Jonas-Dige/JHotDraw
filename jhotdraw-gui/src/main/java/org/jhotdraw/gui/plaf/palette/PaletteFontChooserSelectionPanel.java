@@ -19,7 +19,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
  */
 public class PaletteFontChooserSelectionPanel extends javax.swing.JPanel {
 
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
     private static final long serialVersionUID = 1L;
 
     /**

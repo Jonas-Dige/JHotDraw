@@ -362,7 +362,7 @@ public abstract class AbstractHandle implements Handle, FigureListener {
 
     protected void updateBounds() {
         Rectangle newBounds = basicGetBounds();
-        if (bounds == null || !newBounds.equals(bounds)) {
+        if (!newBounds.equals(bounds)) {
             if (bounds != null) {
                 fireAreaInvalidated(getDrawingArea());
             }

@@ -27,7 +27,7 @@ public class MessagePanel extends javax.swing.JPanel {
 
     private static final long serialVersionUID = 1L;
     private EventListenerList listeners;
-    private ResourceBundleUtil labels;
+    private final ResourceBundleUtil labels;
 
     /**
      * Creates new instance.

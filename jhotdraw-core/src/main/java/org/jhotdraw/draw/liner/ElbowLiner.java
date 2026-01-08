@@ -29,7 +29,7 @@ import org.jhotdraw.xml.DOMStorable;
 public class ElbowLiner
         implements Liner, DOMStorable {
 
-    private double shoulderSize;
+    private final double shoulderSize;
 
     /**
      * Creates a new instance.
@@ -192,8 +192,7 @@ public class ElbowLiner
         try {
             return (Liner) super.clone();
         } catch (CloneNotSupportedException ex) {
-            InternalError error = new InternalError(ex.getMessage());
-            error.initCause(ex);
+            InternalError error = new InternalError(ex.getMessage(), ex);
             throw error;
         }
     }

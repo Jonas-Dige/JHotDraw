@@ -67,7 +67,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<Boolean> UNCLOSED_PATH_FILLED = new AttributeKey<Boolean>("unclosedPathFilled", Boolean.class, false, false, LABELS);
 
-    public static enum WindingRule {
+    public enum WindingRule {
         /**
          * If WINDING_RULE is put to this value, an even-odd winding rule is used for determining
          * the interior of a path.
@@ -84,7 +84,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<WindingRule> WINDING_RULE = new AttributeKey<WindingRule>("windingRule", WindingRule.class, WindingRule.EVEN_ODD, false, LABELS);
 
-    public static enum Underfill {
+    public enum Underfill {
         /**
          * If FILL_UNDER_STROKE is put to this value, the area under the stroke will not be filled.
          */
@@ -155,7 +155,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<Boolean> IS_STROKE_PIXEL_VALUE = new AttributeKey<Boolean>("isStrokePixelValue", Boolean.class, false, false, LABELS);
 
-    public static enum StrokeType {
+    public enum StrokeType {
         /**
          * If STROKE_TYPE is put to this value, a BasicStroke instance is used for stroking.
          */
@@ -171,7 +171,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<StrokeType> STROKE_TYPE = new AttributeKey<StrokeType>("strokeType", StrokeType.class, StrokeType.BASIC, false, LABELS);
 
-    public static enum StrokePlacement {
+    public enum StrokePlacement {
         /**
          * If STROKE_PLACEMENT is put to this value, the stroke is centered on the path.
          */
@@ -211,7 +211,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<Dimension2DDouble> TEXT_SHADOW_OFFSET = new AttributeKey<Dimension2DDouble>("textShadowOffset", Dimension2DDouble.class, new Dimension2DDouble(1d, 1d), false, LABELS);
 
-    public static enum Alignment {
+    public enum Alignment {
         /**
          * align on the left or the top
          */
@@ -299,7 +299,7 @@ public class AttributeKeys {
      */
     public static final AttributeKey<AffineTransform> TRANSFORM = new AttributeKey<AffineTransform>("transform", AffineTransform.class, null, true, LABELS);
 
-    public static enum Orientation {
+    public enum Orientation {
         NORTH,
         NORTH_EAST,
         EAST,
@@ -321,35 +321,34 @@ public class AttributeKeys {
 
     static {
         HashSet<AttributeKey<?>> as = new HashSet<>();
-        as.addAll(Arrays.asList(new AttributeKey<?>[]{
-            FILL_COLOR,
-            FILL_UNDER_STROKE,
-            STROKE_COLOR,
-            STROKE_WIDTH,
-            STROKE_INNER_WIDTH_FACTOR,
-            STROKE_JOIN,
-            STROKE_CAP,
-            STROKE_MITER_LIMIT,
-            STROKE_DASHES,
-            STROKE_DASH_PHASE,
-            STROKE_TYPE,
-            STROKE_PLACEMENT,
-            TEXT,
-            TEXT_COLOR,
-            TEXT_SHADOW_COLOR,
-            TEXT_SHADOW_OFFSET,
-            TRANSFORM,
-            FONT_FACE,
-            FONT_SIZE,
-            FONT_BOLD,
-            FONT_ITALIC,
-            FONT_UNDERLINE,
-            BEZIER_PATH_LAYOUTER,
-            END_DECORATION,
-            START_DECORATION,
-            DECORATOR_INSETS,
-            ORIENTATION,
-            WINDING_RULE}));
+        as.addAll(Arrays.asList(FILL_COLOR,
+                FILL_UNDER_STROKE,
+                STROKE_COLOR,
+                STROKE_WIDTH,
+                STROKE_INNER_WIDTH_FACTOR,
+                STROKE_JOIN,
+                STROKE_CAP,
+                STROKE_MITER_LIMIT,
+                STROKE_DASHES,
+                STROKE_DASH_PHASE,
+                STROKE_TYPE,
+                STROKE_PLACEMENT,
+                TEXT,
+                TEXT_COLOR,
+                TEXT_SHADOW_COLOR,
+                TEXT_SHADOW_OFFSET,
+                TRANSFORM,
+                FONT_FACE,
+                FONT_SIZE,
+                FONT_BOLD,
+                FONT_ITALIC,
+                FONT_UNDERLINE,
+                BEZIER_PATH_LAYOUTER,
+                END_DECORATION,
+                START_DECORATION,
+                DECORATOR_INSETS,
+                ORIENTATION,
+                WINDING_RULE));
         SUPPORTED_ATTRIBUTES = Collections.unmodifiableSet(as);
         HashMap<String, AttributeKey<?>> am = new HashMap<>();
         for (AttributeKey<?> a : as) {
@@ -357,7 +356,7 @@ public class AttributeKeys {
         }
         // XXX Redundant cast needed, becaues Collections.unmodifiableMap loses the <?>
         @SuppressWarnings("cast")
-        Map<String, AttributeKey<?>> sam = (Map<String, AttributeKey<?>>) Collections.unmodifiableMap(am);
+        Map<String, AttributeKey<?>> sam = Collections.unmodifiableMap(am);
         SUPPORTED_ATTRIBUTES_MAP = sam;
     }
 

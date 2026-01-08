@@ -64,7 +64,7 @@ public class BezierPathNGTest {
         PathIterator pathIterator = gp.getPathIterator(null);
         double[] coords = new double[2];
         int i = 0;
-        while (pathIterator.isDone() == false) {
+        while (!pathIterator.isDone()) {
             pathIterator.currentSegment(coords);
             for (int j = 0; j < 3; j++) {
                 assertEquals(coords[0], instance.get(i).getControlPoint(j).x);
@@ -104,7 +104,7 @@ public class BezierPathNGTest {
         PathIterator pathIterator = instance.getPathIterator(null);
         double[] coords = new double[2];
         int i = 0;
-        while (pathIterator.isDone() == false) {
+        while (!pathIterator.isDone()) {
             pathIterator.currentSegment(coords);
             for (int j = 0; j < 3; j++) {
                 assertEquals(coords[0], instance.get(i).getControlPoint(j).x);
@@ -125,7 +125,7 @@ public class BezierPathNGTest {
         PathIterator pathIterator = instance.getPathIterator(null, 4);
         double[] coords = new double[2];
         int i = 0;
-        while (pathIterator.isDone() == false) {
+        while (!pathIterator.isDone()) {
             pathIterator.currentSegment(coords);
             for (int j = 0; j < 3; j++) {
                 assertEquals(coords[0], instance.get(i).getControlPoint(j).x);

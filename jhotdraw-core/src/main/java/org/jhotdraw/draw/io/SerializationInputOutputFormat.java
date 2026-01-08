@@ -45,11 +45,11 @@ public class SerializationInputOutputFormat implements InputFormat, OutputFormat
     /**
      * Format description used for the file filter.
      */
-    private String description;
+    private final String description;
     /**
      * File name extension used for the file filter.
      */
-    private String fileExtension;
+    private final String fileExtension;
     /**
      * Image IO image format name.
      */
@@ -57,12 +57,12 @@ public class SerializationInputOutputFormat implements InputFormat, OutputFormat
     /**
      * The mime type is used for clipboard access.
      */
-    private String mimeType;
+    private final String mimeType;
     /**
      * The data flavor constructed from the mime type.
      */
-    private DataFlavor dataFlavor;
-    private Drawing prototype;
+    private final DataFlavor dataFlavor;
+    private final Drawing prototype;
 
     /**
      * Creates a new instance with format name "Drawing", file extension "xml"
@@ -129,8 +129,7 @@ public class SerializationInputOutputFormat implements InputFormat, OutputFormat
                 drawing.add(f);
             }
         } catch (ClassNotFoundException ex) {
-            IOException ioe = new IOException("Couldn't read drawing.");
-            ioe.initCause(ex);
+            IOException ioe = new IOException("Couldn't read drawing.", ex);
             throw ioe;
         }
     }

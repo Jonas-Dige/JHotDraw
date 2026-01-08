@@ -72,8 +72,9 @@ public class JComponentPopup extends JPopupMenu {
                 }
             }
         }
-    };
-    private Handler handler = new Handler();
+    }
+
+    private final Handler handler = new Handler();
 
     public JComponentPopup() {
         setLightWeightPopupEnabled(false);
@@ -83,7 +84,6 @@ public class JComponentPopup extends JPopupMenu {
     public void menuSelectionChanged(boolean isIncluded) {
         if (isAWTEventListenerPermitted) {
             // Don't let the MenuSelectionManager hide this popup.
-            return;
         } else {
             // Since we are not allowed to use an AWTEventListener we
             // grab the current AWT Event ourselves (hoping that this method

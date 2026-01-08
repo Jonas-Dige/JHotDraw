@@ -24,7 +24,7 @@ import org.jhotdraw.draw.locator.Locator;
  */
 public abstract class LocatorHandle extends AbstractHandle {
 
-    private Locator locator;
+    private final Locator locator;
 
     /**
      * Initializes the LocatorHandle with the given Locator.

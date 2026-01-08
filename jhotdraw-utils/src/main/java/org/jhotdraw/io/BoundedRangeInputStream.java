@@ -71,7 +71,7 @@ public class BoundedRangeInputStream
      * to update the value after the read.
      */
     @Override
-    public int read(byte b[])
+    public int read(byte[] b)
             throws IOException {
         int nr = in.read(b);
         incrementValue(nr);
@@ -83,7 +83,7 @@ public class BoundedRangeInputStream
      * to update the value after the read.
      */
     @Override
-    public int read(byte b[], int off, int len)
+    public int read(byte[] b, int off, int len)
             throws IOException {
         int nr = in.read(b, off, len);
         incrementValue(nr);

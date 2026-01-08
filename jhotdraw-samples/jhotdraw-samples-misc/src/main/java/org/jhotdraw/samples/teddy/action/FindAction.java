@@ -42,7 +42,7 @@ public class FindAction extends AbstractFindAction {
                     @Override
                     public void windowClosing(WindowEvent evt) {
                         if (findDialog != null) {
-                            ((OSXApplication) getApplication()).removePalette(findDialog);
+                            getApplication().removePalette(findDialog);
                             findDialog.setVisible(false);
                         }
                     }
@@ -51,7 +51,7 @@ public class FindAction extends AbstractFindAction {
         }
         findDialog.setVisible(true);
         if (getApplication() instanceof OSXApplication) {
-            ((OSXApplication) getApplication()).addPalette(findDialog);
+            getApplication().addPalette(findDialog);
         }
     }
 }

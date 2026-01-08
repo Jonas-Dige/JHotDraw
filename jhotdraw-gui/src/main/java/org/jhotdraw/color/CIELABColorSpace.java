@@ -48,15 +48,15 @@ public class CIELABColorSpace extends AbstractNamedColorSpace {
     /**
      * The X coordinate of the reference white.
      */
-    private double Xw;
+    private final double Xw;
     /**
      * The Y coordinate of the reference white.
      */
-    private double Yw;
+    private final double Yw;
     /**
      * The Z coordinate of the reference white.
      */
-    private double Zw;
+    private final double Zw;
     /**
      * Epsilon
      */
@@ -66,7 +66,8 @@ public class CIELABColorSpace extends AbstractNamedColorSpace {
     public enum OutsideGamutHandling {
         CLAMP,
         LEAVE_OUTSIDE
-    };
+    }
+
     /**
      * By default, clamps non-displayable RGB values.
      */

@@ -128,7 +128,7 @@ public class DefaultDragTracker extends AbstractTool implements DragTracker {
     public void mouseDragged(MouseEvent evt) {
         DrawingView view = getView();
         if (!transformedFigures.isEmpty()) {
-            if (isDragging == false) {
+            if (!isDragging) {
                 isDragging = true;
                 updateCursor(editor.findView((Container) evt.getSource()), new Point(evt.getX(), evt.getY()));
             }

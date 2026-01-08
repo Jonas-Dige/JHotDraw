@@ -188,7 +188,7 @@ SearchLoop:             for (DataFlavor flavor : transferFlavors) {
                     }
                     // No input format found? Lets see if we got files - we
                     // can handle these
-                    if (retValue == false && t.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
+                    if (!retValue && t.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
                         final java.util.List<File> files = (java.util.List<File>) t.getTransferData(
                                 DataFlavor.javaFileListFlavor);
                         retValue = true;
@@ -198,9 +198,9 @@ SearchLoop:             for (DataFlavor flavor : transferFlavors) {
                             @Override
                             protected LinkedList<Figure> doInBackground() throws Exception {
                                 for (File file : files) {
-FileFormatLoop:                     for (InputFormat format : drawing.getInputFormats()) {
+                                    for (InputFormat format : drawing.getInputFormats()) {
                                         if (file.isFile()
-                                            && format.getFileFilter().accept(file)) {
+                                                && format.getFileFilter().accept(file)) {
                                             format.read(file.toURI(), drawing, false);
                                         }
                                     }
@@ -506,8 +506,8 @@ SearchLoop: for (InputFormat format : drawing.getInputFormats()) {
             implements DragGestureListener, DragSourceListener {
 
         private boolean scrolls;
-        private Transferable transferable;
-        private Point imageOffset;
+        private final Transferable transferable;
+        private final Point imageOffset;
 
         public DragHandler(Transferable t, Point imageOffset) {
             transferable = t;
